@@ -6,15 +6,18 @@
 [![React](https://img.shields.io/badge/React-19-61dafb)](#tech-stack)
 [![Mobile](https://img.shields.io/badge/mobile-Expo%20React%20Native-4630eb)](#tech-stack)
 
-GigEze is a public portfolio monorepo for entertainment and tour operations, built to show senior full-stack product engineering across modern web, mobile, data, and shared TypeScript boundaries.
+GigEze is a public portfolio monorepo for entertainment and tour operations, built to demonstrate senior full-stack product engineering across modern web, mobile, data, and shared TypeScript boundaries.
 
-The project pairs a Next.js 16 web application with an Expo React Native mobile app, Prisma/PostgreSQL data modeling, Supabase Auth/Storage integration points, and a shared TypeScript package. It is intentionally scoped as a working demo scaffold rather than a finished SaaS product, with enough architecture and workflow depth for technical review.
+The project pairs a Next.js 16 web application with an Expo React Native mobile app, Prisma/PostgreSQL data modeling, Supabase Auth/Storage integration points, and a shared TypeScript package. It is intentionally scoped as a working demo scaffold rather than a finished SaaS product, with enough architecture and workflow depth for meaningful technical review.
 
 Public web deployment: `https://gigeze.online`
 
 ## Contents
 
+- [Why This Matters](#why-this-matters)
+- [Architecture at a Glance](#architecture-at-a-glance)
 - [What This Demonstrates](#what-this-demonstrates)
+- [Engineering Signals](#engineering-signals)
 - [Reviewer Guide](#reviewer-guide)
 - [Screenshots](#screenshots)
 - [Architecture Diagrams](#architecture-diagrams)
@@ -29,6 +32,21 @@ Public web deployment: `https://gigeze.online`
 - [Future Expansion](#future-expansion)
 - [Project Status](#project-status)
 
+## Why This Matters
+
+GigEze is designed for hiring managers and technical leads who want evidence beyond a code sample. It shows the ability to turn a domain idea into a working full-stack system: data model, web workflows, mobile capture, shared contracts, integration points, and deployment-aware structure.
+
+It also shows modern stack evolution alongside a Microsoft, Dynamics, and Azure background. The same enterprise instincts apply here: clear boundaries, reliable data flow, maintainable modules, and pragmatic delivery.
+
+## Architecture at a Glance
+
+- Web: Next.js 16 App Router for public pages, authenticated dashboard workflows, and API routes.
+- Mobile: Expo React Native app for sign-in, tour selection, trip capture, history, and diagnostics.
+- Data: Prisma 7 schema and migrations targeting PostgreSQL.
+- Auth and storage: Supabase Auth/Storage integration points for connected workflows.
+- Shared contracts: TypeScript package for schemas, domain types, DTOs, and utilities.
+- Sync model: local mobile trip/field activity state with retryable completed-trip sync into the web system.
+
 ## What This Demonstrates
 
 - Full-stack application architecture across web, mobile, database, and shared package layers.
@@ -36,7 +54,16 @@ Public web deployment: `https://gigeze.online`
 - Domain modeling for authenticated workspace workflows: tours, gigs, media, activity notes, and trip sync.
 - API and integration thinking for auth, storage, mobile sync, and server-side data access.
 - Product judgment: clear scope, operational workflows, public-facing pages, and a credible growth path.
-- Enterprise engineering habits that complement Microsoft, Dynamics, and Azure experience: structured data, workflow boundaries, maintainable modules, and deployment-aware design.
+- Enterprise engineering habits translated into a modern TypeScript, React, Next.js, and Expo stack.
+
+## Engineering Signals
+
+- Strict TypeScript across web, mobile, and shared package boundaries.
+- Shared contracts keep domain types and validation close to the workflows that consume them.
+- Prisma schema acts as the source of truth for relational modeling and database evolution.
+- Mobile trip sync is designed around local state, retryable completion, and server-side ingestion.
+- Validation commands are first-class: `npm run typecheck`, `npm run test:run`, and `npm run build:web`.
+- Feature folders separate domain workflows from framework plumbing, making the repo easier to inspect and extend.
 
 ## Reviewer Guide
 
@@ -61,7 +88,7 @@ npm run build:web
 
 ## Screenshots
 
-Screenshots will be added as the public Vercel deployment is finalized.
+Use `https://gigeze.online` as the first stop for visual review as the public Vercel deployment is finalized. Static screenshots will be added here to support quick scanning from GitHub.
 
 Planned coverage:
 
@@ -84,15 +111,7 @@ Planned diagrams:
 
 ## Why This Exists
 
-This repository is intended as a public portfolio project and a focused example of building a full-stack application from scratch. It demonstrates:
-
-- Full-stack monorepo architecture with shared TypeScript contracts.
-- Next.js dashboard and public web surfaces.
-- Prisma data modeling for authenticated workspace workflows.
-- Supabase Auth and Storage integration points.
-- Expo React Native mobile app structure.
-- Local-first mobile trip capture with completed-trip sync.
-- Practical product thinking for a niche operations tool.
+This repository is intended as a public portfolio project and a focused example of building a full-stack application from scratch. It exists to make engineering judgment visible: architecture, domain modeling, implementation tradeoffs, and a practical product path.
 
 ## Product Concept
 
@@ -206,7 +225,7 @@ Useful root scripts:
 This repo favors easy portfolio review:
 
 - The app can be inspected as a real web/mobile monorepo without needing a live production deployment.
-- The public web deployment is planned for Vercel at `https://gigeze.online`.
+- The public web deployment target is Vercel at `https://gigeze.online`.
 - TypeScript checks pass across shared, web, and mobile packages.
 - The README keeps future scope visible without pretending every production workflow is complete.
 
