@@ -6,15 +6,14 @@
 [![React](https://img.shields.io/badge/React-19-61dafb)](#tech-stack)
 [![Mobile](https://img.shields.io/badge/mobile-Expo%20React%20Native-4630eb)](#tech-stack)
 
-GigEze is a public portfolio monorepo for entertainment and tour operations, built to demonstrate senior full-stack product engineering across modern web, mobile, data, and shared TypeScript boundaries.
+GigEze is a full-stack product engineering portfolio project demonstrating how to design and deliver a modern web and mobile system end-to-end using a TypeScript-first architecture.
 
-The project pairs a Next.js 16 web application with an Expo React Native mobile app, Prisma/PostgreSQL data modeling, Supabase Auth/Storage integration points, and a shared TypeScript package. It is intentionally scoped as a working demo scaffold rather than a finished SaaS product, with enough architecture and workflow depth for meaningful technical review.
-
-Public web deployment: `https://gigeze.online`
+The project pairs a Next.js 16 web app with an Expo React Native mobile app, Prisma-managed PostgreSQL data model, Supabase Auth/Storage integration points, and a shared TypeScript package. It is structured for fast technical review so recruiters, hiring managers, and technical leads can assess product thinking, architecture, and implementation depth quickly.
 
 ## Contents
 
 - [Why This Matters](#why-this-matters)
+- [Live Demo Path](#live-demo-path)
 - [Architecture at a Glance](#architecture-at-a-glance)
 - [What This Demonstrates](#what-this-demonstrates)
 - [Engineering Signals](#engineering-signals)
@@ -36,7 +35,19 @@ Public web deployment: `https://gigeze.online`
 
 GigEze is designed for hiring managers and technical leads who want evidence beyond a code sample. It shows the ability to turn a domain idea into a working full-stack system: data model, web workflows, mobile capture, shared contracts, integration points, and deployment-aware structure.
 
-It also shows modern stack evolution alongside a Microsoft, Dynamics, and Azure background. The same enterprise instincts apply here: clear boundaries, reliable data flow, maintainable modules, and pragmatic delivery.
+This project complements extensive Microsoft, Dynamics 365, and Azure experience by demonstrating equivalent architectural patterns in a modern TypeScript-first stack.
+
+The repository is intentionally structured so architecture, domain modeling, and implementation decisions can be evaluated quickly without prior project context.
+
+## Live Demo Path
+
+Production URL: `https://gigeze.online`
+
+Suggested reviewer path:
+
+- Start with the public pages to assess product framing and presentation.
+- Review tour, gig, media, and activity notes workflows in the authenticated web app structure.
+- Inspect the mobile trip capture and completed-trip sync implementation in apps/mobile and corresponding API routes in apps/web.
 
 ## Architecture at a Glance
 
@@ -54,7 +65,7 @@ It also shows modern stack evolution alongside a Microsoft, Dynamics, and Azure 
 - Domain modeling for authenticated workspace workflows: tours, gigs, media, activity notes, and trip sync.
 - API and integration thinking for auth, storage, mobile sync, and server-side data access.
 - Product judgment: clear scope, operational workflows, public-facing pages, and a credible growth path.
-- Enterprise engineering habits translated into a modern TypeScript, React, Next.js, and Expo stack.
+- Enterprise engineering habits from Microsoft, Dynamics, and Azure work translated into a modern TypeScript, React, Next.js, and Expo stack.
 
 ## Engineering Signals
 
@@ -88,7 +99,7 @@ npm run build:web
 
 ## Screenshots
 
-Use `https://gigeze.online` as the first stop for visual review as the public Vercel deployment is finalized. Static screenshots will be added here to support quick scanning from GitHub.
+Static screenshots will be added to support quick GitHub scanning. Until then, use the live demo path above for visual review.
 
 Planned coverage:
 
@@ -100,14 +111,73 @@ Planned coverage:
 
 ## Architecture Diagrams
 
-Architecture diagrams will be added as lightweight review assets.
+### Monorepo Architecture
 
-Planned diagrams:
+```mermaid
+flowchart TD
+  R["GigEze Monorepo"]
 
-- Monorepo package structure
-- Web, mobile, shared package, and database interaction flow
-- Mobile field activity capture and completed-trip sync flow
-- Auth and storage integration boundaries
+  R --> W["apps/web<br/>Next.js 16 App Router"]
+  R --> M["apps/mobile<br/>Expo React Native"]
+  R --> S["packages/shared<br/>TypeScript contracts"]
+  R --> SC["scripts<br/>Environment helpers"]
+
+  W --> WF["Public pages<br/>Dashboard workflows<br/>API routes"]
+  W --> P["Prisma schema<br/>Generated client"]
+  W --> DB[("PostgreSQL")]
+  W --> SB["Supabase Auth/Storage<br/>integration points"]
+
+  M --> MF["Sign-in<br/>Tour selection<br/>Trip capture<br/>History<br/>Diagnostics"]
+  M --> AS[("AsyncStorage<br/>local trip state")]
+
+  S --> ST["Domain types<br/>DTOs<br/>Schemas<br/>Utilities"]
+
+  W -.uses.-> S
+  M -.uses.-> S
+  P --> DB
+```
+
+### Mobile Trip Sync Flow
+
+```mermaid
+sequenceDiagram
+  participant User
+  participant Mobile as Expo Mobile App
+  participant Local as Local Trip State
+  participant API as Next.js API Routes
+  participant Web as Web Dashboard
+  participant DB as PostgreSQL via Prisma
+
+  User->>Mobile: Start trip / field activity
+  Mobile->>Local: Store local trip state
+  User->>Mobile: Complete trip
+  Mobile->>Local: Mark completed pending sync
+  Mobile->>API: Submit completed trip payload
+  API->>DB: Validate and persist draft activity log
+  DB-->>API: Saved result
+  API-->>Mobile: Sync success response
+  Mobile->>Local: Mark synced
+  Web->>API: Load trip / activity data
+  API->>DB: Query persisted records
+  DB-->>API: Return records
+  API-->>Web: Display in dashboard workflow
+```
+
+### Review Path Diagram
+
+```mermaid
+flowchart LR
+  A["Reviewer starts at README"] --> B["Live demo<br/>gigeze.online"]
+  A --> C["apps/web/src/app"]
+  A --> D["apps/mobile/src/screens"]
+  A --> E["packages/shared/src"]
+  A --> F["apps/web/prisma/schema.prisma"]
+
+  C --> G["Public pages<br/>Dashboard<br/>API routes"]
+  D --> H["Mobile capture<br/>History<br/>Diagnostics"]
+  E --> I["Shared contracts<br/>Schemas<br/>DTOs"]
+  F --> J["Relational model<br/>Workspace / Tour / Gig / Activity"]
+```
 
 ## Why This Exists
 
@@ -224,8 +294,6 @@ Useful root scripts:
 
 This repo favors easy portfolio review:
 
-- The app can be inspected as a real web/mobile monorepo without needing a live production deployment.
-- The public web deployment target is Vercel at `https://gigeze.online`.
 - TypeScript checks pass across shared, web, and mobile packages.
 - The README keeps future scope visible without pretending every production workflow is complete.
 
@@ -247,4 +315,4 @@ High-value next steps:
 
 ## Project Status
 
-GigEze is a working demo scaffold, not a finished SaaS product. The goal is to show architecture, implementation judgment, and a credible path from original product concept to focused entertainment operations tool.
+GigEze is a working demo scaffold, not a finished SaaS product. It is designed to show architecture, implementation judgment, and credible product direction.
