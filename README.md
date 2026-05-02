@@ -1,12 +1,25 @@
 # GigEze
 
-GigEze is a demo monorepo for tour managers who need one place to plan tours, manage gigs, capture mobile trip activity, and publish selected tour moments.
+GigEze is a demo monorepo for tour managers who need one place to plan tours, manage gigs, capture mobile field activity, and publish selected tour moments.
 
-The project is adapted from a production-style travel app architecture and reworked around entertainment operations: tours, gigs, acts, media, notes, public pages, and mobile field capture.
+The project is designed as a from-scratch entertainment operations application covering tours, gigs, acts, media, notes, public pages, and mobile field capture.
+
+## Contents
+
+- [Why This Exists](#why-this-exists)
+- [Product Concept](#product-concept)
+- [Monorepo Layout](#monorepo-layout)
+- [Tech Stack](#tech-stack)
+- [What Works Now](#what-works-now)
+- [Quick Start](#quick-start)
+- [Environment](#environment)
+- [Demo Notes](#demo-notes)
+- [Future Expansion](#future-expansion)
+- [Project Status](#project-status)
 
 ## Why This Exists
 
-This repository is intended as a public portfolio project. It demonstrates:
+This repository is intended as a public portfolio project and a singular example of building a full-stack application from scratch. It demonstrates:
 
 - Full-stack monorepo architecture with shared TypeScript contracts.
 - Next.js dashboard and public web surfaces.
@@ -22,11 +35,9 @@ GigEze helps a tour manager coordinate the operational record around live entert
 
 Core concepts:
 
-- `Tour`: the parent plan for a run of shows, dates, travel, media, and notes.
+- `Tour`: the parent plan for a run of shows, dates, logistics, media, and notes.
 - `Gig`: a specific tour date or venue package, including location, schedule, notes, media, and status.
-- `Trip`: a mobile-captured travel session that can sync into the web system as a draft operational log.
-
-The current implementation keeps some inherited internal names where they preserve working code paths, but the user-facing product direction is tours and gigs.
+- `Trip`: a mobile-captured movement or field session that can sync into the web system as a draft operational log.
 
 ## Monorepo Layout
 
@@ -62,7 +73,7 @@ Web app:
 - Authenticated dashboard structure.
 - Tour and gig CRUD flows.
 - Activity notes, media links, posts, visibility controls, sharing, and settings.
-- Driving/trip log workflows inherited from the reference architecture.
+- Trip and field activity log workflows.
 - Prisma schema and generated client.
 - API routes for media upload, quick-entry sync, mobile tour/gig data, and completed trip sync.
 
@@ -130,6 +141,7 @@ Useful root scripts:
 This repo favors easy portfolio review:
 
 - The app can be inspected as a real web/mobile monorepo without needing a live production deployment.
+- The public web deployment is planned for Vercel at `https://gigeze.online`.
 - TypeScript checks pass across shared, web, and mobile packages.
 - The README keeps future scope visible without pretending every production workflow is complete.
 
@@ -137,7 +149,7 @@ This repo favors easy portfolio review:
 
 High-value next steps:
 
-- Replace inherited trip/driving language with tour logistics language where it improves user experience.
+- Refine trip and field activity language into tour logistics language where it improves user experience.
 - Add act/performer profiles with contacts, riders, crew, set times, and availability.
 - Add venue records with contacts, parking/load-in notes, settlement details, and production constraints.
 - Add day sheets and printable/shareable itineraries.
@@ -151,4 +163,4 @@ High-value next steps:
 
 ## Project Status
 
-GigEze is a working demo scaffold, not a finished SaaS product. The goal is to show architecture, implementation judgment, and a credible path from inherited app foundation to a focused entertainment operations tool.
+GigEze is a working demo scaffold, not a finished SaaS product. The goal is to show architecture, implementation judgment, and a credible path from original product concept to focused entertainment operations tool.
