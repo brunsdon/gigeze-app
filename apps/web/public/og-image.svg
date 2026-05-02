@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f7f4ee" />
+  <rect x="44" y="44" width="1112" height="542" rx="28" fill="#fffdf9" stroke="#d9d0c4" stroke-width="2" />
+
+  <line x1="122" y1="246" x2="398" y2="246" stroke="#2b2a28" stroke-opacity="0.28" stroke-width="10" stroke-linecap="round" />
+  <path d="M112 456 C 172 402, 250 384, 316 394 C 382 404, 426 434, 450 470" fill="none" stroke="#c96f3b" stroke-width="18" stroke-linecap="round" />
+  <rect x="146" y="284" width="208" height="108" rx="24" fill="#2f5d50" />
+  <path d="M242 284 H324 C 341 284 354 297 354 314 V392 H242 Z" fill="#2f5d50" />
+  <rect x="170" y="304" width="56" height="38" rx="8" fill="#ffffff" fill-opacity="0.95" />
+  <rect x="242" y="304" width="68" height="38" rx="8" fill="#ffffff" fill-opacity="0.92" />
+  <circle cx="198" cy="392" r="25" fill="#2b2a28" />
+  <circle cx="312" cy="392" r="25" fill="#2b2a28" />
+  <circle cx="198" cy="392" r="10" fill="#ffffff" fill-opacity="0.9" />
+  <circle cx="312" cy="392" r="10" fill="#ffffff" fill-opacity="0.9" />
+  <path d="M354 324 L392 346 V392 H354 Z" fill="#c96f3b" />
+
+  <text x="500" y="350" fill="#2b2a28" font-family="sans-serif" font-size="92" font-weight="700" letter-spacing="0.02em">GigEze</text>
+  <text x="500" y="420" fill="#6b665f" font-family="sans-serif" font-size="36" font-weight="500">Tour logistics for entertainment teams</text>
+</svg>

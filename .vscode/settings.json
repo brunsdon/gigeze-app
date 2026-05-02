@@ -1,0 +1,22 @@
+{
+  "java.import.gradle.enabled": false,
+  "java.autobuild.enabled": false,
+  "gradle.autoDetect": "off",
+  "java.gradle.buildServer.enabled": "off",
+  "files.watcherExclude": {
+    "**/.gradle/**": true,
+    "**/.kotlin/**": true,
+    "**/android/.idea/**": true,
+    "**/android/build/**": true,
+    "**/android/app/build/**": true,
+    "**/android/app/.cxx/**": true
+  },
+  "search.exclude": {
+    "**/.gradle/**": true,
+    "**/.kotlin/**": true,
+    "**/android/.idea/**": true,
+    "**/android/build/**": true,
+    "**/android/app/build/**": true,
+    "**/android/app/.cxx/**": true
+  }
+}

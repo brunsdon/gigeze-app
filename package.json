@@ -1,0 +1,46 @@
+{
+  "name": "gigeze",
+  "description": "Monorepo for the GigEze web and mobile apps plus shared domain logic.",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev:web",
+    "dev:web": "npm --workspace @gigeze/web run dev",
+    "dev:lan": "npm --workspace @gigeze/web run dev:lan",
+    "dev:mobile": "npm --workspace @gigeze/mobile run start",
+    "dev:mobile:usb": "adb reverse tcp:8081 tcp:8081 && npm --workspace @gigeze/mobile run start:usb",
+    "env:sync:mobile": "node scripts/sync-env-to-mobile.mjs",
+    "build": "npm run build:web",
+    "build:web": "npm --workspace @gigeze/web run build",
+    "build:shared": "npm --workspace @gigeze/shared run build",
+    "start": "npm --workspace @gigeze/web run start",
+    "typecheck": "npm --workspace @gigeze/shared run typecheck && npm --workspace @gigeze/web run typecheck && npm --workspace @gigeze/mobile run typecheck",
+    "lint": "npm --workspace @gigeze/web run lint",
+    "test": "npm --workspace @gigeze/web run test",
+    "test:run": "npm --workspace @gigeze/web run test:run",
+    "test:smoke": "npm --workspace @gigeze/web run test:smoke",
+    "mobile:android": "npm --workspace @gigeze/mobile run android",
+    "mobile:android:usb": "adb reverse tcp:8081 tcp:8081 && npm --workspace @gigeze/mobile run android -- --localhost",
+    "mobile:ios": "npm --workspace @gigeze/mobile run ios",
+    "db:generate": "npm --workspace @gigeze/web run db:generate",
+    "db:migrate": "npm --workspace @gigeze/web run db:migrate",
+    "db:deploy": "npm --workspace @gigeze/web run db:deploy",
+    "db:push": "npm --workspace @gigeze/web run db:push",
+    "db:seed": "npm --workspace @gigeze/web run db:seed",
+    "db:dev:start": "npm --workspace @gigeze/web run db:dev:start",
+    "db:dev:start:win": "npm --workspace @gigeze/web run db:dev:start:win",
+    "db:dev:stop": "npm --workspace @gigeze/web run db:dev:stop",
+    "db:dev:ls": "npm --workspace @gigeze/web run db:dev:ls",
+    "db:health": "npm --workspace @gigeze/web run db:health",
+    "postinstall": "npm --workspace @gigeze/web run db:generate",
+    "android": "npm run mobile:android",
+    "ios": "npm run mobile:ios"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

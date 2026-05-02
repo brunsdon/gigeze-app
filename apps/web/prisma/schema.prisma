@@ -1,0 +1,395 @@
+generator client {
+  provider = "prisma-client-js"
+  engineType = "library"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum JourneyStatus {
+  PLANNED
+  ACTIVE
+  COMPLETED
+}
+
+enum WorkspaceRole {
+  OWNER
+  VIEWER
+}
+
+enum Visibility {
+  PRIVATE
+  SHARED
+  PUBLIC
+}
+
+enum InvitationStatus {
+  PENDING
+  ACCEPTED
+  REVOKED
+  EXPIRED
+}
+
+enum PublicPostStatus {
+  DRAFT
+  PUBLISHED
+}
+
+enum LogUseType {
+  BUSINESS
+  PERSONAL
+}
+
+enum TripMode {
+  WALK
+  RIDE
+  DRIVE
+}
+
+enum VehicleMode {
+  RIDE
+  DRIVE
+}
+
+enum ExternalMediaPlatform {
+  FLICKR
+  YOUTUBE
+  INSTAGRAM
+  TIKTOK
+  FACEBOOK
+  GENERIC
+}
+
+enum ExternalMediaEntityType {
+  Tour
+  TRIP
+  MOMENT
+  STORY
+}
+
+enum ActivityType {
+  WORK
+  MAINTENANCE
+  ADMIN
+  PERSONAL
+}
+
+model User {
+  id                           String                @id @default(cuid())
+  supabaseAuthUserId           String?               @unique
+  email                        String                @unique
+  fullName                     String?
+  createdAt                    DateTime              @default(now())
+  updatedAt                    DateTime              @updatedAt
+  ownedWorkspace               Workspace?            @relation("WorkspaceOwner")
+  workspaceMemberships         WorkspaceMember[]
+  sentWorkspaceInvitations     WorkspaceInvitation[] @relation("WorkspaceInvitationInviter")
+  acceptedWorkspaceInvitations WorkspaceInvitation[] @relation("WorkspaceInvitationAccepter")
+  vehicles                     Vehicle[]
+  Tours                     Tour[]
+  Gigs                        Gig[]
+  drivingLogs                  DrivingLog[]
+  activityNotes                ActivityNote[]
+  mediaItems                   Media[]
+  publicPosts                  PublicPost[]
+  externalMediaLinks           ExternalMediaLink[]
+}
+
+model Workspace {
+  id                       String                @id @default(cuid())
+  slug                     String                @unique
+  name                     String
+  description              String?
+  defaultJourneyVisibility Visibility            @default(PRIVATE)
+  defaultPostVisibility    Visibility            @default(PRIVATE)
+  defaultMediaVisibility   Visibility            @default(PRIVATE)
+  gpsSamplingIntervalSeconds Int                 @default(15)
+  ownerUserId              String                @unique
+  createdAt                DateTime              @default(now())
+  updatedAt                DateTime              @updatedAt
+  owner                    User                  @relation("WorkspaceOwner", fields: [ownerUserId], references: [id], onDelete: Cascade)
+  members                  WorkspaceMember[]
+  invitations              WorkspaceInvitation[]
+  vehicles                 Vehicle[]
+  Tours                 Tour[]
+  Gigs                    Gig[]
+  drivingLogs              DrivingLog[]
+  activityNotes            ActivityNote[]
+  mediaItems               Media[]
+  publicPosts              PublicPost[]
+  externalMediaLinks       ExternalMediaLink[]
+
+  @@index([ownerUserId])
+}
+
+model WorkspaceMember {
+  id          String        @id @default(cuid())
+  workspaceId String
+  userId      String
+  role        WorkspaceRole
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  workspace   Workspace     @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([workspaceId, userId])
+  @@index([userId, role])
+}
+
+model WorkspaceInvitation {
+  id               String           @id @default(cuid())
+  workspaceId      String
+  email            String
+  role             WorkspaceRole
+  token            String           @unique
+  status           InvitationStatus @default(PENDING)
+  invitedByUserId  String
+  acceptedByUserId String?
+  expiresAt        DateTime?
+  acceptedAt       DateTime?
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+  workspace        Workspace        @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  invitedByUser    User             @relation("WorkspaceInvitationInviter", fields: [invitedByUserId], references: [id], onDelete: Cascade)
+  acceptedByUser   User?            @relation("WorkspaceInvitationAccepter", fields: [acceptedByUserId], references: [id], onDelete: SetNull)
+
+  @@index([workspaceId, status])
+  @@index([email, status])
+}
+
+model Vehicle {
+  id               String       @id @default(cuid())
+  workspaceId      String
+  userId           String
+  name             String
+  vehicleMode      VehicleMode  @default(DRIVE)
+  enableBusinessSplit Boolean   @default(true)
+  registration     String?
+  fuelType         String?
+  notes            String?
+  isDefault        Boolean      @default(false)
+  startingOdometer Int          @default(0)
+  defaultUse       LogUseType   @default(PERSONAL)
+  createdAt        DateTime     @default(now())
+  updatedAt        DateTime     @updatedAt
+  workspace        Workspace    @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  user             User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  drivingLogs      DrivingLog[]
+
+  @@index([workspaceId])
+}
+
+model Tour {
+  id              String        @id @default(cuid())
+  workspaceId     String
+  createdByUserId String
+  slug            String        @unique
+  title           String
+  description     String?
+  startDate       DateTime
+  endDate         DateTime?
+  status          JourneyStatus @default(PLANNED)
+  visibility      Visibility    @default(PRIVATE)
+  coverImageUrl   String?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  workspace       Workspace     @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  createdByUser   User          @relation(fields: [createdByUserId], references: [id], onDelete: Cascade)
+  Gigs           Gig[]
+  drivingLogs     DrivingLog[]
+  mediaItems      Media[]
+  activityNotes   ActivityNote[]
+  publicPosts     PublicPost[]
+
+  @@index([workspaceId, visibility])
+  @@index([status])
+  @@index([startDate])
+}
+
+model Gig {
+  id              String     @id @default(cuid())
+  workspaceId     String
+  journeyId       String
+  createdByUserId String
+  title           String
+  description     String?
+  latitude        Decimal    @db.Decimal(9, 6)
+  longitude       Decimal    @db.Decimal(9, 6)
+  locationName    String?
+  arrivalDate     DateTime?
+  departureDate   DateTime?
+  visibility      Visibility @default(PRIVATE)
+  orderIndex      Int        @default(0)
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+  workspace       Workspace  @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  Tour         Tour    @relation(fields: [journeyId], references: [id], onDelete: Cascade)
+  createdByUser   User       @relation(fields: [createdByUserId], references: [id], onDelete: Cascade)
+  mediaItems      Media[]
+  activityNotes   ActivityNote[]
+  publicPosts     PublicPost[]
+
+  @@index([journeyId, orderIndex])
+  @@index([workspaceId, journeyId, visibility])
+}
+
+model PublicPost {
+  id              String           @id @default(cuid())
+  workspaceId     String
+  createdByUserId String
+  slug            String           @unique
+  title           String
+  excerpt         String?
+  content         String
+  status          PublicPostStatus @default(DRAFT)
+  visibility      Visibility       @default(PRIVATE)
+  coverImageUrl   String?
+  publishedAt     DateTime?
+  journeyId       String?
+  stopId          String?
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  workspace       Workspace        @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  createdByUser   User             @relation(fields: [createdByUserId], references: [id], onDelete: Cascade)
+  Tour         Tour?         @relation(fields: [journeyId], references: [id], onDelete: SetNull)
+  Gig            Gig?            @relation(fields: [stopId], references: [id], onDelete: SetNull)
+
+  @@index([workspaceId, visibility])
+  @@index([status, publishedAt])
+  @@index([journeyId])
+  @@index([stopId])
+}
+
+model DrivingLog {
+  id              String    @id @default(cuid())
+  workspaceId     String
+  createdByUserId String
+  journeyId       String?
+  tripMode        TripMode  @default(DRIVE)
+  vehicleId       String?
+  date            DateTime
+  startTime       DateTime?
+  endTime         DateTime?
+  startLocation   String?
+  endLocation     String?
+  startLatitude   Decimal?  @db.Decimal(9, 6)
+  startLongitude  Decimal?  @db.Decimal(9, 6)
+  endLatitude     Decimal?  @db.Decimal(9, 6)
+  endLongitude    Decimal?  @db.Decimal(9, 6)
+  startPlaceId    String?
+  endPlaceId      String?
+  startFormattedAddress String?
+  endFormattedAddress   String?
+  startOdometer   Int
+  endOdometer     Int
+  businessKm      Int       @default(0)
+  personalKm      Int       @default(0)
+  purpose         String?
+  hasRouteSamples Boolean   @default(false)
+  notes           String?
+  deletedAt       DateTime?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  workspace       Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  createdByUser   User      @relation(fields: [createdByUserId], references: [id], onDelete: Cascade)
+  Tour         Tour?  @relation(fields: [journeyId], references: [id], onDelete: SetNull)
+  vehicle         Vehicle?  @relation(fields: [vehicleId], references: [id], onDelete: SetNull)
+  gpsSamples      DrivingLogGpsSample[]
+
+  @@index([workspaceId, date])
+  @@index([journeyId, date])
+  @@index([vehicleId])
+  @@index([date])
+  @@index([workspaceId, deletedAt])
+}
+
+model DrivingLogGpsSample {
+  id            String     @id @default(cuid())
+  drivingLogId  String
+  sampleIndex   Int
+  latitude      Decimal    @db.Decimal(9, 6)
+  longitude     Decimal    @db.Decimal(9, 6)
+  accuracyMeters Int?
+  recordedAt    DateTime
+  createdAt     DateTime   @default(now())
+  drivingLog    DrivingLog @relation(fields: [drivingLogId], references: [id], onDelete: Cascade)
+
+  @@unique([drivingLogId, sampleIndex])
+  @@index([drivingLogId, recordedAt])
+}
+
+model ActivityNote {
+  id              String       @id @default(cuid())
+  workspaceId     String
+  createdByUserId String
+  journeyId       String
+  stopId          String?
+  type            ActivityType
+  date            DateTime
+  durationMinutes Int?
+  location        String?
+  notes           String?
+  visibility      Visibility   @default(PRIVATE)
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+  workspace       Workspace    @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  createdByUser   User         @relation(fields: [createdByUserId], references: [id], onDelete: Cascade)
+  Tour         Tour      @relation(fields: [journeyId], references: [id], onDelete: Cascade)
+  Gig            Gig?        @relation(fields: [stopId], references: [id], onDelete: SetNull)
+
+  @@index([workspaceId, date])
+  @@index([journeyId, date])
+  @@index([stopId, date])
+  @@index([workspaceId, visibility])
+  @@index([type, date])
+}
+
+model Media {
+  id              String     @id @default(cuid())
+  workspaceId     String
+  createdByUserId String
+  journeyId       String?
+  stopId          String?
+  filePath        String
+  publicUrl       String?
+  fileName        String
+  mimeType        String?
+  sizeBytes       Int?
+  caption         String?
+  visibility      Visibility @default(PRIVATE)
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+  workspace       Workspace  @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  createdByUser   User       @relation(fields: [createdByUserId], references: [id], onDelete: Cascade)
+  Tour         Tour?   @relation(fields: [journeyId], references: [id], onDelete: SetNull)
+  Gig            Gig?      @relation(fields: [stopId], references: [id], onDelete: SetNull)
+
+  @@index([workspaceId])
+  @@index([journeyId])
+  @@index([stopId])
+}
+
+model ExternalMediaLink {
+  id              String                  @id @default(cuid())
+  workspaceId     String
+  createdByUserId String
+  entityType      ExternalMediaEntityType
+  entityId        String
+  url             String
+  platform        ExternalMediaPlatform
+  title           String?
+  caption         String?
+  thumbnailUrl    String?
+  embedUrl        String?
+  externalId      String?
+  deletedAt       DateTime?
+  createdAt       DateTime                @default(now())
+  updatedAt       DateTime                @updatedAt
+  workspace       Workspace               @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  createdByUser   User                    @relation(fields: [createdByUserId], references: [id], onDelete: Cascade)
+
+  @@index([workspaceId, entityType, entityId, deletedAt])
+  @@index([workspaceId, platform, deletedAt])
+  @@index([createdByUserId, deletedAt])
+}

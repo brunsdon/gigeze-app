@@ -1,0 +1,4 @@
+CREATE TYPE "TripMode" AS ENUM ('WALK', 'RIDE', 'DRIVE');
+
+ALTER TABLE "DrivingLog"
+ADD COLUMN "tripMode" "TripMode" NOT NULL DEFAULT 'DRIVE';

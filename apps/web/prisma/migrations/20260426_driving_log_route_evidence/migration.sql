@@ -1,0 +1,1 @@
+ALTER TABLE "DrivingLog" ADD COLUMN "hasRouteSamples" BOOLEAN NOT NULL DEFAULT false;

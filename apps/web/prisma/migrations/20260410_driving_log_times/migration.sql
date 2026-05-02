@@ -1,0 +1,3 @@
+ALTER TABLE "DrivingLog"
+ADD COLUMN "startTime" TIMESTAMP(3),
+ADD COLUMN "endTime" TIMESTAMP(3);

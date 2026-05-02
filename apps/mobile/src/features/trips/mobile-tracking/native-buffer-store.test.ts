@@ -1,0 +1,51 @@
+import { beforeEach, describe, expect, it, vi } from "vitest";
+
+const storage = new Map<string, string>();
+
+vi.mock("../../../lib/storage/mobile-storage", () => ({
+  mobileStorage: {
+    async getItem(key: string) {
+      return storage.get(key) ?? null;
+    },
+    async setItem(key: string, value: string) {
+      storage.set(key, value);
+    },
+    async removeItem(key: string) {
+      storage.delete(key);
+    },
+  },
+}));
+
+function createSample(index: number) {
+  return {
+    sessionId: "trip-1",
+    latitude: -37.7 + index / 10000,
+    longitude: 144.9 + index / 10000,
+    accuracyMeters: 8,
+    timestampMs: index,
+    recordedAt: new Date(index).toISOString(),
+    source: "expo-background-location" as const,
+    originId: `sample-${index}`,
+  };
+}
+
+describe("trackingNativeBufferStore", () => {
+  beforeEach(() => {
+    storage.clear();
+    vi.resetModules();
+  });
+
+  it("keeps the native buffer bounded while preserving endpoints", async () => {
+    const { trackingNativeBufferStore, maxNativeBufferedTrackingSamples } = await import("./native-buffer-store");
+    const sampleCount = maxNativeBufferedTrackingSamples + 50;
+
+    for (let index = 1; index <= sampleCount; index += 1) {
+      await trackingNativeBufferStore.appendSample(createSample(index));
+    }
+
+    const storedSamples = await trackingNativeBufferStore.listSamples("trip-1");
+    expect(storedSamples).toHaveLength(maxNativeBufferedTrackingSamples);
+    expect(storedSamples[0]?.originId).toBe("sample-1");
+    expect(storedSamples.at(-1)?.originId).toBe(`sample-${sampleCount}`);
+  });
+});
