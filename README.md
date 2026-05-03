@@ -18,6 +18,7 @@ The project pairs a Next.js 16 web app with an Expo React Native mobile app, Pri
 - [What This Demonstrates](#what-this-demonstrates)
 - [Engineering Signals](#engineering-signals)
 - [Reviewer Guide](#reviewer-guide)
+- [Portfolio Docs](#portfolio-docs)
 - [Screenshots](#screenshots)
 - [Architecture Diagrams](#architecture-diagrams)
 - [Why This Exists](#why-this-exists)
@@ -89,6 +90,15 @@ For a quick technical review, start here:
 - `packages/shared/src` - shared schemas, types, utilities, and trip contracts used across the monorepo.
 - `scripts/sync-env-to-mobile.mjs` - environment synchronization helper for web/mobile development.
 
+Deeper portfolio docs:
+
+- [Architecture overview](docs/architecture-overview.md)
+- [Data model](docs/data-model.md)
+- [Mobile sync](docs/mobile-sync.md)
+- [API overview](docs/api.md)
+- [Architecture decisions](docs/decisions.md)
+- [Reviewer walkthrough](docs/walkthrough.md)
+
 Useful validation commands:
 
 ```bash
@@ -97,9 +107,20 @@ npm run test:run
 npm run build:web
 ```
 
+## Portfolio Docs
+
+The `/docs` folder turns the repository into a faster review artifact:
+
+- [Architecture overview](docs/architecture-overview.md) - monorepo structure, layers, and integration points.
+- [Data model](docs/data-model.md) - Prisma-backed domain model for workspaces, tours, gigs, media, activity notes, vehicles, and trip activity.
+- [Mobile sync](docs/mobile-sync.md) - local mobile trip state, completed-trip sync, retry behavior, and persistence.
+- [API overview](docs/api.md) - important route handlers and honest request/response notes.
+- [Architecture decisions](docs/decisions.md) - concise tradeoffs behind the repo structure and stack.
+- [Reviewer walkthrough](docs/walkthrough.md) - flagship mobile trip capture to web dashboard review path.
+
 ## Screenshots
 
-Static screenshots will be added to support quick GitHub scanning. Until then, use the live demo path above for visual review.
+Static screenshots are planned and should live in [docs/images](docs/images). Until then, use the live demo path above for visual review.
 
 Planned coverage:
 
@@ -111,57 +132,11 @@ Planned coverage:
 
 ## Architecture Diagrams
 
-### Monorepo Architecture
+The detailed Mermaid diagrams now live in:
 
-```mermaid
-flowchart TD
-  R["GigEze Monorepo"]
-
-  R --> W["apps/web<br/>Next.js 16 App Router"]
-  R --> M["apps/mobile<br/>Expo React Native"]
-  R --> S["packages/shared<br/>TypeScript contracts"]
-  R --> SC["scripts<br/>Environment helpers"]
-
-  W --> WF["Public pages<br/>Dashboard workflows<br/>API routes"]
-  W --> P["Prisma schema<br/>Generated client"]
-  W --> DB[("PostgreSQL")]
-  W --> SB["Supabase Auth/Storage<br/>integration points"]
-
-  M --> MF["Sign-in<br/>Tour selection<br/>Trip capture<br/>History<br/>Diagnostics"]
-  M --> AS[("AsyncStorage<br/>local trip state")]
-
-  S --> ST["Domain types<br/>DTOs<br/>Schemas<br/>Utilities"]
-
-  W -.uses.-> S
-  M -.uses.-> S
-  P --> DB
-```
-
-### Mobile Trip Sync Flow
-
-```mermaid
-sequenceDiagram
-  participant User
-  participant Mobile as Expo Mobile App
-  participant Local as Local Trip State
-  participant API as Next.js API Routes
-  participant Web as Web Dashboard
-  participant DB as PostgreSQL via Prisma
-
-  User->>Mobile: Start trip / field activity
-  Mobile->>Local: Store local trip state
-  User->>Mobile: Complete trip
-  Mobile->>Local: Mark completed pending sync
-  Mobile->>API: Submit completed trip payload
-  API->>DB: Validate and persist draft activity log
-  DB-->>API: Saved result
-  API-->>Mobile: Sync success response
-  Mobile->>Local: Mark synced
-  Web->>API: Load trip / activity data
-  API->>DB: Query persisted records
-  DB-->>API: Return records
-  API-->>Web: Display in dashboard workflow
-```
+- [Architecture overview](docs/architecture-overview.md)
+- [Data model](docs/data-model.md)
+- [Mobile sync](docs/mobile-sync.md)
 
 ### Review Path Diagram
 
