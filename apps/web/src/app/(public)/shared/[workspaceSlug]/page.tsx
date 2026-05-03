@@ -93,7 +93,7 @@ export default async function SharedWorkspaceProfilePage({ params }: { params: P
         </p>
         <h1 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">{memberWorkspace.workspace.name}</h1>
         <p className="mt-3 max-w-prose text-base leading-7 text-muted-foreground">
-          {memberWorkspace.workspace.description || "A shared travel profile with Tours, posts, map locations, and gallery highlights available to invited viewers."}
+          {memberWorkspace.workspace.description || "A shared tour profile with gigs, posts, map locations, and gallery highlights available to invited viewers."}
         </p>
 
         <nav className="mt-5 flex flex-wrap gap-2">

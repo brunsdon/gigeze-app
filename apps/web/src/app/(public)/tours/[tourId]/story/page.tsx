@@ -135,7 +135,7 @@ export default async function PublicJourneyStoryPage({
             Tour gallery
           </Link>
           <Link href="/posts" className="text-sm font-medium text-primary hover:underline">
-            More road stories
+            More tour stories
           </Link>
           <JourneyFollowToggle journeyKey={`public-story:${Tour.id}`} journeyTitle={Tour.title} />
         </div>

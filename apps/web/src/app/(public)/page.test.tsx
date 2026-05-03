@@ -88,15 +88,15 @@ describe("Public home page", () => {
         fileName: "byron.jpg",
         publicUrl: "https://project.supabase.co/storage/v1/object/public/media/Tours/coastal-run/sunrise.jpg",
         mimeType: "image/jpeg",
-        caption: "Sunrise camp",
+        caption: "Soundcheck lights",
         createdAt: new Date("2026-03-03T10:00:00.000Z"),
         createdByUser: {
           fullName: "Alex Driver",
           email: "alex@example.com",
         },
         workspace: {
-          name: "Road Crew",
-          slug: "road-crew",
+          name: "Stage Crew",
+          slug: "stage-crew",
         },
         Tour: { id: "Tour-1", title: "Coastal Run", slug: "coastal-run" },
         Gig: null,
@@ -108,27 +108,32 @@ describe("Public home page", () => {
 
     expect(mockListPublicJourneys).toHaveBeenCalledTimes(1);
     expect(mockListLatestPublishedPosts).toHaveBeenCalledWith(3);
-    expect(mockListPublicMediaItems).toHaveBeenCalledTimes(1);
-    expect(html).toContain("Capture life on the road");
-    expect(html).toContain("Track your Tours, relive your moments, and keep your trip records in one place.");
-    expect(html).toContain("Built for tour logistics across Australia.");
-    expect(html).toContain("Automatic trip tracking. No paperwork.");
-    expect(html).toContain("Never manually track your logbook again.");
+    expect(mockListPublicMediaItems).not.toHaveBeenCalled();
+    expect(html).toContain("Run the tour like a headliner");
+    expect(html).toContain("Plan tours, manage gigs, capture field activity, and keep media, notes, and trip sync in one backstage-ready workspace.");
+    expect(html).toContain("Venues. Gigs. Activity notes. Tour records.");
+    expect(html).toContain("Built for tour managers who need the show details without the spreadsheet scramble.");
+    expect(html).toContain("All Access");
+    expect(html).toContain("Tours");
+    expect(html).toContain("Gigs");
+    expect(html).toContain("Venues");
+    expect(html).toContain("Media");
+    expect(html).toContain("Backstage operations, one setlist");
     expect(html).toContain("Explore Tours");
-    expect(html).toContain("Start your Tour");
-    expect(html).toContain("Trips tracked automatically");
-    expect(html).toContain("Logs kept accurate");
-    expect(html).toContain("Export when you need it");
-    expect(html).toContain("Track your trip");
-    expect(html).toContain("Create your logbook");
-    expect(html).toContain("From the road");
-    expect(html).toContain("Real Tours and stories shared from across Australia.");
-    expect(html).toContain("Start your own Tour");
-    expect(html).toContain("Keep your travels, stories, and trip records together in one place.");
-    expect(html).toContain("Start your Tour");
-    expect(html).toContain("Featured moment from the road");
-    expect(html).toContain("Previous featured moment");
-    expect(html).toContain("Next featured moment");
+    expect(html).toContain("Open Backstage");
+    expect(html).toContain("Gigs tracked automatically");
+    expect(html).toContain("Notes stay show-ready");
+    expect(html).toContain("Media ready to publish");
+    expect(html).toContain("Capture field activity");
+    expect(html).toContain("Build tour records");
+    expect(html).toContain("Backstage feed");
+    expect(html).toContain("Published tours, gig notes, and media from the GigEze community.");
+    expect(html).toContain("Get the tour out of the group chat");
+    expect(html).toContain("Keep gigs, venues, activity notes, media, and trip records together in one tour-management workspace.");
+    expect(html).toContain("Start a Tour");
+    expect(html).toContain("Backstage telemetry");
+    expect(html).toContain("LIVE");
+    expect(html).toContain("Field Capture");
     expect(html).toContain("Coastal Run");
     expect(html).toContain("Coastal Update");
     expect(html).toContain('href="/Tours/coastal-run"');
@@ -174,6 +179,8 @@ describe("Public home page", () => {
 
     expect(html).toContain("Welcome back, Alex Driver");
     expect(html).toContain("Continue your Tour");
+    expect(html).toContain("No backstage updates yet");
+    expect(html).toContain("Tours, gig notes, media, and stories will appear here once published.");
     expect(html).toContain('href="/dashboard/Tours/Tour-active"');
   });
 });

@@ -40,7 +40,7 @@ export function WeeklySummaryPanel({ distanceKm, stopsCount, mediaCount }: Weekl
   return (
     <Card className="bg-card/96">
       <CardHeader className="flex flex-row items-start justify-between gap-2">
-        <CardTitle className="text-base">This week on the road</CardTitle>
+        <CardTitle className="text-base">This week on tour</CardTitle>
         <Button
           type="button"
           size="sm"

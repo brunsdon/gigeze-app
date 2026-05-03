@@ -43,21 +43,21 @@ describe("Public post detail page", () => {
   it("renders the post and does not expose private linked Tour or Gig details", async () => {
     mockGetPublishedPostBySlug.mockResolvedValue({
       id: "post-1",
-      slug: "quiet-camp",
-      title: "Quiet Camp",
+      slug: "quiet-venue",
+      title: "Quiet Venue",
       excerpt: "A draft from the bush.",
       content: "Long-form public content for a published post.",
-      coverImageUrl: "https://example.com/camp.jpg",
+      coverImageUrl: "https://example.com/venue.jpg",
       publishedAt: new Date("2026-04-01T00:00:00.000Z"),
       Tour: null,
       Gig: null,
     });
 
-    const element = await PublicPostDetailPage({ params: Promise.resolve({ slug: "quiet-camp" }) });
+    const element = await PublicPostDetailPage({ params: Promise.resolve({ slug: "quiet-venue" }) });
     const html = renderToStaticMarkup(element);
 
-    expect(html).toContain("Quiet Camp");
-    expect(html).toContain("Quiet Camp cover image");
+    expect(html).toContain("Quiet Venue");
+    expect(html).toContain("Quiet Venue cover image");
     expect(html).not.toContain("Private Tour");
     expect(html).not.toContain("Hidden Gig");
     expect(html).not.toContain("Tour context");
@@ -100,7 +100,7 @@ describe("Public post detail page", () => {
     expect(html).toContain("Main Beach");
     expect(html).toContain("Byron Bay");
     expect(html).toContain("Start tracking your own Tour -&gt;");
-    expect(html).toContain("Create your logbook");
+    expect(html).toContain("Build tour records");
     expect(html).toContain('href="/Tours/coastal-run"');
   });
 });

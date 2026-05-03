@@ -12,7 +12,7 @@ export default async function PublicJourneysPage() {
     return (
       <EmptyState
         title="No Tours yet"
-        description="Start tracking your first trip and shared routes will appear here."
+        description="Start tracking your first tour and shared gigs will appear here."
       />
     );
   }
@@ -21,11 +21,11 @@ export default async function PublicJourneysPage() {
     <section className="public-page-shell">
       <div className="public-page-header">
         <h1 className="public-page-title">Tours</h1>
-        <p className="public-page-intro">Explore Tours shared from across Australia.</p>
-        <p className="public-page-meta">Shared from the road. Tracked with GigEze.</p>
-        <p className="public-page-meta">Every Tour is automatically tracked and turned into a trip record.</p>
+        <p className="public-page-intro">Explore tours shared by crews, artists, and tour managers.</p>
+        <p className="public-page-meta">Published from GigEze tour records.</p>
+        <p className="public-page-meta">Each tour can connect gigs, venues, media, notes, and trip sync.</p>
         <div className="public-page-link-row">
-          <Link href="/map" className="public-inline-cta">Explore all routes on map</Link>
+          <Link href="/map" className="public-inline-cta">Explore gigs on map</Link>
           <Link href="/gallery" className="public-inline-cta">Open public gallery</Link>
           <Link href="/posts" className="public-inline-cta">Read latest stories</Link>
         </div>
@@ -58,7 +58,7 @@ export default async function PublicJourneysPage() {
           Start your Tour -&gt;
         </Link>
         <Link href="/login" className="public-inline-cta">
-          Create your logbook
+          Build tour records
         </Link>
       </div>
     </section>

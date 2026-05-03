@@ -71,6 +71,6 @@ describe("Public Tour detail page", () => {
     expect(html).toContain("Public Beach");
     expect(html).toContain("Byron Bay");
     expect(html).toContain("Start tracking your own Tour -&gt;");
-    expect(html).toContain("Create your logbook");
+    expect(html).toContain("Build tour records");
   });
 });

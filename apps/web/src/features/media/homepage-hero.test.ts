@@ -5,9 +5,9 @@ import type { PublicGalleryMediaItem } from "@/features/media/service";
 function buildMediaItem(overrides: Partial<PublicGalleryMediaItem> = {}): PublicGalleryMediaItem {
   return {
     id: "media-1",
-    filePath: "Tours/road/photo.jpg",
+    filePath: "Tours/stage/photo.jpg",
     fileName: "photo.jpg",
-    publicUrl: "https://project.supabase.co/storage/v1/object/public/media/Tours/road/photo.jpg",
+    publicUrl: "https://project.supabase.co/storage/v1/object/public/media/Tours/stage/photo.jpg",
     mimeType: "image/jpeg",
     caption: "Golden hour",
     createdAt: new Date("2026-04-07T00:00:00.000Z"),
@@ -16,8 +16,8 @@ function buildMediaItem(overrides: Partial<PublicGalleryMediaItem> = {}): Public
       email: "alex@example.com",
     },
     workspace: {
-      name: "Road Crew",
-      slug: "road-crew",
+      name: "Stage Crew",
+      slug: "stage-crew",
     },
     Tour: {
       id: "Tour-1",
@@ -66,7 +66,7 @@ describe("getHomepageHeroSlides", () => {
         email: "alex@example.com",
       },
       workspace: {
-        name: "Road Crew",
+        name: "Stage Crew",
       },
     }, []);
 

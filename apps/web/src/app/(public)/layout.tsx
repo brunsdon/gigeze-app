@@ -16,9 +16,9 @@ export default async function PublicLayout({ children }: { children: React.React
         Skip to main content
       </a>
       <PublicNav user={user ? { fullName: user.fullName, email: user.email } : null} />
-      <div className="border-b border-border/55 bg-card/45">
-        <p className="mx-auto w-full max-w-6xl px-4 py-2 text-xs text-foreground/60 sm:px-6 lg:px-8">
-          Shared from the road. Tracked with GigEze.
+      <div className="border-b border-white/10 bg-[#151018]">
+        <p className="mx-auto w-full max-w-6xl px-4 py-2 text-xs font-black tracking-[0.18em] text-[#FFB000] uppercase sm:px-6 lg:px-8">
+          BACKSTAGE TOUR RECORDS · GIGS · VENUES · MEDIA · FIELD CAPTURE
         </p>
       </div>
       <main id="public-main-content" className="animate-page-enter mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 sm:py-14 lg:px-8 lg:py-16">

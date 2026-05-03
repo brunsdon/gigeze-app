@@ -43,10 +43,10 @@ describe("Public Tours page", () => {
     expect(mockListPublicJourneys).toHaveBeenCalledTimes(1);
     expect(html).toContain("Coastal Run");
     expect(html).toContain("2 public Gigs");
-    expect(html).toContain("Explore Tours shared from across Australia.");
-    expect(html).toContain("Every Tour is automatically tracked and turned into a trip record.");
+    expect(html).toContain("Explore tours shared by crews, artists, and tour managers.");
+    expect(html).toContain("Each tour can connect gigs, venues, media, notes, and trip sync.");
     expect(html).toContain("Start your Tour -&gt;");
-    expect(html).toContain("Create your logbook");
+    expect(html).toContain("Build tour records");
     expect(html).toContain('href="/Tours/coastal-run"');
   });
 });

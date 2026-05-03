@@ -187,7 +187,7 @@ export default async function PublicProfilePage({
     id: `media-${item.id}`,
     type: "media",
     title: item.caption?.trim() || "Shared a photo",
-    details: item.Tour?.title || "Road moment",
+    details: item.Tour?.title || "Tour moment",
     timestamp: item.createdAt,
   }));
 
@@ -219,7 +219,7 @@ export default async function PublicProfilePage({
         <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Public profile</p>
         <h1 className="mt-2 text-3xl font-semibold tracking-tight">{workspace.name}</h1>
         <p className="mt-2 max-w-prose text-sm text-muted-foreground">
-          {workspace.description || "Public highlights from this workspace's shared road adventures."}
+          {workspace.description || "Public highlights from this workspace's shared tours, gigs, and media."}
         </p>
         <div className="mt-3">
           <PublicAttribution

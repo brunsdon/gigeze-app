@@ -32,7 +32,7 @@ describe("Public posts page", () => {
     const html = renderToStaticMarkup(element);
 
     expect(html).toContain("No stories yet");
-    expect(html).toContain("No stories yet. Publish your first road update and your journal will come alive.");
+    expect(html).toContain("No stories yet. Publish your first tour update and the feed will come alive.");
   });
 
   it("renders published post cards with slug links and cover image markup", async () => {
@@ -51,9 +51,9 @@ describe("Public posts page", () => {
     const html = renderToStaticMarkup(element);
 
     expect(html).toContain("Coastal Update");
-    expect(html).toContain("Stories and highlights from real Tours.");
+    expect(html).toContain("Stories, updates, and highlights from real tours.");
     expect(html).toContain("Start your Tour -&gt;");
-    expect(html).toContain("Create your logbook");
+    expect(html).toContain("Build tour records");
     expect(html).toContain('href="/posts/coastal-update"');
     expect(html).toContain("Coastal Update cover image");
   });

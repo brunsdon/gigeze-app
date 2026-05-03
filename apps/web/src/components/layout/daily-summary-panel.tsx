@@ -37,7 +37,7 @@ export function DailySummaryPanel({ drivingLogs, Gigs, mediaItems }: DailySummar
       <CardContent>
         <div className="grid gap-3 sm:grid-cols-3">
           <div>
-            <p className="text-sm text-muted-foreground">Distance travelled</p>
+            <p className="text-sm text-muted-foreground">Distance covered</p>
             <p className="text-base font-medium">{formatDistanceKm(drivingDistanceToday)}</p>
           </div>
           <div>

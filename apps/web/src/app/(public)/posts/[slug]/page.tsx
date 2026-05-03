@@ -41,7 +41,7 @@ export default async function PublicPostDetailPage({
 
         <h1 className="public-page-title-lg">{post.title}</h1>
         <p className="text-sm font-medium text-muted-foreground">Published {formatDate(post.publishedAt)}</p>
-        <p className="public-page-meta">Shared from the road. Tracked with GigEze.</p>
+        <p className="public-page-meta">Shared from the backstage side of GigEze.</p>
         <PublicAttribution source={post} />
         {post.excerpt ? <p className="public-page-intro">{post.excerpt}</p> : null}
         <div className="public-page-link-row">
@@ -92,7 +92,7 @@ export default async function PublicPostDetailPage({
               </p>
             ) : null}
             <p>
-              <Link href="/login" className="font-medium text-primary hover:underline">Create your logbook</Link>
+              <Link href="/login" className="font-medium text-primary hover:underline">Build tour records</Link>
             </p>
           </CardContent>
         </Card>

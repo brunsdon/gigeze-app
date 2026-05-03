@@ -33,8 +33,8 @@ export default async function PublicGalleryPage({
     <section className="public-page-shell">
       <div className="public-page-header">
         <h1 className="public-page-title">Gallery</h1>
-        <p className="public-page-intro">Moments captured on the road.</p>
-        <p className="public-page-meta">Captured from real Tours tracked with GigEze.</p>
+        <p className="public-page-intro">Media captured across tours, gigs, venues, and field activity.</p>
+        <p className="public-page-meta">Captured from real tours managed with GigEze.</p>
         <div className="public-page-link-row">
           <Link href="/Tours" className="public-inline-cta">Open Tours</Link>
           <Link href="/map" className="public-inline-cta">Explore public map</Link>
@@ -100,7 +100,7 @@ export default async function PublicGalleryPage({
           description={
             hasActiveFilters
               ? "Try a different Tour or Gig filter to see more public media."
-              : "No gallery moments yet. Share your first trip photos and highlights will appear here."
+              : "No gallery moments yet. Share your first tour media and highlights will appear here."
           }
           ctaLabel={hasActiveFilters ? "Clear filters" : undefined}
           ctaHref={hasActiveFilters ? "/gallery" : undefined}
@@ -111,7 +111,7 @@ export default async function PublicGalleryPage({
 
       <div className="public-page-cta-row">
         <Link href="/login" className="public-inline-cta">
-          Track your trip
+          Capture field activity
         </Link>
         <Link href="/login?mode=signup" className="public-inline-cta">
           Start your Tour -&gt;

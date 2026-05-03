@@ -37,7 +37,7 @@ const config: ExpoConfig = {
     package: "com.gigeze.mobile",
     adaptiveIcon: {
       foregroundImage: "./assets/adaptive-icon.png",
-      backgroundColor: "#2f5d50"
+      backgroundColor: "#0B0B0F"
     },
     permissions: [
       "ACCESS_COARSE_LOCATION",

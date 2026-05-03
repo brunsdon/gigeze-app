@@ -86,7 +86,7 @@ export default async function PublicJourneyDetailPage({
       <div>
         <h1 className="public-page-title">{Tour.title}</h1>
         <p className="mt-3 public-page-intro">{Tour.description || "No description for this Tour yet."}</p>
-        <p className="mt-1 public-page-meta">Shared from the road. Tracked with GigEze.</p>
+        <p className="mt-1 public-page-meta">Published from GigEze tour records.</p>
         <PublicAttribution source={Tour} className="mt-2" />
         <p className="mt-2 public-page-meta">{formatJourneySummary(insights)}</p>
         <div className="mt-3 public-page-link-row">
@@ -204,7 +204,7 @@ export default async function PublicJourneyDetailPage({
                 Read Tour stories
               </Link>
               <Link href="/login" className="font-medium text-primary hover:underline">
-                Create your logbook
+                Build tour records
               </Link>
             </div>
           </CardContent>

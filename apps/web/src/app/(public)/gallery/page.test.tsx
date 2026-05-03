@@ -55,13 +55,13 @@ describe("public gallery page", () => {
     const html = renderToStaticMarkup(element);
 
     expect(html).toContain("Gallery");
-    expect(html).toContain("Moments captured on the road.");
-    expect(html).toContain("Captured from real Tours tracked with GigEze.");
+    expect(html).toContain("Media captured across tours, gigs, venues, and field activity.");
+    expect(html).toContain("Captured from real tours managed with GigEze.");
     expect(html).toContain("Filter media");
     expect(html).toContain("Gallery grid: 1");
     expect(html).toContain("Coast Run");
     expect(html).toContain("Byron Bay");
-    expect(html).toContain("Track your trip");
+    expect(html).toContain("Capture field activity");
     expect(html).toContain("Start your Tour -&gt;");
     expect(html).toContain('href="/gallery"');
   });
@@ -75,6 +75,6 @@ describe("public gallery page", () => {
     const html = renderToStaticMarkup(element);
 
     expect(html).toContain("No public media yet");
-    expect(html).toContain("No gallery moments yet. Share your first trip photos and highlights will appear here.");
+    expect(html).toContain("No gallery moments yet. Share your first tour media and highlights will appear here.");
   });
 });

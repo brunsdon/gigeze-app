@@ -34,8 +34,8 @@ export default async function PublicPostsPage({
     <section className="public-page-shell">
       <div className="public-page-header">
         <h1 className="public-page-title">Stories</h1>
-        <p className="public-page-intro">Stories and highlights from real Tours.</p>
-        <p className="public-page-meta">Shared from the road. Tracked with GigEze.</p>
+        <p className="public-page-intro">Stories, updates, and highlights from real tours.</p>
+        <p className="public-page-meta">Shared from the backstage side of GigEze.</p>
         <div className="public-page-link-row">
           <Link href="/Tours" className="public-inline-cta">Explore public Tours</Link>
           <Link href="/gallery" className="public-inline-cta">Browse gallery highlights</Link>
@@ -48,7 +48,7 @@ export default async function PublicPostsPage({
           description={
             journeyFilter
               ? "No stories are linked to this Tour yet."
-              : "No stories yet. Publish your first road update and your journal will come alive."
+              : "No stories yet. Publish your first tour update and the feed will come alive."
           }
         />
       ) : (
@@ -92,7 +92,7 @@ export default async function PublicPostsPage({
           Start your Tour -&gt;
         </Link>
         <Link href="/login" className="public-inline-cta">
-          Create your logbook
+          Build tour records
         </Link>
       </div>
     </section>

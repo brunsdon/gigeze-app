@@ -56,7 +56,7 @@ export function buildSmartReminders(props: SmartRemindersProps): Reminder[] {
   if (props.hasActiveJourney && props.lastWeekDrivingKm < 30) {
     reminders.push({
       id: "log-week-driving",
-      title: props.hasDrivingLogs ? "Quiet week on the road" : "No driving logs yet",
+      title: props.hasDrivingLogs ? "Quiet week on tour" : "No trip logs yet",
       description: props.hasDrivingLogs
         ? "Add your next leg so your distance tracking and weekly trends stay accurate."
         : "Add your first trip to start your odometer-based distance history.",
@@ -69,7 +69,7 @@ export function buildSmartReminders(props: SmartRemindersProps): Reminder[] {
     reminders.push({
       id: "log-week-activity",
       title: "No activity notes logged this week",
-      description: "Add a quick activity note so useful details from the road stay with the Tour.",
+      description: "Add a quick activity note so useful details from the tour stay with the Tour.",
       href: "/dashboard/activity",
       actionLabel: "Add activity",
     });

@@ -14,7 +14,7 @@ const links = [
   { href: "/dashboard/activity", label: "Activity", icon: Wrench },
   { href: "/dashboard/media", label: "Moments", icon: ImageIcon },
   { href: "/dashboard/posts", label: "Stories", icon: NotebookPen },
-  { href: "/dashboard/sharing", label: "Travel Circle", icon: Share2 },
+  { href: "/dashboard/sharing", label: "Tour Circle", icon: Share2 },
   { href: "/dashboard/settings", label: "Settings", icon: Settings },
 ];
 
