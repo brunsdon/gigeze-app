@@ -103,8 +103,7 @@ export function DebugPanel({ enabled = false }: DebugPanelProps) {
     };
   }, []);
 
-  const shouldShowDebugPanel =
-    enabled || isNativeShell || process.env.NODE_ENV === "development";
+  const shouldShowDebugPanel = enabled || isNativeShell;
 
   if (!shouldShowDebugPanel) {
     return null;

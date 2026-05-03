@@ -8,6 +8,7 @@ const config = getDefaultConfig(projectRoot);
 const defaultResolveRequest = config.resolver.resolveRequest;
 
 config.server.unstable_serverRoot = projectRoot;
+config.server.rewriteRequestUrl = (url) => url.replace(/^\/apps\/mobile\/index\.bundle/, "/index.bundle");
 config.watchFolders = [path.resolve(workspaceRoot, "packages")];
 config.resolver.nodeModulesPaths = [
   path.resolve(projectRoot, "node_modules"),
