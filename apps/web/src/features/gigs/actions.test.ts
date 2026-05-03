@@ -72,20 +72,20 @@ describe("Gig actions", () => {
     });
 
     await expect(moveStopUpAction(formData)).rejects.toMatchObject({
-      url: "/dashboard/Tours/Tour-1?success=Gig-order-updated",
+      url: "/dashboard/tours/Tour-1?success=Gig-order-updated",
     });
 
     expect(mockMoveStopUp).toHaveBeenCalledWith("Gig-1", "workspace-1");
 
-    expect(mockRevalidatePath).toHaveBeenCalledWith("/dashboard/Tours/Tour-1");
-    expect(mockRevalidatePath).toHaveBeenCalledWith("/Tours/Tour-1");
+    expect(mockRevalidatePath).toHaveBeenCalledWith("/dashboard/tours/Tour-1");
+    expect(mockRevalidatePath).toHaveBeenCalledWith("/tours/Tour-1");
   });
 
   it("redirects with invalid reference when required ids are missing", async () => {
     const formData = buildStopFormData({});
 
     await expect(moveStopUpAction(formData)).rejects.toMatchObject({
-      url: "/dashboard/Tours?error=invalid-Gig-reference",
+      url: "/dashboard/tours?error=invalid-Gig-reference",
     });
   });
 
@@ -107,7 +107,7 @@ describe("Gig actions", () => {
     });
 
     await expect(updateStopAction(formData)).rejects.toMatchObject({
-      url: "/dashboard/Tours/Tour-1/Gigs/Gig-1/edit?error=Gig-Tour-mismatch",
+      url: "/dashboard/tours/Tour-1/gigs/Gig-1/edit?error=Gig-Tour-mismatch",
     });
 
     expect(mockUpdateStop).toHaveBeenCalledWith(

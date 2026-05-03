@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 const links = [
   { href: "/dashboard", label: "Backstage", icon: Home },
-  { href: "/dashboard/Tours", label: "Tours", icon: Route },
+  { href: "/dashboard/tours", label: "Tours", icon: Route },
   { href: "/dashboard/logs/driving", label: "Trip Sync", icon: Truck },
   { href: "/dashboard/vehicles", label: "Vehicles", icon: Car },
   { href: "/dashboard/activity", label: "Activity Notes", icon: Wrench },
@@ -19,7 +19,7 @@ const links = [
 
 const mobileQuickLinks = [
   { href: "/dashboard", label: "Backstage", icon: Home },
-  { href: "/dashboard/Tours", label: "Tours", icon: Route },
+  { href: "/dashboard/tours", label: "Tours", icon: Route },
   { href: "/dashboard/logs/driving", label: "Sync", icon: Truck },
   { href: "/dashboard/activity", label: "Notes", icon: Wrench },
   { href: "/dashboard/media", label: "Media", icon: ImageIcon },

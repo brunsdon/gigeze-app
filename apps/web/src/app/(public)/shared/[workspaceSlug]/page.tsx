@@ -73,7 +73,7 @@ export default async function SharedWorkspaceProfilePage({ params }: { params: P
   ]);
 
   const sharedMapData = sharedJourneys.map((Tour) =>
-    mapJourneyToMapData(Tour, { journeyHrefBase: `/shared/${workspaceSlug}/Tours` }),
+    mapJourneyToMapData(Tour, { journeyHrefBase: `/shared/${workspaceSlug}/tours` }),
   );
 
   const sharedGalleryItems = mapViewerMediaToSharedGallery(mediaItems);
@@ -140,7 +140,7 @@ export default async function SharedWorkspaceProfilePage({ params }: { params: P
                     <span className="text-muted-foreground">Visibility</span>
                     <VisibilityBadge visibility={Tour.visibility} />
                   </div>
-                  <Link href={`/shared/${workspaceSlug}/Tours/${Tour.slug}`} className={buttonVariants({ size: "sm" })}>
+                  <Link href={`/shared/${workspaceSlug}/tours/${Tour.slug}`} className={buttonVariants({ size: "sm" })}>
                     View Tour
                   </Link>
                 </CardContent>

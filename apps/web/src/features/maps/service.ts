@@ -28,7 +28,7 @@ function toMapMarker(
   const href = journeyHrefBase
     ? `${journeyHrefBase}/${Tour.slug}`
     : includePublicJourneyHref
-      ? `/Tours/${Tour.slug}`
+      ? `/tours/${Tour.slug}`
       : undefined;
 
   return {

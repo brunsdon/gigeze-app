@@ -25,10 +25,10 @@ function revalidateExternalMediaSurfaces(entityType: ExternalMediaEntityType, en
   revalidatePath("/dashboard/media");
 
   if (entityType === ExternalMediaEntityType.Tour) {
-    revalidatePath(`/dashboard/Tours/${entityId}`);
-    revalidatePath("/dashboard/Tours");
+    revalidatePath(`/dashboard/tours/${entityId}`);
+    revalidatePath("/dashboard/tours");
   } else if (entityType === ExternalMediaEntityType.MOMENT) {
-    revalidatePath("/dashboard/Tours");
+    revalidatePath("/dashboard/tours");
   }
 }
 
@@ -56,7 +56,7 @@ export async function createExternalMediaLinkAction(formData: FormData) {
   const entityId = target?.entityId ?? String(formData.get("entityId") ?? "").trim();
   const returnTo = getSafeReturnTo(
     formData,
-    entityType === ExternalMediaEntityType.Tour && entityId ? `/dashboard/Tours/${entityId}` : "/dashboard",
+    entityType === ExternalMediaEntityType.Tour && entityId ? `/dashboard/tours/${entityId}` : "/dashboard",
   );
 
   if (!entityType || !entityId) {
@@ -92,7 +92,7 @@ export async function updateExternalMediaLinkAction(formData: FormData) {
   const linkId = String(formData.get("linkId") ?? "").trim();
   const returnTo = getSafeReturnTo(
     formData,
-    entityType === ExternalMediaEntityType.Tour && entityId ? `/dashboard/Tours/${entityId}` : "/dashboard",
+    entityType === ExternalMediaEntityType.Tour && entityId ? `/dashboard/tours/${entityId}` : "/dashboard",
   );
 
   if (!linkId || !entityType || !entityId) {
@@ -119,7 +119,7 @@ export async function deleteExternalMediaLinkAction(formData: FormData) {
   const linkId = String(formData.get("linkId") ?? "").trim();
   const returnTo = getSafeReturnTo(
     formData,
-    entityType === ExternalMediaEntityType.Tour && entityId ? `/dashboard/Tours/${entityId}` : "/dashboard",
+    entityType === ExternalMediaEntityType.Tour && entityId ? `/dashboard/tours/${entityId}` : "/dashboard",
   );
 
   if (!linkId || !entityType || !entityId) {

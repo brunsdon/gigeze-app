@@ -86,7 +86,7 @@ describe("Public home page", () => {
         id: "media-1",
         filePath: "Tours/coastal-run/sunrise.jpg",
         fileName: "byron.jpg",
-        publicUrl: "https://project.supabase.co/storage/v1/object/public/media/Tours/coastal-run/sunrise.jpg",
+        publicUrl: "https://project.supabase.co/storage/v1/object/public/media/tours/coastal-run/sunrise.jpg",
         mimeType: "image/jpeg",
         caption: "Soundcheck lights",
         createdAt: new Date("2026-03-03T10:00:00.000Z"),
@@ -136,7 +136,7 @@ describe("Public home page", () => {
     expect(html).toContain("Field Capture");
     expect(html).toContain("Coastal Run");
     expect(html).toContain("Coastal Update");
-    expect(html).toContain('href="/Tours/coastal-run"');
+    expect(html).toContain('href="/tours/coastal-run"');
     expect(html).toContain('href="/posts/coastal-update"');
   });
 
@@ -181,6 +181,6 @@ describe("Public home page", () => {
     expect(html).toContain("Continue your Tour");
     expect(html).toContain("No backstage updates yet");
     expect(html).toContain("Tours, gig notes, media, and stories will appear here once published.");
-    expect(html).toContain('href="/dashboard/Tours/Tour-active"');
+    expect(html).toContain('href="/dashboard/tours/Tour-active"');
   });
 });

@@ -45,7 +45,7 @@ export default async function PublicPostDetailPage({
         <PublicAttribution source={post} />
         {post.excerpt ? <p className="public-page-intro">{post.excerpt}</p> : null}
         <div className="public-page-link-row">
-          <Link href="/Tours" className="public-inline-cta">Browse Tours</Link>
+          <Link href="/tours" className="public-inline-cta">Browse Tours</Link>
           <Link href="/gallery" className="public-inline-cta">See gallery moments</Link>
           <Link href="/login?mode=signup" className="public-inline-cta">Start tracking your own Tour -&gt;</Link>
         </div>
@@ -77,18 +77,18 @@ export default async function PublicPostDetailPage({
           <CardContent className="space-y-2 text-sm text-muted-foreground">
             {post.Tour ? (
               <p>
-                Tour: <Link href={`/Tours/${post.Tour.slug}`} className="font-medium text-foreground hover:underline">{post.Tour.title}</Link>
+                Tour: <Link href={`/tours/${post.Tour.slug}`} className="font-medium text-foreground hover:underline">{post.Tour.title}</Link>
               </p>
             ) : null}
             {post.Gig && post.Gig.Tour ? (
               <p>
-                Gig: <Link href={`/Tours/${post.Gig.Tour.slug}`} className="font-medium text-foreground hover:underline">{post.Gig.title}</Link>
+                Gig: <Link href={`/tours/${post.Gig.Tour.slug}`} className="font-medium text-foreground hover:underline">{post.Gig.title}</Link>
                 {post.Gig.locationName ? ` (${post.Gig.locationName})` : ""}
               </p>
             ) : null}
             {post.Tour ? (
               <p>
-                <Link href={`/Tours/${post.Tour.slug}`} className="font-medium text-primary hover:underline">Back to Tour</Link>
+                <Link href={`/tours/${post.Tour.slug}`} className="font-medium text-primary hover:underline">Back to Tour</Link>
               </p>
             ) : null}
             <p>

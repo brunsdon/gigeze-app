@@ -219,14 +219,14 @@ export default async function DashboardPage() {
         </Card>
       ) : (
         <ResumeActivityCard
-          fallbackHref={activeJourney ? `/dashboard/Tours/${activeJourney.id}` : undefined}
+          fallbackHref={activeJourney ? `/dashboard/tours/${activeJourney.id}` : undefined}
           fallbackTitle={activeJourney?.status === "ACTIVE" ? activeJourney.title : activeJourney?.title}
           fallbackStopCount={activeJourney?.Gigs.length}
         />
       )}
 
       <div className={`grid gap-2.5 sm:flex sm:flex-wrap sm:gap-3 transition-opacity duration-300 ${hasActiveJourney ? "lg:opacity-80" : "opacity-100"}`}>
-        <Link href="/dashboard/Tours/new" className={buttonVariants({ className: "h-11 justify-center" })}>
+        <Link href="/dashboard/tours/new" className={buttonVariants({ className: "h-11 justify-center" })}>
           Create Tour
         </Link>
         <Link href="/dashboard/logs/driving" className={buttonVariants({ variant: "outline", className: "h-11 justify-center" })}>
@@ -251,7 +251,7 @@ export default async function DashboardPage() {
           {!activeJourney ? (
             <div className="space-y-3">
               <p className="text-sm text-muted-foreground">No tours loaded yet. Create a tour and your command-centre summary will appear here.</p>
-              <Link href="/dashboard/Tours/new" className={buttonVariants({ variant: "outline", size: "sm" })}>
+              <Link href="/dashboard/tours/new" className={buttonVariants({ variant: "outline", size: "sm" })}>
                 Create Tour
               </Link>
             </div>
@@ -308,7 +308,7 @@ export default async function DashboardPage() {
               {!latestJourney ? (
                 <div className="space-y-3">
                   <p className="text-sm text-muted-foreground">No tours loaded yet. Create a tour to build your timeline.</p>
-                  <Link href="/dashboard/Tours/new" className={buttonVariants({ variant: "outline", size: "sm" })}>
+                  <Link href="/dashboard/tours/new" className={buttonVariants({ variant: "outline", size: "sm" })}>
                     Create Tour
                   </Link>
                 </div>
@@ -317,10 +317,10 @@ export default async function DashboardPage() {
                   <p className="text-base font-medium">{latestJourney.title}</p>
                   <p className="text-muted-foreground">{latestJourney.Gigs.length} Gigs • {latestJourney.status === "ACTIVE" ? "Trip in progress" : "Completed"}</p>
                   <div className="flex flex-wrap gap-2">
-                    <Link href={`/dashboard/Tours/${latestJourney.id}`} className={buttonVariants({ variant: "outline", size: "sm" })}>
+                    <Link href={`/dashboard/tours/${latestJourney.id}`} className={buttonVariants({ variant: "outline", size: "sm" })}>
                       Open Tour
                     </Link>
-                    <Link href="/dashboard/Tours/new" className={buttonVariants({ variant: "ghost", size: "sm" })}>
+                    <Link href="/dashboard/tours/new" className={buttonVariants({ variant: "ghost", size: "sm" })}>
                       Create another Tour
                     </Link>
                   </div>
@@ -329,7 +329,7 @@ export default async function DashboardPage() {
                       {recentJourneys.slice(1).map((Tour) => (
                         <li key={Tour.id} className="flex items-center justify-between gap-2">
                           <span className="text-muted-foreground">{Tour.title}</span>
-                          <Link href={`/dashboard/Tours/${Tour.id}`} className={buttonVariants({ variant: "ghost", size: "xs" })}>
+                          <Link href={`/dashboard/tours/${Tour.id}`} className={buttonVariants({ variant: "ghost", size: "xs" })}>
                             View
                           </Link>
                         </li>

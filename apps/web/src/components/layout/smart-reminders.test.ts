@@ -63,7 +63,7 @@ describe("smart reminders", () => {
       lastWeekDrivingKm: 180,
       lastWeekActivityHours: 5,
       mediaCount: 8,
-      shareJourneyHref: "/Tours/Tour-1/story",
+    shareJourneyHref: "/tours/Tour-1/story",
       showInvitePrompt: true,
     });
 

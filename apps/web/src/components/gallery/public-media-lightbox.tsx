@@ -95,7 +95,7 @@ export function PublicMediaLightbox({ item, onClose }: PublicMediaLightboxProps)
               {item.Tour ? (
                 <div className="mt-2 flex flex-wrap items-center gap-2">
                   <span className="text-muted-foreground">{item.Tour.title}</span>
-                  <Link href={`/Tours/${item.Tour.slug}`} className={buttonVariants({ variant: "outline", size: "sm" })}>
+                  <Link href={`/tours/${item.Tour.slug}`} className={buttonVariants({ variant: "outline", size: "sm" })}>
                     View Tour
                   </Link>
                 </div>

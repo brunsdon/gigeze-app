@@ -90,10 +90,10 @@ export default async function PublicJourneyDetailPage({
         <PublicAttribution source={Tour} className="mt-2" />
         <p className="mt-2 public-page-meta">{formatJourneySummary(insights)}</p>
         <div className="mt-3 public-page-link-row">
-          <Link href={`/Tours/${Tour.slug}/story`} className="public-inline-cta">
+          <Link href={`/tours/${Tour.slug}/story`} className="public-inline-cta">
             Open shareable story view
           </Link>
-          <CopyButton text={`/Tours/${Tour.slug}/story`} label="Share this Tour" />
+          <CopyButton text={`/tours/${Tour.slug}/story`} label="Share this Tour" />
           <Link href={`/gallery?Tour=${Tour.id}`} className="public-inline-cta">
             Browse Tour moments
           </Link>

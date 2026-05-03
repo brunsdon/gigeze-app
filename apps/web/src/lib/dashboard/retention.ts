@@ -129,7 +129,7 @@ export function getShareJourneyPrompt(params: {
   }
 
   return {
-    href: `/Tours/${activeJourney.slug}/story`,
+      href: `/tours/${activeJourney.slug}/story`,
     label: "Share your Tour with others",
   };
 }

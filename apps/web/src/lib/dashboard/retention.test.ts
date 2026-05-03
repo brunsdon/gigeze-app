@@ -62,7 +62,7 @@ describe("dashboard retention helpers", () => {
       mediaItems: [],
     });
 
-    expect(prompt?.href).toBe("/Tours/coast-trip/story");
+    expect(prompt?.href).toBe("/tours/coast-trip/story");
   });
 
   it("prompts invite only when active Tour exists and no members invited", () => {

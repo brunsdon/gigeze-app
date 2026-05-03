@@ -3,8 +3,8 @@ import { parseStoredActivity, toTrackedActivity } from "@/lib/activity/resume-ac
 
 describe("resume activity", () => {
   it("matches meaningful edit and moment routes", () => {
-    expect(toTrackedActivity("/dashboard/Tours/Tour-1/edit")?.label).toBe("Continue editing a Tour");
-    expect(toTrackedActivity("/dashboard/Tours/Tour-1/Gigs/Gig-1/edit")?.label).toBe("Continue editing a Gig");
+    expect(toTrackedActivity("/dashboard/tours/Tour-1/edit")?.label).toBe("Continue editing a Tour");
+    expect(toTrackedActivity("/dashboard/tours/Tour-1/gigs/Gig-1/edit")?.label).toBe("Continue editing a Gig");
     expect(toTrackedActivity("/dashboard/logs/driving/log-1/edit")?.label).toBe("Continue editing a driving log");
     expect(toTrackedActivity("/dashboard/activity/note-1/edit")?.label).toBe("Continue editing activity");
     expect(toTrackedActivity("/dashboard/media")?.label).toBe("Continue adding moments");
@@ -13,7 +13,7 @@ describe("resume activity", () => {
 
   it("returns null for non-meaningful routes", () => {
     expect(toTrackedActivity("/dashboard")).toBeNull();
-    expect(toTrackedActivity("/dashboard/Tours")).toBeNull();
+    expect(toTrackedActivity("/dashboard/tours")).toBeNull();
     expect(toTrackedActivity("/dashboard/logs/driving")).toBeNull();
   });
 

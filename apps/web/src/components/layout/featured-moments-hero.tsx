@@ -151,7 +151,7 @@ export function FeaturedMomentsHero({ slides, className }: FeaturedMomentsHeroPr
 
           <div className="mt-3 flex flex-wrap items-center gap-2.5">
             <Link
-              href={activeSlide?.href || "/Tours"}
+              href={activeSlide?.href || "/tours"}
               className={buttonVariants({ size: "sm", variant: "secondary" })}
             >
               {activeSlide?.ctaLabel || "Explore this moment"}

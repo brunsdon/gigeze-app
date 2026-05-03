@@ -37,7 +37,7 @@ export default async function PublicPostsPage({
         <p className="public-page-intro">Stories, updates, and highlights from real tours.</p>
         <p className="public-page-meta">Shared from the backstage side of GigEze.</p>
         <div className="public-page-link-row">
-          <Link href="/Tours" className="public-inline-cta">Explore public Tours</Link>
+          <Link href="/tours" className="public-inline-cta">Explore public Tours</Link>
           <Link href="/gallery" className="public-inline-cta">Browse gallery highlights</Link>
         </div>
       </div>
@@ -73,7 +73,7 @@ export default async function PublicPostsPage({
                 {post.Tour ? (
                   <p className="text-xs text-muted-foreground">
                     Related Tour:{" "}
-                    <Link href={`/Tours/${post.Tour.slug}`} className="font-medium text-foreground hover:underline">
+                    <Link href={`/tours/${post.Tour.slug}`} className="font-medium text-foreground hover:underline">
                       {post.Tour.title}
                     </Link>
                   </p>

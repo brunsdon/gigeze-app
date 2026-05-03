@@ -46,7 +46,7 @@ async function getAuthenticatedHomeContext() {
 
   return {
     displayName,
-    continueHref: continueJourney ? `/dashboard/Tours/${continueJourney.id}` : "/dashboard/Tours",
+    continueHref: continueJourney ? `/dashboard/tours/${continueJourney.id}` : "/dashboard/tours",
   };
 }
 
@@ -152,7 +152,7 @@ export default async function PublicHomePage() {
               Built for tour managers who need the show details without the spreadsheet scramble.
             </p>
             <div className="mt-8 flex flex-wrap gap-2.5 sm:mt-10 sm:gap-3">
-              <Link href="/Tours" className="inline-flex h-12 items-center justify-center rounded-lg border border-[#FF2E63] bg-[#FF2E63] px-5 text-sm font-black text-white shadow-[0_0_20px_rgba(255,46,99,0.35),0_14px_34px_rgba(255,46,99,0.34),inset_0_0_10px_rgba(255,255,255,0.08)] transition hover:-translate-y-1 hover:scale-[1.02] hover:bg-[#ff4778] hover:brightness-110 hover:shadow-[0_0_28px_rgba(255,46,99,0.48),0_18px_42px_rgba(255,46,99,0.52),inset_0_0_12px_rgba(255,255,255,0.12)] focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#FF2E63]/35">
+              <Link href="/tours" className="inline-flex h-12 items-center justify-center rounded-lg border border-[#FF2E63] bg-[#FF2E63] px-5 text-sm font-black text-white shadow-[0_0_20px_rgba(255,46,99,0.35),0_14px_34px_rgba(255,46,99,0.34),inset_0_0_10px_rgba(255,255,255,0.08)] transition hover:-translate-y-1 hover:scale-[1.02] hover:bg-[#ff4778] hover:brightness-110 hover:shadow-[0_0_28px_rgba(255,46,99,0.48),0_18px_42px_rgba(255,46,99,0.52),inset_0_0_12px_rgba(255,255,255,0.12)] focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#FF2E63]/35">
                 Explore Tours
               </Link>
               <Link href="/login" className="inline-flex h-12 items-center justify-center rounded-lg border border-[#FFB000]/80 bg-[#FFB000] px-5 text-sm font-black text-[#08070A] shadow-[0_0_18px_rgba(255,176,0,0.25),0_14px_34px_rgba(255,176,0,0.22),inset_0_0_10px_rgba(255,255,255,0.16)] transition hover:-translate-y-1 hover:scale-[1.02] hover:bg-[#ffc247] hover:brightness-105 hover:shadow-[0_0_24px_rgba(255,176,0,0.36),0_18px_42px_rgba(255,176,0,0.34),inset_0_0_12px_rgba(255,255,255,0.2)] focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#FFB000]/35">
@@ -233,7 +233,7 @@ export default async function PublicHomePage() {
           <div className="rounded-xl border border-dashed border-white/18 bg-[#0B0B0F]/70 p-8 text-center">
             <p className="text-xl font-black tracking-tight text-[#FFF7EA]">No backstage updates yet</p>
             <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-[#B8AFC0]">Tours, gig notes, media, and stories will appear here once published.</p>
-            <Link href="/Tours" className={`${buttonVariants({ size: "sm" })} mt-5`}>
+            <Link href="/tours" className={`${buttonVariants({ size: "sm" })} mt-5`}>
               Explore Tours
             </Link>
           </div>
@@ -250,7 +250,7 @@ export default async function PublicHomePage() {
                     {featuredJourney.description || "Fresh gig notes, media, and tour logistics from the latest published tour."}
                   </p>
                   <div className="flex flex-wrap items-center gap-3">
-                    <Link href={`/Tours/${featuredJourney.slug}`} className={buttonVariants({ size: "sm" })}>
+                    <Link href={`/tours/${featuredJourney.slug}`} className={buttonVariants({ size: "sm" })}>
                       View Tour
                     </Link>
                     <span className="inline-flex items-center rounded-full border border-border/80 bg-muted/50 px-3 py-1.5 text-xs font-medium text-muted-foreground">
@@ -281,7 +281,7 @@ export default async function PublicHomePage() {
         )}
 
         <div className="flex gap-3 pt-1">
-          <Link href="/Tours" className={buttonVariants({ variant: "outline", size: "sm" })}>
+          <Link href="/tours" className={buttonVariants({ variant: "outline", size: "sm" })}>
             All Tours
           </Link>
           <Link href="/posts" className={buttonVariants({ variant: "ghost", size: "sm" })}>

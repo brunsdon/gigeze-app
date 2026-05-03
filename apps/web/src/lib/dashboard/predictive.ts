@@ -83,7 +83,7 @@ export function buildPassiveActivitySuggestions(
         id: "add-Gig-here",
         title: "Add a Gig here?",
         description: "It looks like there has been a gap since your last Gig update. Add your next place while it is fresh.",
-        href: `/dashboard/Tours/${activeJourney.id}#add-Gig`,
+        href: `/dashboard/tours/${activeJourney.id}#add-Gig`,
         actionLabel: "Add Gig",
       });
     }
@@ -101,7 +101,7 @@ export function buildPassiveActivitySuggestions(
           id: "add-Gig-here",
           title: "Add a Gig here?",
           description: "Your recent Gig jump was fairly large. Consider adding a Gig to keep the route story complete.",
-          href: `/dashboard/Tours/${activeJourney.id}#add-Gig`,
+          href: `/dashboard/tours/${activeJourney.id}#add-Gig`,
           actionLabel: "Add Gig",
         });
       }

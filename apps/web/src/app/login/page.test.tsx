@@ -120,12 +120,12 @@ describe("Login page", () => {
   it("uses provided internal next path", async () => {
     const element = await LoginPage({
       searchParams: Promise.resolve({
-        next: "/Tours",
+        next: "/tours",
       }),
     });
 
     const html = renderToStaticMarkup(element);
 
-    expect(html).toContain('value="/Tours"');
+    expect(html).toContain('value="/tours"');
   });
 });

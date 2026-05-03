@@ -179,7 +179,7 @@ export default async function DashboardJourneyDetailPage({
       .filter((item) => item.stopId && item.publicUrl)
       .map((item) => [item.stopId as string, item.publicUrl as string]),
   );
-  const publicStoryPath = `/Tours/${Tour.slug}/story`;
+  const publicStoryPath = `/tours/${Tour.slug}/story`;
   const canShareJourney = Tour.visibility === "PUBLIC";
 
   return (
@@ -210,7 +210,7 @@ export default async function DashboardJourneyDetailPage({
             <ActionSubmitButton label="Duplicate" pendingLabel="Duplicating..." variant="outline" />
           </form>
           <Link
-            href={`/dashboard/Tours/${Tour.id}/edit`}
+            href={`/dashboard/tours/${Tour.id}/edit`}
             className={buttonVariants({ variant: "outline" })}
           >
             Edit Tour
@@ -218,7 +218,7 @@ export default async function DashboardJourneyDetailPage({
           <Link href={driveLogHref} className={buttonVariants({ variant: "outline" })}>
             Log drive from last Gig
           </Link>
-          <Link href={`/dashboard/Tours/${Tour.id}/story`} className={buttonVariants({ variant: "outline" })}>
+          <Link href={`/dashboard/tours/${Tour.id}/story`} className={buttonVariants({ variant: "outline" })}>
             Story mode
           </Link>
           {canShareJourney ? (
@@ -273,7 +273,7 @@ export default async function DashboardJourneyDetailPage({
           entityType={ExternalMediaEntityType.Tour}
           entityId={Tour.id}
           links={externalMediaLinks}
-          returnTo={`/dashboard/Tours/${Tour.id}`}
+          returnTo={`/dashboard/tours/${Tour.id}`}
           title="Tour moments"
             helperText="Add a Flickr photo or YouTube video to this tour."
           targetOptions={momentTargetOptions}
@@ -360,7 +360,7 @@ export default async function DashboardJourneyDetailPage({
           focusMarkerId={focusStopId}
           showRouteLines
           animateOnLoad
-          addStopBaseHref={`/dashboard/Tours/${Tour.id}`}
+          addStopBaseHref={`/dashboard/tours/${Tour.id}`}
           emptyTitle="No gigs loaded yet"
           emptyDescription="Add gigs to see venue markers and route rendering for this tour."
         />
@@ -552,7 +552,7 @@ export default async function DashboardJourneyDetailPage({
                     <div className="space-y-1">
                       <div className="flex flex-wrap items-center gap-2">
                         <Link
-                          href={`/dashboard/Tours/${Tour.id}?focusStopId=${Gig.id}#Tour-map`}
+                          href={`/dashboard/tours/${Tour.id}?focusStopId=${Gig.id}#Tour-map`}
                           className="font-semibold decoration-border underline-offset-4 transition-colors hover:text-foreground hover:underline"
                         >
                           {Gig.title}
@@ -599,7 +599,7 @@ export default async function DashboardJourneyDetailPage({
 
                     <div className="grid w-full grid-cols-2 gap-1.5 min-[380px]:flex min-[380px]:w-auto min-[380px]:flex-wrap min-[380px]:items-center min-[380px]:gap-2">
                       <Link
-                        href={`/dashboard/Tours/${Tour.id}/Gigs/${Gig.id}/edit`}
+                        href={`/dashboard/tours/${Tour.id}/gigs/${Gig.id}/edit`}
                         className={buttonVariants({ variant: "outline", size: "sm", className: "h-10 w-full justify-center sm:h-8 min-[380px]:w-auto" })}
                       >
                         Edit

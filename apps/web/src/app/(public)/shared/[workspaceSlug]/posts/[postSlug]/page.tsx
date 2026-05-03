@@ -92,7 +92,7 @@ export default async function SharedPostDetailPage({
           {post.Tour ? (
             <p>
               Tour: {" "}
-              <Link href={`/shared/${workspaceSlug}/Tours/${post.Tour.slug}`} className="font-medium text-foreground hover:underline">
+              <Link href={`/shared/${workspaceSlug}/tours/${post.Tour.slug}`} className="font-medium text-foreground hover:underline">
                 {post.Tour.title}
               </Link>
             </p>
@@ -102,7 +102,7 @@ export default async function SharedPostDetailPage({
           {post.Gig && post.Gig.Tour ? (
             <p>
               Gig: {" "}
-              <Link href={`/shared/${workspaceSlug}/Tours/${post.Gig.Tour.slug}`} className="font-medium text-foreground hover:underline">
+              <Link href={`/shared/${workspaceSlug}/tours/${post.Gig.Tour.slug}`} className="font-medium text-foreground hover:underline">
                 {post.Gig.title}
               </Link>
               {post.Gig.locationName ? ` (${post.Gig.locationName})` : ""}

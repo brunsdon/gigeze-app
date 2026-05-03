@@ -82,7 +82,7 @@ describe("activity note actions", () => {
 
     expect(mockRevalidatePath).toHaveBeenCalledWith("/dashboard/activity");
     expect(mockRevalidatePath).toHaveBeenCalledWith("/dashboard");
-    expect(mockRevalidatePath).toHaveBeenCalledWith("/dashboard/Tours/Tour-1");
+    expect(mockRevalidatePath).toHaveBeenCalledWith("/dashboard/tours/Tour-1");
   });
 
   it("redirects with encoded service error on delete", async () => {

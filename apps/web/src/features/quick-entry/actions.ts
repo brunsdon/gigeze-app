@@ -57,8 +57,8 @@ export async function createQuickStopAction(formData: FormData): Promise<QuickEn
     return fail(getErrorMessage(error))
   }
 
-  revalidatePath(`/dashboard/Tours/${parsed.data.journeyId}`)
-  revalidatePath("/dashboard/Tours")
+  revalidatePath(`/dashboard/tours/${parsed.data.journeyId}`)
+  revalidatePath("/dashboard/tours")
   revalidatePath("/dashboard")
 
   return success("Gig-created")

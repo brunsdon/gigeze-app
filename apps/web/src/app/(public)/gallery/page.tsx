@@ -36,7 +36,7 @@ export default async function PublicGalleryPage({
         <p className="public-page-intro">Media captured across tours, gigs, venues, and field activity.</p>
         <p className="public-page-meta">Captured from real tours managed with GigEze.</p>
         <div className="public-page-link-row">
-          <Link href="/Tours" className="public-inline-cta">Open Tours</Link>
+          <Link href="/tours" className="public-inline-cta">Open Tours</Link>
           <Link href="/map" className="public-inline-cta">Explore public map</Link>
         </div>
       </div>

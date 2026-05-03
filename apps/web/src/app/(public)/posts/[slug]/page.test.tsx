@@ -101,6 +101,6 @@ describe("Public post detail page", () => {
     expect(html).toContain("Byron Bay");
     expect(html).toContain("Start tracking your own Tour -&gt;");
     expect(html).toContain("Build tour records");
-    expect(html).toContain('href="/Tours/coastal-run"');
+    expect(html).toContain('href="/tours/coastal-run"');
   });
 });

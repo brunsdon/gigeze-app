@@ -13,7 +13,7 @@ type MobileTabLink = {
 
 const mobileTabLinks: MobileTabLink[] = [
   { href: "/dashboard", label: "Backstage", icon: Home },
-  { href: "/dashboard/Tours", label: "Tours", icon: Route },
+  { href: "/dashboard/tours", label: "Tours", icon: Route },
   { href: "/dashboard/logs/driving", label: "Sync", icon: Truck },
   { href: "/dashboard/media", label: "Media", icon: ImageIcon },
   { href: "/dashboard/settings", label: "Settings", icon: Settings },

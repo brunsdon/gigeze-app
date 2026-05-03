@@ -178,7 +178,7 @@ describe("trip completion route", () => {
     expect(mockGetStartOdometerForVehicle).toHaveBeenCalledWith("workspace-1", "vehicle-1");
     expect(mockRevalidatePath).toHaveBeenCalledWith("/dashboard");
     expect(mockRevalidatePath).toHaveBeenCalledWith("/dashboard/logs/driving");
-    expect(mockRevalidatePath).toHaveBeenCalledWith("/dashboard/Tours");
+    expect(mockRevalidatePath).toHaveBeenCalledWith("/dashboard/tours");
   });
 
   it("reuses an existing draft for repeated completion requests", async () => {

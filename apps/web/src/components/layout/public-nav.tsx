@@ -19,7 +19,7 @@ import { cn } from "@/lib/utils";
 
 const links = [
   { href: "/", label: "Discover" },
-  { href: "/Tours", label: "Tours" },
+  { href: "/tours", label: "Tours" },
   { href: "/map", label: "Map" },
   { href: "/gallery", label: "Gallery" },
   { href: "/posts", label: "Posts" },

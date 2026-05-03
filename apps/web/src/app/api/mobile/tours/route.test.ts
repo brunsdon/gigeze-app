@@ -138,7 +138,7 @@ describe("mobile Tours route", () => {
       expect.objectContaining({ title: "Winter Loop", description: "Snowy roads", status: "PLANNED" }),
       { workspaceId: "workspace-1", userId: "user-1" },
     );
-    expect(mockRevalidatePath).toHaveBeenCalledWith("/dashboard/Tours");
+    expect(mockRevalidatePath).toHaveBeenCalledWith("/dashboard/tours");
   });
 
   it("rejects invalid Tour create input", async () => {

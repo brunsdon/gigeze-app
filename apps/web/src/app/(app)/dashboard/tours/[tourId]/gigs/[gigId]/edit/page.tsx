@@ -32,7 +32,7 @@ export default async function EditStopPage({
           <h1 className="text-3xl font-semibold tracking-tight">Edit Gig</h1>
           <p className="text-muted-foreground">Update location details, dates, and visibility for this Gig.</p>
         </div>
-        <Link href={`/dashboard/Tours/${journeyId}`} className={buttonVariants({ variant: "outline" })}>
+        <Link href={`/dashboard/tours/${journeyId}`} className={buttonVariants({ variant: "outline" })}>
           Back to Tour
         </Link>
       </div>

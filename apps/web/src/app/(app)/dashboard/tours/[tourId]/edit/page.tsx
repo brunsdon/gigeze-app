@@ -32,7 +32,7 @@ export default async function EditJourneyPage({
           <h1 className="text-3xl font-semibold tracking-tight">Edit Tour</h1>
           <p className="text-muted-foreground">Update Tour details, slug, and visibility.</p>
         </div>
-        <Link href={`/dashboard/Tours/${Tour.id}`} className={buttonVariants({ variant: "outline" })}>
+        <Link href={`/dashboard/tours/${Tour.id}`} className={buttonVariants({ variant: "outline" })}>
           Back to Tour
         </Link>
       </div>

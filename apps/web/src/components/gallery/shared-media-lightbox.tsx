@@ -115,7 +115,7 @@ export function SharedMediaLightbox({ item, workspaceSlug, onClose }: SharedMedi
               {item.Tour ? (
                 <div className="mt-2 flex flex-wrap items-center gap-2">
                   <span className="text-muted-foreground">{item.Tour.title}</span>
-                  <Link href={`/shared/${workspaceSlug}/Tours/${item.Tour.slug}`} className={buttonVariants({ variant: "outline", size: "sm" })}>
+                  <Link href={`/shared/${workspaceSlug}/tours/${item.Tour.slug}`} className={buttonVariants({ variant: "outline", size: "sm" })}>
                     View Tour
                   </Link>
                 </div>

@@ -65,7 +65,7 @@ export default async function JourneyStoryModePage({
       .filter((item) => item.stopId)
       .map((item) => [item.stopId as string, item]),
   );
-  const publicStoryHref = Tour.visibility === "PUBLIC" ? `/Tours/${Tour.slug}/story` : null;
+  const publicStoryHref = Tour.visibility === "PUBLIC" ? `/tours/${Tour.slug}/story` : null;
 
   return (
     <section className="mx-auto max-w-4xl space-y-6">
@@ -80,7 +80,7 @@ export default async function JourneyStoryModePage({
               Open public story URL
             </Link>
           ) : null}
-          <Link href={`/dashboard/Tours/${Tour.id}`} className={buttonVariants({ variant: "outline" })}>
+          <Link href={`/dashboard/tours/${Tour.id}`} className={buttonVariants({ variant: "outline" })}>
             Back to Tour
           </Link>
         </div>

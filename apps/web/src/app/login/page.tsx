@@ -247,7 +247,7 @@ export default async function LoginPage({
           <p className="text-center text-sm text-foreground/68">
             First time here?{" "}
             <Link
-              href="/Tours"
+              href="/tours"
               className="font-medium text-primary transition-colors duration-200 hover:text-primary/85"
             >
               Explore public Tours

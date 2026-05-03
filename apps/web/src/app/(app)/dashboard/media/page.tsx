@@ -75,7 +75,7 @@ export default async function MediaPage({
           <h1 className="text-3xl font-semibold tracking-tight">Media</h1>
           <p className="text-muted-foreground">Attach Flickr photos, YouTube videos, and hosted media to tours and gigs.</p>
         </div>
-        <Link href="/dashboard/Tours" className={buttonVariants({ variant: "outline" })}>
+        <Link href="/dashboard/tours" className={buttonVariants({ variant: "outline" })}>
           Choose Tour
         </Link>
       </div>
@@ -151,7 +151,7 @@ export default async function MediaPage({
               title="Create a tour before uploading media"
               description="Media attaches to a whole tour or to one of its gigs, so create the tour first and come back with a Flickr photo or YouTube video."
               ctaLabel="Create Tour"
-              ctaHref="/dashboard/Tours/new"
+              ctaHref="/dashboard/tours/new"
             />
           )}
         </CardContent>
@@ -266,7 +266,7 @@ export default async function MediaPage({
               ctaLabel="Upload Media"
               ctaHref="#add-moment"
               secondaryCtaLabel="Go to Tours"
-              secondaryCtaHref="/dashboard/Tours"
+              secondaryCtaHref="/dashboard/tours"
             />
           ) : (
             <>

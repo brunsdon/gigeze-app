@@ -258,7 +258,7 @@ export async function POST(request: Request) {
 
       revalidatePath("/dashboard");
       revalidatePath("/dashboard/logs/driving");
-      revalidatePath("/dashboard/Tours");
+      revalidatePath("/dashboard/tours");
 
       return NextResponse.json({
         draftLogId: updatedDraft.id,
@@ -366,7 +366,7 @@ export async function POST(request: Request) {
 
     revalidatePath("/dashboard");
     revalidatePath("/dashboard/logs/driving");
-    revalidatePath("/dashboard/Tours");
+    revalidatePath("/dashboard/tours");
 
     return NextResponse.json({
       draftLogId: draft.id,

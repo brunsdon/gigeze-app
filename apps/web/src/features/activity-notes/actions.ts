@@ -54,7 +54,7 @@ export async function createActivityNoteAction(formData: FormData) {
 
   revalidatePath("/dashboard/activity");
   revalidatePath("/dashboard");
-  revalidatePath(`/dashboard/Tours/${parsed.data.journeyId}`);
+  revalidatePath(`/dashboard/tours/${parsed.data.journeyId}`);
   redirect(withFeedback(returnTo, "success", "activity-note-created"));
 }
 
@@ -80,7 +80,7 @@ export async function updateActivityNoteAction(formData: FormData) {
 
   revalidatePath("/dashboard/activity");
   revalidatePath("/dashboard");
-  revalidatePath(`/dashboard/Tours/${parsed.data.journeyId}`);
+  revalidatePath(`/dashboard/tours/${parsed.data.journeyId}`);
   redirect(withFeedback(returnTo, "success", "activity-note-updated"));
 }
 

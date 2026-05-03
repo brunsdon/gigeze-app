@@ -384,7 +384,7 @@ export function TripSessionPanel({
               </Button>
               {tracker.isTracking ? (
                 <>
-                  <Link href="/dashboard/Tours" className={buttonVariants({ variant: "outline", className: "h-12" })}>
+                  <Link href="/dashboard/tours" className={buttonVariants({ variant: "outline", className: "h-12" })}>
                     Add Gig
                   </Link>
                   <Link href="/dashboard/media" className={buttonVariants({ variant: "outline", className: "h-12" })}>
@@ -426,7 +426,7 @@ export function TripSessionPanel({
               {lastSummary.stopSuggestions.map((Gig, index) => {
                 const targetJourneyId = lastSummary.journeyId ?? selectedJourney?.id;
                 const href = targetJourneyId
-                  ? `/dashboard/Tours/${targetJourneyId}?lat=${Gig.latitude.toFixed(6)}&lng=${Gig.longitude.toFixed(6)}#add-Gig`
+                  ? `/dashboard/tours/${targetJourneyId}?lat=${Gig.latitude.toFixed(6)}&lng=${Gig.longitude.toFixed(6)}#add-Gig`
                   : undefined;
 
                 return (

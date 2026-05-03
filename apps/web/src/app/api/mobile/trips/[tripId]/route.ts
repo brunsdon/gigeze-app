@@ -24,7 +24,7 @@ export async function DELETE(
 
     revalidatePath("/dashboard");
     revalidatePath("/dashboard/logs/driving");
-    revalidatePath("/dashboard/Tours");
+    revalidatePath("/dashboard/tours");
 
     return NextResponse.json({
       backendTripId: deletedTrip.id,

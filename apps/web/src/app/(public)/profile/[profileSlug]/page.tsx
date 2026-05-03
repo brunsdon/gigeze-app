@@ -230,7 +230,7 @@ export default async function PublicProfilePage({
           />
         </div>
         <div className="mt-4 flex flex-wrap gap-2">
-          <Link href="/Tours" className={buttonVariants({ size: "sm" })}>Explore all Tours</Link>
+          <Link href="/tours" className={buttonVariants({ size: "sm" })}>Explore all Tours</Link>
           <Link href={`/shared/${workspace.slug}`} className={buttonVariants({ variant: "outline", size: "sm" })}>
             Open shared workspace view
           </Link>
@@ -284,7 +284,7 @@ export default async function PublicProfilePage({
                     <span className="inline-flex items-center gap-1"><MapPin className="size-3.5" />{Tour.Gigs.length} Gigs</span>
                     <span className="inline-flex items-center gap-1"><Route className="size-3.5" />{formatDistanceKm(getJourneyDistanceKm(Tour.Gigs))}</span>
                   </div>
-                  <Link href={`/Tours/${Tour.slug}`} className={buttonVariants({ variant: "outline", size: "sm" })}>
+                  <Link href={`/tours/${Tour.slug}`} className={buttonVariants({ variant: "outline", size: "sm" })}>
                     View Tour
                   </Link>
                 </CardContent>

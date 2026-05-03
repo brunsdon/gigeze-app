@@ -15,7 +15,7 @@ function normalizePathname(pathname: string) {
 export function toTrackedActivity(pathname: string, now = Date.now()): ResumeActivity | null {
   const cleanPath = normalizePathname(pathname);
 
-  if (/^\/dashboard\/Tours\/[^/]+\/edit$/.test(cleanPath)) {
+  if (/^\/dashboard\/tours\/[^/]+\/edit$/.test(cleanPath)) {
     return {
       href: cleanPath,
       label: "Continue editing a Tour",
@@ -23,7 +23,7 @@ export function toTrackedActivity(pathname: string, now = Date.now()): ResumeAct
     };
   }
 
-  if (/^\/dashboard\/Tours\/[^/]+\/Gigs\/[^/]+\/edit$/.test(cleanPath)) {
+  if (/^\/dashboard\/tours\/[^/]+\/gigs\/[^/]+\/edit$/.test(cleanPath)) {
     return {
       href: cleanPath,
       label: "Continue editing a Gig",

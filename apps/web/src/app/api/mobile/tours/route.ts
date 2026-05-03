@@ -29,8 +29,8 @@ function serializeJourney(Tour: {
 
 function revalidateJourneySurfaces() {
   revalidatePath("/dashboard");
-  revalidatePath("/dashboard/Tours");
-  revalidatePath("/Tours");
+  revalidatePath("/dashboard/tours");
+  revalidatePath("/tours");
 }
 
 export async function GET(request: Request) {

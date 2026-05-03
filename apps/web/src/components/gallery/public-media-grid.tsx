@@ -81,7 +81,7 @@ export function PublicMediaGrid({ items }: PublicMediaGridProps) {
                     {item.Tour ? (
                       <p className="line-clamp-1 text-xs text-muted-foreground">
                         Tour:{" "}
-                        <Link href={`/Tours/${item.Tour.slug}`} className="font-medium text-foreground hover:underline">
+                        <Link href={`/tours/${item.Tour.slug}`} className="font-medium text-foreground hover:underline">
                           {item.Tour.title}
                         </Link>
                       </p>

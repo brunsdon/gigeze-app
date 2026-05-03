@@ -70,7 +70,7 @@ export default async function ActivityPage({
               ctaLabel="Capture Activity"
               ctaHref="#add-activity"
               secondaryCtaLabel="Go to Tours"
-              secondaryCtaHref="/dashboard/Tours"
+              secondaryCtaHref="/dashboard/tours"
             />
           ) : (
             <Table>

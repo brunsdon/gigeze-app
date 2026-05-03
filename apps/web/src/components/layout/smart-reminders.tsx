@@ -38,7 +38,7 @@ export function buildSmartReminders(props: SmartRemindersProps): Reminder[] {
       id: "set-active-Tour",
       title: "Pick your current Tour",
       description: "Choose one Tour as active so quick actions and moments stay focused on the trip you are on.",
-      href: "/dashboard/Tours",
+      href: "/dashboard/tours",
       actionLabel: "Choose Tour",
     });
   }
@@ -48,7 +48,7 @@ export function buildSmartReminders(props: SmartRemindersProps): Reminder[] {
       id: "add-first-Gig",
       title: "Add your first Gig",
       description: "You are all set to start this trip, you just need your first Gig.",
-      href: `/dashboard/Tours/${props.activeJourneyId}#add-Gig`,
+      href: `/dashboard/tours/${props.activeJourneyId}#add-Gig`,
       actionLabel: "Add Gig",
     });
   }

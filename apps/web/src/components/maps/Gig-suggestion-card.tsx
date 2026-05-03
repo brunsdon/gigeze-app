@@ -18,10 +18,10 @@ function buildAddStopHref(suggestion: TripStopSuggestion, journeyId?: string): s
   const lng = suggestion.longitude.toFixed(6);
 
   if (journeyId) {
-    return `/dashboard/Tours/${journeyId}?lat=${lat}&lng=${lng}#add-Gig`;
+    return `/dashboard/tours/${journeyId}?lat=${lat}&lng=${lng}#add-Gig`;
   }
 
-  return `/dashboard/Tours`;
+  return `/dashboard/tours`;
 }
 
 function formatDwell(minutes: number): string {

@@ -63,7 +63,7 @@ describe("PublicMediaGrid", () => {
               id: "media-1",
               filePath: "Tours/coast/download.jpg",
               fileName: "download.jpg",
-              publicUrl: "https://project.supabase.co/storage/v1/object/public/media/Tours/coast/download.jpg",
+              publicUrl: "https://project.supabase.co/storage/v1/object/public/media/tours/coast/download.jpg",
               mimeType: "image/jpeg",
               caption: "Sunrise",
               createdAt: new Date("2026-04-07T00:00:00.000Z"),
@@ -85,7 +85,7 @@ describe("PublicMediaGrid", () => {
     });
 
     image = container.querySelector("img");
-    expect(image?.getAttribute("src")).toBe("https://project.supabase.co/storage/v1/object/public/media/Tours/coast/download.jpg");
+    expect(image?.getAttribute("src")).toBe("https://project.supabase.co/storage/v1/object/public/media/tours/coast/download.jpg");
 
     await act(async () => {
       image?.dispatchEvent(new Event("error"));

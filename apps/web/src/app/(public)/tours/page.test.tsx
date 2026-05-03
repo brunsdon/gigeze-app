@@ -47,6 +47,6 @@ describe("Public Tours page", () => {
     expect(html).toContain("Each tour can connect gigs, venues, media, notes, and trip sync.");
     expect(html).toContain("Start your Tour -&gt;");
     expect(html).toContain("Build tour records");
-    expect(html).toContain('href="/Tours/coastal-run"');
+    expect(html).toContain('href="/tours/coastal-run"');
   });
 });

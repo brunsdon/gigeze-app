@@ -7,7 +7,7 @@ function buildMediaItem(overrides: Partial<PublicGalleryMediaItem> = {}): Public
     id: "media-1",
     filePath: "Tours/stage/photo.jpg",
     fileName: "photo.jpg",
-    publicUrl: "https://project.supabase.co/storage/v1/object/public/media/Tours/stage/photo.jpg",
+    publicUrl: "https://project.supabase.co/storage/v1/object/public/media/tours/stage/photo.jpg",
     mimeType: "image/jpeg",
     caption: "Golden hour",
     createdAt: new Date("2026-04-07T00:00:00.000Z"),
@@ -34,7 +34,7 @@ describe("getHomepageHeroSlides", () => {
     const slides = await getHomepageHeroSlides(null, [buildMediaItem()]);
 
     expect(slides[0]?.ctaLabel).toBe("View Tour");
-    expect(slides[0]?.href).toBe("/Tours/coastal-run");
+    expect(slides[0]?.href).toBe("/tours/coastal-run");
     expect(slides[0]?.title).toBe("Coastal Run");
   });
 

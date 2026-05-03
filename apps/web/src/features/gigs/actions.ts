@@ -35,18 +35,18 @@ export async function createStopAction(formData: FormData) {
   });
 
   if (!parsed.success) {
-    redirect(`/dashboard/Tours/${journeyId}?error=Gig-invalid-input`);
+    redirect(`/dashboard/tours/${journeyId}?error=Gig-invalid-input`);
   }
 
   try {
     await createStop(parsed.data, { workspaceId: workspace.id, userId: user.id });
   } catch (error) {
-    redirect(`/dashboard/Tours/${journeyId}?error=${encodeURIComponent(getErrorMessage(error))}`);
+    redirect(`/dashboard/tours/${journeyId}?error=${encodeURIComponent(getErrorMessage(error))}`);
   }
 
-  revalidatePath(`/dashboard/Tours/${journeyId}`);
-  revalidatePath("/dashboard/Tours");
-  redirect(`/dashboard/Tours/${journeyId}?success=Gig-created`);
+  revalidatePath(`/dashboard/tours/${journeyId}`);
+  revalidatePath("/dashboard/tours");
+  redirect(`/dashboard/tours/${journeyId}?success=Gig-created`);
 }
 
 export async function updateStopAction(formData: FormData) {
@@ -56,7 +56,7 @@ export async function updateStopAction(formData: FormData) {
   const journeyId = String(formData.get("journeyId") ?? "").trim();
 
   if (!stopId || !journeyId) {
-    redirect("/dashboard/Tours?error=invalid-Gig-reference");
+    redirect("/dashboard/tours?error=invalid-Gig-reference");
   }
 
   const parsed = stopUpdateSchema.safeParse({
@@ -73,20 +73,20 @@ export async function updateStopAction(formData: FormData) {
   });
 
   if (!parsed.success) {
-    redirect(`/dashboard/Tours/${journeyId}/Gigs/${stopId}/edit?error=Gig-invalid-input`);
+    redirect(`/dashboard/tours/${journeyId}/gigs/${stopId}/edit?error=Gig-invalid-input`);
   }
 
   try {
     await updateStop(stopId, parsed.data, workspace.id);
   } catch (error) {
-    redirect(`/dashboard/Tours/${journeyId}/Gigs/${stopId}/edit?error=${encodeURIComponent(getErrorMessage(error))}`);
+    redirect(`/dashboard/tours/${journeyId}/gigs/${stopId}/edit?error=${encodeURIComponent(getErrorMessage(error))}`);
   }
 
-  revalidatePath(`/dashboard/Tours/${journeyId}`);
-  revalidatePath(`/dashboard/Tours/${journeyId}/Gigs/${stopId}/edit`);
-  revalidatePath("/dashboard/Tours");
-  revalidatePath(`/Tours/${journeyId}`);
-  redirect(`/dashboard/Tours/${journeyId}?success=Gig-updated`);
+  revalidatePath(`/dashboard/tours/${journeyId}`);
+  revalidatePath(`/dashboard/tours/${journeyId}/gigs/${stopId}/edit`);
+  revalidatePath("/dashboard/tours");
+  revalidatePath(`/tours/${journeyId}`);
+  redirect(`/dashboard/tours/${journeyId}?success=Gig-updated`);
 }
 
 export async function deleteStopAction(formData: FormData) {
@@ -96,19 +96,19 @@ export async function deleteStopAction(formData: FormData) {
   const journeyId = String(formData.get("journeyId") ?? "").trim();
 
   if (!stopId || !journeyId) {
-    redirect("/dashboard/Tours?error=invalid-Gig-reference");
+    redirect("/dashboard/tours?error=invalid-Gig-reference");
   }
 
   try {
     await deleteStop(stopId, workspace.id);
   } catch (error) {
-    redirect(`/dashboard/Tours/${journeyId}?error=${encodeURIComponent(getErrorMessage(error))}`);
+    redirect(`/dashboard/tours/${journeyId}?error=${encodeURIComponent(getErrorMessage(error))}`);
   }
 
-  revalidatePath(`/dashboard/Tours/${journeyId}`);
-  revalidatePath("/dashboard/Tours");
-  revalidatePath(`/Tours/${journeyId}`);
-  redirect(`/dashboard/Tours/${journeyId}?success=Gig-deleted`);
+  revalidatePath(`/dashboard/tours/${journeyId}`);
+  revalidatePath("/dashboard/tours");
+  revalidatePath(`/tours/${journeyId}`);
+  redirect(`/dashboard/tours/${journeyId}?success=Gig-deleted`);
 }
 
 export async function moveStopUpAction(formData: FormData) {
@@ -118,18 +118,18 @@ export async function moveStopUpAction(formData: FormData) {
   const journeyId = String(formData.get("journeyId") ?? "").trim();
 
   if (!stopId || !journeyId) {
-    redirect("/dashboard/Tours?error=invalid-Gig-reference");
+    redirect("/dashboard/tours?error=invalid-Gig-reference");
   }
 
   try {
     await moveStopUp(stopId, workspace.id);
   } catch (error) {
-    redirect(`/dashboard/Tours/${journeyId}?error=${encodeURIComponent(getErrorMessage(error))}`);
+    redirect(`/dashboard/tours/${journeyId}?error=${encodeURIComponent(getErrorMessage(error))}`);
   }
 
-  revalidatePath(`/dashboard/Tours/${journeyId}`);
-  revalidatePath(`/Tours/${journeyId}`);
-  redirect(`/dashboard/Tours/${journeyId}?success=Gig-order-updated`);
+  revalidatePath(`/dashboard/tours/${journeyId}`);
+  revalidatePath(`/tours/${journeyId}`);
+  redirect(`/dashboard/tours/${journeyId}?success=Gig-order-updated`);
 }
 
 export async function moveStopDownAction(formData: FormData) {
@@ -139,18 +139,18 @@ export async function moveStopDownAction(formData: FormData) {
   const journeyId = String(formData.get("journeyId") ?? "").trim();
 
   if (!stopId || !journeyId) {
-    redirect("/dashboard/Tours?error=invalid-Gig-reference");
+    redirect("/dashboard/tours?error=invalid-Gig-reference");
   }
 
   try {
     await moveStopDown(stopId, workspace.id);
   } catch (error) {
-    redirect(`/dashboard/Tours/${journeyId}?error=${encodeURIComponent(getErrorMessage(error))}`);
+    redirect(`/dashboard/tours/${journeyId}?error=${encodeURIComponent(getErrorMessage(error))}`);
   }
 
-  revalidatePath(`/dashboard/Tours/${journeyId}`);
-  revalidatePath(`/Tours/${journeyId}`);
-  redirect(`/dashboard/Tours/${journeyId}?success=Gig-order-updated`);
+  revalidatePath(`/dashboard/tours/${journeyId}`);
+  revalidatePath(`/tours/${journeyId}`);
+  redirect(`/dashboard/tours/${journeyId}?success=Gig-order-updated`);
 }
 
 export async function duplicateStopAction(formData: FormData) {
@@ -161,7 +161,7 @@ export async function duplicateStopAction(formData: FormData) {
   const journeyId = String(formData.get("journeyId") ?? "").trim();
 
   if (!stopId || !journeyId) {
-    redirect("/dashboard/Tours?error=invalid-Gig-reference");
+    redirect("/dashboard/tours?error=invalid-Gig-reference");
   }
 
   try {
@@ -170,11 +170,11 @@ export async function duplicateStopAction(formData: FormData) {
       userId: user.id,
     });
   } catch (error) {
-    redirect(`/dashboard/Tours/${journeyId}?error=${encodeURIComponent(getErrorMessage(error))}`);
+    redirect(`/dashboard/tours/${journeyId}?error=${encodeURIComponent(getErrorMessage(error))}`);
   }
 
-  revalidatePath(`/dashboard/Tours/${journeyId}`);
-  revalidatePath("/dashboard/Tours");
-  revalidatePath(`/Tours/${journeyId}`);
-  redirect(`/dashboard/Tours/${journeyId}?success=Gig-duplicated`);
+  revalidatePath(`/dashboard/tours/${journeyId}`);
+  revalidatePath("/dashboard/tours");
+  revalidatePath(`/tours/${journeyId}`);
+  redirect(`/dashboard/tours/${journeyId}?success=Gig-duplicated`);
 }

@@ -43,7 +43,7 @@ export async function createJourneyAction(formData: FormData) {
   });
 
   if (!parsed.success) {
-    redirect("/dashboard/Tours/new?error=Tour-invalid-input");
+    redirect("/dashboard/tours/new?error=Tour-invalid-input");
   }
 
   const Tour = await createJourney(parsed.data, {
@@ -51,9 +51,9 @@ export async function createJourneyAction(formData: FormData) {
     userId: user.id,
   });
 
-  revalidatePath("/dashboard/Tours");
+  revalidatePath("/dashboard/tours");
   revalidatePath("/dashboard");
-  redirect(`/dashboard/Tours/${Tour.id}?success=Tour-created`);
+  redirect(`/dashboard/tours/${Tour.id}?success=Tour-created`);
 }
 
 export async function updateJourneyAction(formData: FormData) {
@@ -61,7 +61,7 @@ export async function updateJourneyAction(formData: FormData) {
 
   const journeyId = String(formData.get("journeyId") ?? "").trim();
   if (!journeyId) {
-    redirect("/dashboard/Tours?error=invalid-Tour-reference");
+    redirect("/dashboard/tours?error=invalid-Tour-reference");
   }
 
   const parsed = journeyUpdateSchema.safeParse({
@@ -76,20 +76,20 @@ export async function updateJourneyAction(formData: FormData) {
   });
 
   if (!parsed.success) {
-    redirect(`/dashboard/Tours/${journeyId}/edit?error=Tour-invalid-input`);
+    redirect(`/dashboard/tours/${journeyId}/edit?error=Tour-invalid-input`);
   }
 
   try {
     await updateJourney(journeyId, parsed.data, { workspaceId: workspace.id });
   } catch (error) {
-    redirect(`/dashboard/Tours/${journeyId}/edit?error=${encodeURIComponent(getErrorMessage(error))}`);
+    redirect(`/dashboard/tours/${journeyId}/edit?error=${encodeURIComponent(getErrorMessage(error))}`);
   }
 
-  revalidatePath(`/dashboard/Tours/${journeyId}`);
-  revalidatePath(`/dashboard/Tours/${journeyId}/edit`);
-  revalidatePath("/dashboard/Tours");
-  revalidatePath("/Tours");
-  redirect(`/dashboard/Tours/${journeyId}?success=Tour-updated`);
+  revalidatePath(`/dashboard/tours/${journeyId}`);
+  revalidatePath(`/dashboard/tours/${journeyId}/edit`);
+  revalidatePath("/dashboard/tours");
+  revalidatePath("/tours");
+  redirect(`/dashboard/tours/${journeyId}?success=Tour-updated`);
 }
 
 export async function deleteJourneyAction(formData: FormData) {
@@ -97,19 +97,19 @@ export async function deleteJourneyAction(formData: FormData) {
 
   const journeyId = String(formData.get("journeyId") ?? "").trim();
   if (!journeyId) {
-    redirect("/dashboard/Tours?error=invalid-Tour-reference");
+    redirect("/dashboard/tours?error=invalid-Tour-reference");
   }
 
   try {
     await deleteJourney(journeyId, workspace.id);
   } catch (error) {
-    redirect(`/dashboard/Tours/${journeyId}?error=${encodeURIComponent(getErrorMessage(error))}`);
+    redirect(`/dashboard/tours/${journeyId}?error=${encodeURIComponent(getErrorMessage(error))}`);
   }
 
-  revalidatePath("/dashboard/Tours");
-  revalidatePath("/Tours");
+  revalidatePath("/dashboard/tours");
+  revalidatePath("/tours");
   revalidatePath("/dashboard");
-  redirect("/dashboard/Tours?success=Tour-deleted");
+  redirect("/dashboard/tours?success=Tour-deleted");
 }
 
 export async function setJourneyActiveStateAction(formData: FormData) {
@@ -118,9 +118,9 @@ export async function setJourneyActiveStateAction(formData: FormData) {
   const journeyId = String(formData.get("journeyId") ?? "").trim();
   const makeActive = String(formData.get("makeActive") ?? "true") === "true";
   const returnTo = getSafeJourneyReturnTo(formData);
-  const successRedirect = returnTo ?? `/dashboard/Tours/${journeyId}`;
+  const successRedirect = returnTo ?? `/dashboard/tours/${journeyId}`;
   if (!journeyId) {
-    redirect("/dashboard/Tours?error=invalid-Tour-reference");
+    redirect("/dashboard/tours?error=invalid-Tour-reference");
   }
 
   try {
@@ -130,8 +130,8 @@ export async function setJourneyActiveStateAction(formData: FormData) {
   }
 
   revalidatePath("/dashboard");
-  revalidatePath("/dashboard/Tours");
-  revalidatePath(`/dashboard/Tours/${journeyId}`);
+  revalidatePath("/dashboard/tours");
+  revalidatePath(`/dashboard/tours/${journeyId}`);
   redirect(`${successRedirect}?success=Tour-status-updated`);
 }
 
@@ -142,7 +142,7 @@ export async function duplicateJourneyAction(formData: FormData) {
   const journeyId = String(formData.get("journeyId") ?? "").trim();
   const returnTo = getSafeJourneyReturnTo(formData);
   if (!journeyId) {
-    redirect("/dashboard/Tours?error=invalid-Tour-reference");
+    redirect("/dashboard/tours?error=invalid-Tour-reference");
   }
 
   let duplicatedId = "";
@@ -154,10 +154,10 @@ export async function duplicateJourneyAction(formData: FormData) {
     duplicatedId = duplicated.id;
 
     revalidatePath("/dashboard");
-    revalidatePath("/dashboard/Tours");
+    revalidatePath("/dashboard/tours");
   } catch (error) {
-    redirect(`${returnTo ?? `/dashboard/Tours/${journeyId}`}?error=${encodeURIComponent(getErrorMessage(error))}`);
+    redirect(`${returnTo ?? `/dashboard/tours/${journeyId}`}?error=${encodeURIComponent(getErrorMessage(error))}`);
   }
 
-  redirect(`${returnTo ?? `/dashboard/Tours/${duplicatedId}`}?success=Tour-duplicated`);
+  redirect(`${returnTo ?? `/dashboard/tours/${duplicatedId}`}?success=Tour-duplicated`);
 }

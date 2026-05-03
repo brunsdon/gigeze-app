@@ -90,14 +90,14 @@ describe("Tour actions", () => {
     });
 
     await expect(updateJourneyAction(formData)).rejects.toMatchObject({
-      url: "/dashboard/Tours/Tour-1?success=Tour-updated",
+      url: "/dashboard/tours/Tour-1?success=Tour-updated",
     });
 
     expect(mockUpdateJourney).toHaveBeenCalledTimes(1);
-    expect(mockRevalidatePath).toHaveBeenCalledWith("/dashboard/Tours/Tour-1");
-    expect(mockRevalidatePath).toHaveBeenCalledWith("/dashboard/Tours/Tour-1/edit");
-    expect(mockRevalidatePath).toHaveBeenCalledWith("/dashboard/Tours");
-    expect(mockRevalidatePath).toHaveBeenCalledWith("/Tours");
+    expect(mockRevalidatePath).toHaveBeenCalledWith("/dashboard/tours/Tour-1");
+    expect(mockRevalidatePath).toHaveBeenCalledWith("/dashboard/tours/Tour-1/edit");
+    expect(mockRevalidatePath).toHaveBeenCalledWith("/dashboard/tours");
+    expect(mockRevalidatePath).toHaveBeenCalledWith("/tours");
   });
 
   it("redirects with encoded error when Tour update fails", async () => {
@@ -115,7 +115,7 @@ describe("Tour actions", () => {
     });
 
     await expect(updateJourneyAction(formData)).rejects.toMatchObject({
-      url: "/dashboard/Tours/Tour-1/edit?error=Tour-slug-conflict",
+      url: "/dashboard/tours/Tour-1/edit?error=Tour-slug-conflict",
     });
 
     expect(mockRevalidatePath).not.toHaveBeenCalled();
@@ -129,7 +129,7 @@ describe("Tour actions", () => {
     });
 
     await expect(deleteJourneyAction(formData)).rejects.toMatchObject({
-      url: "/dashboard/Tours/Tour-1?error=Tour-has-dependent-records",
+      url: "/dashboard/tours/Tour-1?error=Tour-has-dependent-records",
     });
 
     expect(mockDeleteJourney).toHaveBeenCalledWith("Tour-1", "workspace-1");
@@ -143,11 +143,11 @@ describe("Tour actions", () => {
     const formData = buildJourneyFormData({
       journeyId: "Tour-1",
       makeActive: "true",
-      returnTo: "/dashboard/Tours",
+      returnTo: "/dashboard/tours",
     });
 
     await expect(setJourneyActiveStateAction(formData)).rejects.toMatchObject({
-      url: "/dashboard/Tours?success=Tour-status-updated",
+      url: "/dashboard/tours?success=Tour-status-updated",
     });
 
     expect(mockSetJourneyActiveState).toHaveBeenCalledWith("Tour-1", "workspace-1", true);
@@ -158,11 +158,11 @@ describe("Tour actions", () => {
 
     const formData = buildJourneyFormData({
       journeyId: "Tour-1",
-      returnTo: "/dashboard/Tours",
+      returnTo: "/dashboard/tours",
     });
 
     await expect(duplicateJourneyAction(formData)).rejects.toMatchObject({
-      url: "/dashboard/Tours?success=Tour-duplicated",
+      url: "/dashboard/tours?success=Tour-duplicated",
     });
 
     expect(mockDuplicateJourney).toHaveBeenCalledWith("Tour-1", {
@@ -180,7 +180,7 @@ describe("Tour actions", () => {
     });
 
     await expect(setJourneyActiveStateAction(formData)).rejects.toMatchObject({
-      url: "/dashboard/Tours/Tour-1?success=Tour-status-updated",
+      url: "/dashboard/tours/Tour-1?success=Tour-status-updated",
     });
   });
 });

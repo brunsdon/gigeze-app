@@ -22,7 +22,7 @@ export default async function DashboardJourneysPage() {
           <h1 className="text-3xl font-semibold tracking-tight">Tours</h1>
           <p className="text-muted-foreground">Plan routes, manage gigs, track progress, and decide what goes public.</p>
         </div>
-        <Link href="/dashboard/Tours/new" className={buttonVariants()}>
+        <Link href="/dashboard/tours/new" className={buttonVariants()}>
           Start Tour
         </Link>
       </div>
@@ -32,7 +32,7 @@ export default async function DashboardJourneysPage() {
           title="No tours loaded yet"
           description="Create a tour and build the run gig by gig with venues, notes, media, and trip sync."
           ctaLabel="Create Tour"
-          ctaHref="/dashboard/Tours/new"
+          ctaHref="/dashboard/tours/new"
           secondaryCtaLabel="Upload Media"
           secondaryCtaHref="/dashboard/media"
         />
@@ -68,7 +68,7 @@ export default async function DashboardJourneysPage() {
 
                 <div className="flex items-center justify-between">
                   <span className="text-muted-foreground">{Tour.Gigs.length} Gigs</span>
-                  <Link href={`/dashboard/Tours/${Tour.id}`} className="font-medium hover:underline">
+                  <Link href={`/dashboard/tours/${Tour.id}`} className="font-medium hover:underline">
                     Open Tour
                   </Link>
                 </div>
@@ -76,7 +76,7 @@ export default async function DashboardJourneysPage() {
                 <div className="flex flex-wrap gap-2">
                   <form action={setJourneyActiveStateAction}>
                     <input type="hidden" name="journeyId" value={Tour.id} />
-                    <input type="hidden" name="returnTo" value="/dashboard/Tours" />
+                    <input type="hidden" name="returnTo" value="/dashboard/tours" />
                     <input
                       type="hidden"
                       name="makeActive"
@@ -92,7 +92,7 @@ export default async function DashboardJourneysPage() {
 
                   <form action={duplicateJourneyAction}>
                     <input type="hidden" name="journeyId" value={Tour.id} />
-                    <input type="hidden" name="returnTo" value="/dashboard/Tours" />
+                    <input type="hidden" name="returnTo" value="/dashboard/tours" />
                     <ActionSubmitButton label="Duplicate" pendingLabel="Duplicating..." size="sm" variant="outline" />
                   </form>
                 </div>

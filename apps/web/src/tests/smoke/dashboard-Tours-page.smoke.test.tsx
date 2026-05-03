@@ -68,7 +68,7 @@ describe("dashboard Tours page smoke", () => {
     expect(html).toContain("Duplicate");
 
     // Two Tours x two forms each should include returnTo on all tile actions.
-    const returnToMatches = html.match(/name="returnTo" value="\/dashboard\/Tours"/g) ?? [];
+    const returnToMatches = html.match(/name="returnTo" value="\/dashboard\/tours"/g) ?? [];
     expect(returnToMatches).toHaveLength(4);
   });
 });

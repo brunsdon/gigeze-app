@@ -101,7 +101,7 @@ function buildFallbackImage(index = 0): HomepageHeroSlide {
     {
       title: "Featured backstage moments",
       subtitle: "Published tours, media, and gig stories from the GigEze community.",
-      href: "/Tours",
+      href: "/tours",
       ctaLabel: "Explore Tours",
     },
     {
@@ -165,7 +165,7 @@ function buildFeaturedJourneySlide(featuredJourney: FeaturedJourneyLike): Homepa
     imageUrl: featuredJourneyCover,
     title: featuredJourney.title,
     subtitle: "A published tour from the GigEze community.",
-    href: featuredJourney.slug ? `/Tours/${featuredJourney.slug}` : "/Tours",
+    href: featuredJourney.slug ? `/tours/${featuredJourney.slug}` : "/tours",
     ctaLabel: featuredJourney.slug ? "View Tour" : "Explore this moment",
     attribution: `Shared by ${formatPublicAttribution(featuredJourney)}`,
     journeyTitle: featuredJourney.title,
@@ -220,7 +220,7 @@ function buildMediaSlide(
     imageUrl,
     title,
     subtitle,
-    href: hasJourney ? `/Tours/${item.Tour?.slug}` : "/gallery",
+    href: hasJourney ? `/tours/${item.Tour?.slug}` : "/gallery",
     ctaLabel: hasJourney ? "View Tour" : "Explore this moment",
     attribution: `Shared by ${formatPublicAttribution(item)}`,
     journeyTitle: journeyTitle,

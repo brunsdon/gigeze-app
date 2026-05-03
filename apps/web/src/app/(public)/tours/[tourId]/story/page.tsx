@@ -128,7 +128,7 @@ export default async function PublicJourneyStoryPage({
         <p className="text-sm leading-6 text-muted-foreground">{Tour.description || "A shareable memory timeline of this public Tour."}</p>
         <PublicAttribution source={Tour} />
         <div className="flex flex-wrap items-center gap-3">
-          <Link href={`/Tours/${Tour.slug}`} className="text-sm font-medium text-primary hover:underline">
+          <Link href={`/tours/${Tour.slug}`} className="text-sm font-medium text-primary hover:underline">
             Back to public Tour
           </Link>
           <Link href={`/gallery?Tour=${Tour.id}`} className="text-sm font-medium text-primary hover:underline">

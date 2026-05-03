@@ -44,7 +44,7 @@ export default async function PublicJourneysPage() {
             <CardContent>
               <div className="flex items-center justify-between text-sm text-muted-foreground">
                 <span>{Tour.Gigs.length} public Gigs</span>
-                <Link href={`/Tours/${Tour.slug}`} className="font-medium text-primary hover:text-primary/80 hover:underline">
+                <Link href={`/tours/${Tour.slug}`} className="font-medium text-primary hover:text-primary/80 hover:underline">
                   View Tour
                 </Link>
               </div>

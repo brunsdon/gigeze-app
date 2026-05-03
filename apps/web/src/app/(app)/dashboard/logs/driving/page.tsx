@@ -319,7 +319,7 @@ export default async function DrivingLogsPage({
               ctaLabel="Sync first trip"
               ctaHref="#add-driving-log"
               secondaryCtaLabel="Go to Tours"
-              secondaryCtaHref="/dashboard/Tours"
+              secondaryCtaHref="/dashboard/tours"
             />
           ) : (
             <>

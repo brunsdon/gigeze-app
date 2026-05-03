@@ -56,7 +56,7 @@ export default async function SharedJourneyDetailPage({
     );
   }
 
-  const mapData = mapJourneyToMapData(Tour, { journeyHrefBase: `/shared/${workspaceSlug}/Tours` });
+  const mapData = mapJourneyToMapData(Tour, { journeyHrefBase: `/shared/${workspaceSlug}/tours` });
   const timelineStops = sortStopsChronologically(Tour.Gigs);
   const insights = calculateJourneyInsights(timelineStops);
   const mediaPreviewByStopId = new Map(
