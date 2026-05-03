@@ -6,7 +6,18 @@ import { isDatabaseConnectionError } from "@/lib/db/errors";
 const env = getServerEnv();
 const TRANSIENT_DB_MAX_RETRIES = 2;
 const TRANSIENT_DB_BASE_DELAY_MS = 120;
+const DEFAULT_POOL_MAX = process.env.NODE_ENV === "production" ? 1 : 5;
 let statementCounter = 0;
+
+function resolvePoolMax() {
+  const configured = Number(process.env.DATABASE_POOL_MAX);
+
+  if (Number.isInteger(configured) && configured > 0) {
+    return configured;
+  }
+
+  return DEFAULT_POOL_MAX;
+}
 
 function resolvePgConnectionString(databaseUrl: string): string {
   let resolvedUrl = databaseUrl;
@@ -41,6 +52,11 @@ function resolvePgConnectionString(databaseUrl: string): string {
   const normalized = new URL(resolvedUrl);
   if (normalized.hostname === "localhost") {
     normalized.hostname = "127.0.0.1";
+  }
+
+  if (normalized.hostname.endsWith(".pooler.supabase.com") && normalized.port === "5432") {
+    normalized.port = "6543";
+    normalized.searchParams.set("pgbouncer", "true");
   }
 
   return normalized.toString();
@@ -78,6 +94,10 @@ const connectionString = resolvePgConnectionString(env.DATABASE_URL);
 const adapter = new PrismaPg(
   {
     connectionString,
+    max: resolvePoolMax(),
+    idleTimeoutMillis: 5_000,
+    connectionTimeoutMillis: 5_000,
+    allowExitOnIdle: true,
   },
   getAdapterOptions(connectionString),
 );
