@@ -52,7 +52,7 @@ async function getAuthenticatedHomeContext() {
 
 function BackstagePassMockup() {
   return (
-    <div className="relative mx-auto w-full max-w-[25rem] lg:ml-6 lg:translate-x-8 lg:translate-y-7 lg:rotate-[2deg] xl:translate-x-14">
+    <div className="relative mx-auto w-full max-w-[25rem] lg:ml-6 lg:translate-y-7 lg:rotate-[2deg]">
       <div aria-hidden="true" className="absolute -inset-10 rounded-[2.25rem] bg-[radial-gradient(circle_at_16%_4%,rgba(255,46,99,0.58),transparent_44%),radial-gradient(circle_at_84%_80%,rgba(255,176,0,0.36),transparent_42%),radial-gradient(circle_at_58%_54%,rgba(0,229,168,0.16),transparent_34%)] blur-2xl" />
       <div className="gig-pass-float relative overflow-hidden rounded-[1.35rem] border border-[#FFB000]/28 bg-[#151018] p-4 shadow-[0_42px_95px_rgba(0,0,0,0.74),0_0_42px_rgba(255,46,99,0.22)] sm:p-5">
         <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(138deg,rgba(255,255,255,0.13),transparent_28%),radial-gradient(circle_at_16%_0%,rgba(255,46,99,0.34),transparent_34%),radial-gradient(circle_at_100%_100%,rgba(255,176,0,0.23),transparent_42%),linear-gradient(180deg,#211A28_0%,#0B0B0F_100%)]" />
@@ -123,7 +123,7 @@ export default async function PublicHomePage() {
   const [featuredPost] = posts;
 
   return (
-    <div className="space-y-16 pb-8 sm:space-y-20 lg:space-y-24">
+    <div className="space-y-[4.5rem] pb-8 sm:space-y-20 lg:space-y-24">
       {/* Hero */}
       <section className="gig-hero-poster relative overflow-visible rounded-[1.45rem] border border-white/12 bg-[#151018] px-5 py-16 shadow-[0_34px_110px_rgba(0,0,0,0.72)] sm:px-9 sm:py-20 lg:px-12 lg:py-28" aria-labelledby="public-home-hero-title">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden rounded-[1.45rem]">
@@ -131,6 +131,7 @@ export default async function PublicHomePage() {
           <div className="absolute inset-0 bg-[linear-gradient(110deg,rgba(8,7,10,0)_0%,rgba(8,7,10,0.38)_44%,rgba(8,7,10,0.88)_100%)]" />
           <div className="absolute -left-24 top-24 h-40 w-[45rem] -rotate-12 bg-[#FF2E63]/12 blur-3xl" />
           <div className="absolute -right-20 bottom-10 h-40 w-[34rem] rotate-[-8deg] bg-[#FFB000]/14 blur-3xl" />
+          <div className="absolute inset-0 opacity-[0.04] [background-image:repeating-linear-gradient(180deg,rgba(255,247,234,0.72)_0_1px,transparent_1px_5px)]" />
         </div>
         <div className="relative grid gap-8 lg:min-h-[35rem] lg:grid-cols-[minmax(0,1fr)_20rem_minmax(12rem,0.32fr)] lg:items-center">
           <div className="z-10 lg:col-span-2 lg:pr-24">
@@ -151,10 +152,10 @@ export default async function PublicHomePage() {
               Built for tour managers who need the show details without the spreadsheet scramble.
             </p>
             <div className="mt-8 flex flex-wrap gap-2.5 sm:mt-10 sm:gap-3">
-              <Link href="/Tours" className="inline-flex h-12 items-center justify-center rounded-lg border border-[#FF2E63] bg-[#FF2E63] px-5 text-sm font-black text-white shadow-[0_14px_34px_rgba(255,46,99,0.38)] transition hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-[#ff4778] hover:shadow-[0_18px_42px_rgba(255,46,99,0.52)] focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#FF2E63]/35">
+              <Link href="/Tours" className="inline-flex h-12 items-center justify-center rounded-lg border border-[#FF2E63] bg-[#FF2E63] px-5 text-sm font-black text-white shadow-[0_0_20px_rgba(255,46,99,0.35),0_14px_34px_rgba(255,46,99,0.34),inset_0_0_10px_rgba(255,255,255,0.08)] transition hover:-translate-y-1 hover:scale-[1.02] hover:bg-[#ff4778] hover:brightness-110 hover:shadow-[0_0_28px_rgba(255,46,99,0.48),0_18px_42px_rgba(255,46,99,0.52),inset_0_0_12px_rgba(255,255,255,0.12)] focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#FF2E63]/35">
                 Explore Tours
               </Link>
-              <Link href="/login" className="inline-flex h-12 items-center justify-center rounded-lg border border-[#FFB000]/80 bg-[#FFB000] px-5 text-sm font-black text-[#08070A] shadow-[0_14px_34px_rgba(255,176,0,0.24)] transition hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-[#ffc247] hover:shadow-[0_18px_42px_rgba(255,176,0,0.36)] focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#FFB000]/35">
+              <Link href="/login" className="inline-flex h-12 items-center justify-center rounded-lg border border-[#FFB000]/80 bg-[#FFB000] px-5 text-sm font-black text-[#08070A] shadow-[0_0_18px_rgba(255,176,0,0.25),0_14px_34px_rgba(255,176,0,0.22),inset_0_0_10px_rgba(255,255,255,0.16)] transition hover:-translate-y-1 hover:scale-[1.02] hover:bg-[#ffc247] hover:brightness-105 hover:shadow-[0_0_24px_rgba(255,176,0,0.36),0_18px_42px_rgba(255,176,0,0.34),inset_0_0_12px_rgba(255,255,255,0.2)] focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#FFB000]/35">
                 Open Backstage
               </Link>
             </div>
@@ -171,16 +172,16 @@ export default async function PublicHomePage() {
             ) : null}
           </div>
 
-          <div className="z-20 lg:col-start-2 lg:row-start-1">
+          <div className="z-20 lg:col-span-2 lg:col-start-2 lg:row-start-1 lg:-mr-3 lg:justify-self-end">
             <BackstagePassMockup />
           </div>
         </div>
       </section>
 
       {/* Value band */}
-      <section aria-label="What GigEze offers" className="relative">
+      <section aria-label="What GigEze offers" className="relative mt-2">
         <p className="mb-5 text-sm font-black tracking-[0.22em] text-[#FFB000] uppercase">Backstage operations, one setlist</p>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
           <div className="relative overflow-hidden rounded-xl bg-[linear-gradient(145deg,rgba(255,46,99,0.13),#1E1724_42%,#17141D)] px-4 py-5 shadow-[0_18px_46px_rgba(0,0,0,0.42)] ring-1 ring-white/14 sm:translate-y-2">
             <div className="absolute inset-x-0 top-0 h-1 bg-[#FF2E63]" aria-hidden />
             <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-[#FF2E63]/18 text-[#FF2E63]">
@@ -300,7 +301,7 @@ export default async function PublicHomePage() {
           <p className="mx-auto max-w-lg text-sm leading-6 text-[#D8D0DD] sm:text-base sm:leading-7">
             Keep gigs, venues, activity notes, media, and trip records together in one tour-management workspace.
           </p>
-          <Link href="/login?mode=signup" className="inline-flex h-12 items-center justify-center rounded-lg border border-[#FF2E63] bg-[#FF2E63] px-5 text-sm font-black text-white shadow-[0_14px_34px_rgba(255,46,99,0.38)] transition hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-[#ff4778] hover:shadow-[0_18px_42px_rgba(255,46,99,0.52)] focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#FF2E63]/35">
+          <Link href="/login?mode=signup" className="inline-flex h-12 items-center justify-center rounded-lg border border-[#FF2E63] bg-[#FF2E63] px-5 text-sm font-black text-white shadow-[0_0_20px_rgba(255,46,99,0.35),0_14px_34px_rgba(255,46,99,0.34),inset_0_0_10px_rgba(255,255,255,0.08)] transition hover:-translate-y-1 hover:scale-[1.02] hover:bg-[#ff4778] hover:brightness-110 hover:shadow-[0_0_28px_rgba(255,46,99,0.48),0_18px_42px_rgba(255,46,99,0.52),inset_0_0_12px_rgba(255,255,255,0.12)] focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#FF2E63]/35">
             Start a Tour
           </Link>
         </div>
