@@ -183,9 +183,15 @@ export default async function DashboardPage() {
 
   return (
     <div className="space-y-10 md:space-y-12">
-      <div className="space-y-2">
-        <h1 className="text-2xl font-semibold tracking-tight md:text-3xl">Continue your Tour</h1>
-        <p className="text-muted-foreground">Your next travel actions, recent moments, and progress at a glance.</p>
+      <div className="relative overflow-hidden rounded-2xl border border-white/12 bg-[#151018] p-6 shadow-[0_24px_70px_rgba(0,0,0,0.38)]">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_0%,rgba(255,46,99,0.28),transparent_34%),radial-gradient(circle_at_92%_12%,rgba(255,176,0,0.16),transparent_30%),linear-gradient(135deg,#1E1724,#151018_52%,#0B0B0F)]" />
+        <div className="relative space-y-3">
+          <p className="text-[0.7rem] font-black tracking-[0.24em] text-[#FFB000] uppercase">Live tour operations</p>
+          <h1 className="text-3xl font-black tracking-tight md:text-5xl">Backstage Command Centre</h1>
+          <p className="max-w-2xl text-sm leading-6 text-muted-foreground md:text-base md:leading-7">
+            Manage tours, gigs, venues, activity notes, media, field capture, and trip sync from one backstage workspace.
+          </p>
+        </div>
       </div>
 
       <TripSessionPanel
@@ -221,32 +227,32 @@ export default async function DashboardPage() {
 
       <div className={`grid gap-2.5 sm:flex sm:flex-wrap sm:gap-3 transition-opacity duration-300 ${hasActiveJourney ? "lg:opacity-80" : "opacity-100"}`}>
         <Link href="/dashboard/Tours/new" className={buttonVariants({ className: "h-11 justify-center" })}>
-          Start a new Tour
+          Create Tour
         </Link>
         <Link href="/dashboard/logs/driving" className={buttonVariants({ variant: "outline", className: "h-11 justify-center" })}>
-          Add trip log
+          Sync trip log
         </Link>
         <Link href="/dashboard/activity" className={buttonVariants({ variant: "outline", className: "h-11 justify-center" })}>
-          Add activity
+          Capture Activity
         </Link>
         <Link href="/dashboard/media" className={buttonVariants({ variant: "outline", className: "h-11 justify-center" })}>
-          View moments
+          Open Media
         </Link>
         <Link href="/dashboard/media#add-moment" className={buttonVariants({ variant: "outline", className: "h-11 justify-center" })}>
-          Capture moment
+          Upload Media
         </Link>
       </div>
 
       <Card className="bg-card/96">
         <CardHeader>
-          <CardTitle className="text-base">Current Tour snapshot</CardTitle>
+          <CardTitle className="text-base">Current Tour Snapshot</CardTitle>
         </CardHeader>
         <CardContent>
           {!activeJourney ? (
             <div className="space-y-3">
-              <p className="text-sm text-muted-foreground">No Tours yet. Start your first trip and your travel summary will appear here.</p>
+              <p className="text-sm text-muted-foreground">No tours loaded yet. Create a tour and your command-centre summary will appear here.</p>
               <Link href="/dashboard/Tours/new" className={buttonVariants({ variant: "outline", size: "sm" })}>
-                Start your first Tour
+                Create Tour
               </Link>
             </div>
           ) : (
@@ -293,7 +299,7 @@ export default async function DashboardPage() {
 
       <Card className={`${hasActiveJourney ? "bg-card/90 lg:opacity-85" : "bg-card/96"} transition-opacity duration-300`}>
         <CardHeader>
-          <CardTitle className="text-lg">Your Tour</CardTitle>
+          <CardTitle className="text-lg">Tour Operations</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid gap-4 xl:grid-cols-3">
@@ -301,9 +307,9 @@ export default async function DashboardPage() {
               <h3 className="text-base font-medium">Latest Tour</h3>
               {!latestJourney ? (
                 <div className="space-y-3">
-                  <p className="text-sm text-muted-foreground">No Tours yet. Start your first trip to build your timeline.</p>
+                  <p className="text-sm text-muted-foreground">No tours loaded yet. Create a tour to build your timeline.</p>
                   <Link href="/dashboard/Tours/new" className={buttonVariants({ variant: "outline", size: "sm" })}>
-                    Start your first trip
+                    Create Tour
                   </Link>
                 </div>
               ) : (
@@ -315,7 +321,7 @@ export default async function DashboardPage() {
                       Open Tour
                     </Link>
                     <Link href="/dashboard/Tours/new" className={buttonVariants({ variant: "ghost", size: "sm" })}>
-                      Start another Tour
+                      Create another Tour
                     </Link>
                   </div>
                   {recentJourneys.length > 1 ? (
@@ -335,12 +341,12 @@ export default async function DashboardPage() {
             </div>
 
             <div className="space-y-3 rounded-xl border border-border/70 bg-background/60 p-4">
-              <h3 className="text-base font-medium">Recent trips</h3>
+              <h3 className="text-base font-medium">Recent trip sync</h3>
               {!recentDrivingLogs.length ? (
                 <div className="space-y-3">
-                  <p className="text-sm text-muted-foreground">No trips logged yet. Add one and we will show your latest route history here.</p>
+                  <p className="text-sm text-muted-foreground">No field activity synced yet. Add a trip log and your latest route history will appear here.</p>
                   <Link href="/dashboard/logs/driving" className={buttonVariants({ variant: "outline", size: "sm" })}>
-                    Add first trip log
+                    Sync first trip log
                   </Link>
                 </div>
               ) : (
@@ -363,12 +369,12 @@ export default async function DashboardPage() {
             </div>
 
             <div className="space-y-3 rounded-xl border border-border/70 bg-background/60 p-4">
-              <h3 className="text-base font-medium">Recent moments</h3>
+              <h3 className="text-base font-medium">Recent media</h3>
               {!recentMediaItems.length ? (
                 <div className="space-y-3">
-                  <p className="text-sm text-muted-foreground">No moments captured yet. Add photos and clips to bring your Tour story to life.</p>
+                  <p className="text-sm text-muted-foreground">No media ready to publish. Upload photos or clips to bring the tour story to life.</p>
                   <Link href="/dashboard/media" className={buttonVariants({ variant: "outline", size: "sm" })}>
-                    Add first moment
+                    Upload Media
                   </Link>
                 </div>
               ) : (
@@ -398,7 +404,7 @@ export default async function DashboardPage() {
         </Card>
         <Card className={hasActiveJourney ? "bg-card/80" : "bg-card/90"}>
           <CardHeader className="pb-1.5">
-            <CardTitle className="text-xs font-medium text-muted-foreground">Places</CardTitle>
+            <CardTitle className="text-xs font-medium text-muted-foreground">Gigs</CardTitle>
           </CardHeader>
           <CardContent className="text-xl font-semibold md:text-2xl">{totalStops}</CardContent>
         </Card>
@@ -410,13 +416,13 @@ export default async function DashboardPage() {
         </Card>
         <Card className={hasActiveJourney ? "bg-card/80" : "bg-card/90"}>
           <CardHeader className="pb-1.5">
-            <CardTitle className="text-xs font-medium text-muted-foreground">Activity</CardTitle>
+            <CardTitle className="text-xs font-medium text-muted-foreground">Notes</CardTitle>
           </CardHeader>
           <CardContent className="text-xl font-semibold md:text-2xl">{activityNotes.length}</CardContent>
         </Card>
         <Card className={`col-span-2 lg:col-span-1 ${hasActiveJourney ? "bg-card/80" : "bg-card/90"}`}>
           <CardHeader className="pb-1.5">
-            <CardTitle className="text-xs font-medium text-muted-foreground">Moments</CardTitle>
+            <CardTitle className="text-xs font-medium text-muted-foreground">Media</CardTitle>
           </CardHeader>
           <CardContent className="text-xl font-semibold md:text-2xl">{mediaItems.length}</CardContent>
         </Card>

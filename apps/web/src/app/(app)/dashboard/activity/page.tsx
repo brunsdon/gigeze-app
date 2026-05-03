@@ -37,13 +37,14 @@ export default async function ActivityPage({
   return (
     <section className="space-y-6">
       <div>
-        <h1 className="text-3xl font-semibold tracking-tight">Activity on the road</h1>
-        <p className="text-muted-foreground">Capture work, maintenance, admin, and personal notes alongside your travel timeline.</p>
+        <p className="text-[0.7rem] font-black tracking-[0.22em] text-[#00E5A8] uppercase">Field capture</p>
+        <h1 className="text-3xl font-semibold tracking-tight">Activity Notes</h1>
+        <p className="text-muted-foreground">Capture work, maintenance, admin, and field notes alongside each tour and gig.</p>
       </div>
 
       <Card id="add-activity">
         <CardHeader>
-          <CardTitle>Add activity</CardTitle>
+          <CardTitle>Capture Activity</CardTitle>
         </CardHeader>
         <CardContent>
           <ActivityNoteForm
@@ -52,7 +53,7 @@ export default async function ActivityPage({
             defaultJourneyId={defaultJourneyId}
             defaultStopId={defaultStopId}
             defaultDate={currentDateInputValue()}
-            submitLabel="Save activity"
+            submitLabel="Save activity note"
           />
         </CardContent>
       </Card>
@@ -64,9 +65,9 @@ export default async function ActivityPage({
         <CardContent>
           {!activityNotes.length ? (
             <EmptyState
-              title="No activity notes yet"
-              description="Add your first note when you want to remember work, maintenance, admin, or personal details from the road."
-              ctaLabel="Add first activity"
+              title="No backstage notes yet"
+              description="Capture the first field note when work, maintenance, admin, or show details need to stay with the tour."
+              ctaLabel="Capture Activity"
               ctaHref="#add-activity"
               secondaryCtaLabel="Go to Tours"
               secondaryCtaHref="/dashboard/Tours"

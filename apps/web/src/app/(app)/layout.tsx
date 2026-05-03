@@ -37,7 +37,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
   const quickAddVehicleOdometerMap = Object.fromEntries(vehicleOdometerEntries);
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-background/70 md:flex">
+    <div className="min-h-screen overflow-x-hidden bg-[#08070A] bg-[radial-gradient(circle_at_18%_-8%,rgba(255,46,99,0.16),transparent_30%),radial-gradient(circle_at_90%_4%,rgba(255,176,0,0.1),transparent_24%),linear-gradient(180deg,#0B0B0F,#08070A_62%)] md:flex">
       <AppNav />
       <main className="w-full min-w-0 px-4 pt-5 pb-28 sm:px-6 md:py-6 lg:px-8">
         <ActivityTracker />

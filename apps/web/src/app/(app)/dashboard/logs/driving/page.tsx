@@ -213,8 +213,9 @@ export default async function DrivingLogsPage({
     <section className="space-y-6">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h1 className="text-3xl font-semibold tracking-tight">Trip logs</h1>
-          <p className="text-muted-foreground">Track your route distance and keep each drive linked to your Tour timeline.</p>
+          <p className="text-[0.7rem] font-black tracking-[0.22em] text-[#00E5A8] uppercase">Trip sync</p>
+          <h1 className="text-3xl font-semibold tracking-tight">Trip Logs</h1>
+          <p className="text-muted-foreground">Track field movement, route distance, and trip records against each tour timeline.</p>
         </div>
         <Link href="/dashboard/logs/driving/export" className={buttonVariants({ variant: "outline" })}>
           Export CSV
@@ -225,7 +226,7 @@ export default async function DrivingLogsPage({
         <CardHeader>
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
-              <CardTitle>Recent trip entries</CardTitle>
+              <CardTitle>Recent trip sync entries</CardTitle>
               <p className="text-sm text-muted-foreground">
                 Page {currentPage} of {totalPages} • {logsPage.totalCount} total entries
               </p>
@@ -311,11 +312,11 @@ export default async function DrivingLogsPage({
 
           {!logs.length ? (
             <EmptyState
-              title={hasFilters ? "No trip logs match these filters" : "No driving logs yet"}
+              title={hasFilters ? "No trip logs match these filters" : "No field activity synced yet"}
               description={hasFilters
                 ? "Try clearing one or more filters to widen the results."
-                : "No problem. Add your first trip and we will start tracking your distance automatically."}
-              ctaLabel="Add first trip"
+                : "No problem. Sync your first trip log and route distance will start appearing here."}
+              ctaLabel="Sync first trip"
               ctaHref="#add-driving-log"
               secondaryCtaLabel="Go to Tours"
               secondaryCtaHref="/dashboard/Tours"
@@ -405,7 +406,7 @@ export default async function DrivingLogsPage({
 
       <Card id="add-driving-log">
         <CardHeader>
-          <CardTitle>Add trip log</CardTitle>
+          <CardTitle>Sync trip log</CardTitle>
         </CardHeader>
         <CardContent>
           <form action={createDrivingLogAction} className="grid gap-4 md:grid-cols-2">
@@ -468,7 +469,7 @@ export default async function DrivingLogsPage({
               <Label htmlFor="purpose">Purpose</Label>
               <Input id="purpose" name="purpose" placeholder="Client meeting" />
               <p className="text-xs text-muted-foreground">
-                Examples: Client meeting, Travel between job sites, Personal errand, Fuel Gig.
+                Examples: venue load-in, crew transfer, merch run, fuel stop.
               </p>
             </div>
             <div className="space-y-2 md:col-span-2">

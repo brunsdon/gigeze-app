@@ -18,8 +18,9 @@ export default async function DashboardJourneysPage() {
     <section className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-semibold tracking-tight">My Tours</h1>
-          <p className="text-muted-foreground">Plan your next route, track progress, and share each Tour your way.</p>
+          <p className="text-[0.7rem] font-black tracking-[0.22em] text-[#FFB000] uppercase">Tour board</p>
+          <h1 className="text-3xl font-semibold tracking-tight">Tours</h1>
+          <p className="text-muted-foreground">Plan routes, manage gigs, track progress, and decide what goes public.</p>
         </div>
         <Link href="/dashboard/Tours/new" className={buttonVariants()}>
           Start Tour
@@ -28,11 +29,11 @@ export default async function DashboardJourneysPage() {
 
       {!Tours.length ? (
         <EmptyState
-          title="No Tours yet"
-          description="Ready to start your first trip? Create a Tour and we will help you build it Gig by Gig."
-          ctaLabel="Start a Tour"
+          title="No tours loaded yet"
+          description="Create a tour and build the run gig by gig with venues, notes, media, and trip sync."
+          ctaLabel="Create Tour"
           ctaHref="/dashboard/Tours/new"
-          secondaryCtaLabel="Add moment"
+          secondaryCtaLabel="Upload Media"
           secondaryCtaHref="/dashboard/media"
         />
       ) : (

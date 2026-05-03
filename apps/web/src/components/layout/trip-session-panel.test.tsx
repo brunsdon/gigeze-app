@@ -59,8 +59,8 @@ describe("TripSessionPanel", () => {
 
     expect(html).toContain("Start trip");
     expect(html).not.toContain("End trip");
-    expect(html).toContain("Ready to start");
-    expect(html).not.toContain("Trip in progress");
+    expect(html).toContain("READY");
+    expect(html).not.toContain("Trip sync live");
   });
 
   it("shows End trip button and Trip in progress badge when tracking", () => {
@@ -83,7 +83,7 @@ describe("TripSessionPanel", () => {
 
     expect(html).toContain("End trip");
     expect(html).not.toContain("Start trip");
-    expect(html).toContain("Trip in progress");
+    expect(html).toContain("Trip sync live");
     expect(html).toContain("12");
     expect(html).toContain("km");
   });
@@ -149,7 +149,7 @@ describe("TripSessionPanel", () => {
     );
 
     expect(html).toContain("Location tracking is unavailable in this browser");
-    expect(html).toContain("manual Tour and log entry");
+    expect(html).toContain("manual tour and trip entries");
   });
 
   it("shows prompt to create a Tour when no Tours are provided", () => {
@@ -159,7 +159,7 @@ describe("TripSessionPanel", () => {
       <TripSessionPanel workspaceId="ws-1" Tours={[]} />,
     );
 
-    expect(html).toContain("Create a Tour before starting trip tracking");
+    expect(html).toContain("Create a tour before starting trip sync");
     expect(html).toContain("Start trip");
   });
 

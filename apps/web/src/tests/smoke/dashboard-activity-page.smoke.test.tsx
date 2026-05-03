@@ -52,11 +52,11 @@ describe("dashboard activity page", () => {
 
     const html = renderToStaticMarkup(element);
 
-    expect(html).toContain("Activity on the road");
-    expect(html).toContain("Capture work, maintenance, admin, and personal notes alongside your travel timeline.");
-    expect(html).toContain("Add activity");
-    expect(html).toContain("Save activity");
+    expect(html).toContain("Activity Notes");
+    expect(html).toContain("Capture work, maintenance, admin, and field notes alongside each tour and gig.");
+    expect(html).toContain("Capture Activity");
+    expect(html).toContain("Save activity note");
     expect(html).toContain("Recent activity");
-    expect(html).toContain("No activity notes yet");
+    expect(html).toContain("No backstage notes yet");
   });
 });

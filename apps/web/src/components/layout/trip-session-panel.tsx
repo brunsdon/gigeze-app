@@ -238,22 +238,22 @@ export function TripSessionPanel({
 
   return (
     <Card
-      className={`border-border/75 bg-linear-to-br transition-[background-color,box-shadow,border-color,transform] duration-300 ${
+      className={`border-white/12 bg-linear-to-br transition-[background-color,box-shadow,border-color,transform] duration-300 ${
         tracker.isTracking
-          ? "from-primary/12 via-card to-primary/8 ring-1 ring-primary/25 shadow-[0_18px_36px_rgba(36,48,40,0.14)] lg:shadow-[0_22px_44px_rgba(36,48,40,0.18)]"
-          : "from-card via-card to-muted/18 shadow-[0_14px_30px_rgba(36,48,40,0.1)]"
+          ? "from-primary/18 via-[#1E1724] to-[#151018] ring-1 ring-primary/30 shadow-[0_18px_44px_rgba(255,46,99,0.16)] lg:shadow-[0_22px_52px_rgba(255,46,99,0.2)]"
+          : "from-[#1E1724] via-[#1E1724] to-[#151018] shadow-[0_14px_34px_rgba(0,0,0,0.3)]"
       }`}
     >
       <CardHeader className="pb-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="space-y-1.5">
             <CardTitle className="text-2xl font-light tracking-tight text-foreground sm:text-[1.75rem]">
-              {tracker.isTracking ? "Trip in progress" : "Start your Tour"}
+              {tracker.isTracking ? "Trip sync live" : "Start Trip Sync"}
             </CardTitle>
             <p className="text-sm text-muted-foreground/90">
               {tracker.isTracking
-                ? "Track your drive until you arrive at your next Gig."
-                : "Start tracking when you head out."}
+                ? "Track field movement until you arrive at the next gig."
+                : "Start tracking when the crew heads out."}
             </p>
           </div>
           {tracker.isTracking ? (
@@ -262,17 +262,17 @@ export function TripSessionPanel({
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-current opacity-45" />
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-current" />
               </span>
-              Live
+              LIVE
             </Badge>
           ) : (
-            <Badge variant="outline">Ready to start</Badge>
+            <Badge variant="outline">READY</Badge>
           )}
         </div>
       </CardHeader>
       <CardContent className="space-y-5 text-sm">
         {!tracker.geolocationSupported ? (
           <p className="rounded-md border border-border/70 bg-muted/25 px-3 py-2 text-muted-foreground">
-            Location tracking is unavailable in this browser. You can keep using manual Tour and log entry.
+            Location tracking is unavailable in this browser. You can keep using manual tour and trip entries.
           </p>
         ) : null}
 
@@ -296,7 +296,7 @@ export function TripSessionPanel({
           </div>
         ) : null}
 
-        <div className="space-y-3 rounded-lg border border-border/70 bg-background/65 px-3 py-3">
+        <div className="space-y-3 rounded-lg border border-white/12 bg-[#151018]/76 px-3 py-3">
           {tracker.isTracking ? (
             <div className="space-y-1">
               <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Mobile web tracking</p>
@@ -308,7 +308,7 @@ export function TripSessionPanel({
           <div className="flex items-center justify-between gap-3">
             <div className="space-y-1 pr-2">
               <div className="flex flex-wrap items-center gap-2">
-                <p className="text-sm font-medium text-foreground">Keep screen awake during trip</p>
+                <p className="text-sm font-medium text-foreground">Keep screen awake during trip sync</p>
                 <Badge variant="outline" className="text-[10px] uppercase tracking-wide">Mobile assist</Badge>
               </div>
               <p className="text-xs text-muted-foreground">{wakeLockHelperText}</p>
@@ -323,28 +323,28 @@ export function TripSessionPanel({
         </div>
 
         {tracker.isTracking && tracker.resumedAfterBackgroundMs !== null ? (
-          <p className="rounded-md border border-border/70 bg-muted/20 px-3 py-2 text-xs text-muted-foreground">
+          <p className="rounded-md border border-white/12 bg-[#151018]/70 px-3 py-2 text-xs text-muted-foreground">
             Tracking resumed{resumedBackgroundLabel ? ` after ${resumedBackgroundLabel} in the background.` : "."}
           </p>
         ) : null}
 
         {tracker.isTracking && tracker.trackingMayBePaused ? (
-          <p className="rounded-md border border-border/70 bg-muted/20 px-3 py-2 text-xs text-muted-foreground">
+          <p className="rounded-md border border-white/12 bg-[#151018]/70 px-3 py-2 text-xs text-muted-foreground">
             Tracking may have paused while the app was in the background.
           </p>
         ) : null}
 
         {tracker.session ? (
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-            <div className="rounded-lg border border-border/70 bg-background/70 p-3.5">
+            <div className="rounded-lg border border-white/12 bg-[#151018]/72 p-3.5">
               <p className="text-xs text-muted-foreground">Distance</p>
               <p className="mt-1 text-lg font-semibold text-foreground">{formatDistanceKm(tracker.session.totalDistanceKm)}</p>
             </div>
-            <div className="rounded-lg border border-border/70 bg-background/70 p-3.5">
+            <div className="rounded-lg border border-white/12 bg-[#151018]/72 p-3.5">
               <p className="text-xs text-muted-foreground">Duration</p>
               <p className="mt-1 text-lg font-semibold text-foreground">{formatElapsed(liveElapsed)}</p>
             </div>
-            <div className="rounded-lg border border-border/70 bg-background/70 p-3.5">
+            <div className="rounded-lg border border-white/12 bg-[#151018]/72 p-3.5">
               <p className="text-xs text-muted-foreground">Last GPS update</p>
               <p className="mt-1 text-lg font-semibold text-foreground">{formatLastUpdate(tracker.session.lastSampleAt)}</p>
             </div>
@@ -388,25 +388,25 @@ export function TripSessionPanel({
                     Add Gig
                   </Link>
                   <Link href="/dashboard/media" className={buttonVariants({ variant: "outline", className: "h-12" })}>
-                    Capture moment
+                    Upload Media
                   </Link>
                 </>
               ) : null}
             </>
           )}
           {!tracker.isTracking && !Tours.length ? (
-            <p className="text-xs text-muted-foreground">Create a Tour before starting trip tracking.</p>
+            <p className="text-xs text-muted-foreground">Create a tour before starting trip sync.</p>
           ) : null}
         </div>
 
         {lastSummary ? (
-          <div className="space-y-2 rounded-md border border-emerald-300/70 bg-emerald-50/40 px-3 py-2 transition-all duration-300">
-            <p className="font-medium text-emerald-900">Trip recorded</p>
-            <p className="text-xs text-emerald-900/85">
+          <div className="space-y-2 rounded-md border border-[#00E5A8]/35 bg-[#00E5A8]/10 px-3 py-2 transition-all duration-300">
+            <p className="font-medium text-[#00E5A8]">Trip synced</p>
+            <p className="text-xs text-[#D8FFF3]">
               {formatDistanceKm(lastSummary.distanceKm)} • {formatElapsed(lastSummary.elapsedMs)}
             </p>
             {lastSummary.hadTrackingGaps ? (
-              <p className="text-xs text-emerald-900/85">
+              <p className="text-xs text-[#D8FFF3]">
                 Some tracking gaps may have occurred while the app was not active.
               </p>
             ) : null}
@@ -430,7 +430,7 @@ export function TripSessionPanel({
                   : undefined;
 
                 return (
-                  <li key={Gig.id} className="flex flex-wrap items-center justify-between gap-2 rounded-md border border-border/70 bg-muted/18 px-3 py-2">
+                  <li key={Gig.id} className="flex flex-wrap items-center justify-between gap-2 rounded-md border border-white/12 bg-[#151018]/72 px-3 py-2">
                     <div>
                       <p className="font-medium">Gig {index + 1}</p>
                       <p className="text-xs text-muted-foreground">

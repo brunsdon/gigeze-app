@@ -205,7 +205,7 @@
     text-wrap: pretty;
   }
   select {
-    @apply h-11 w-full cursor-pointer rounded-lg border border-input bg-card px-3.5 text-sm text-foreground/88 shadow-[inset_0_1px_0_rgba(255,255,255,0.45)] transition-[border-color,background-color,box-shadow] duration-200 outline-none hover:bg-muted/24 focus-visible:border-primary/45 focus-visible:ring-3 focus-visible:ring-primary/18 disabled:cursor-not-allowed disabled:opacity-55;
+    @apply h-11 w-full cursor-pointer rounded-lg border border-white/12 bg-[#151018] px-3.5 text-sm text-foreground/88 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] transition-[border-color,background-color,box-shadow] duration-200 outline-none hover:bg-muted/35 focus-visible:border-primary/55 focus-visible:ring-3 focus-visible:ring-primary/22 disabled:cursor-not-allowed disabled:opacity-55;
   }
   ::selection {
     background: color-mix(in oklab, var(--primary) 70%, var(--accent));

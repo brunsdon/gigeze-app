@@ -191,7 +191,7 @@ export default async function DashboardJourneyDetailPage({
             {Tour.status === "ACTIVE" ? <Badge>Active</Badge> : null}
             <VisibilityBadge visibility={Tour.visibility} />
           </div>
-          <p className="text-sm text-muted-foreground">Manage Tour details, Gigs, and public visibility.</p>
+          <p className="text-sm text-muted-foreground">Manage tour details, gigs, media, field notes, and public visibility.</p>
           <p className="text-sm text-muted-foreground">{formatJourneySummary(insights)}</p>
         </div>
 
@@ -275,7 +275,7 @@ export default async function DashboardJourneyDetailPage({
           links={externalMediaLinks}
           returnTo={`/dashboard/Tours/${Tour.id}`}
           title="Tour moments"
-          helperText="Add a Flickr photo or YouTube video to this Tour."
+            helperText="Add a Flickr photo or YouTube video to this tour."
           targetOptions={momentTargetOptions}
           defaultTargetValue={`${ExternalMediaEntityType.Tour}:${Tour.id}`}
           targetLabelByValue={momentTargetLabelByValue}
@@ -287,7 +287,7 @@ export default async function DashboardJourneyDetailPage({
           <CardHeader className="flex flex-row flex-wrap items-center justify-between gap-3">
             <div>
               <CardTitle>Activity</CardTitle>
-              <p className="mt-1 text-sm text-muted-foreground">Keep work, maintenance, admin, and personal notes with this Tour.</p>
+              <p className="mt-1 text-sm text-muted-foreground">Keep work, maintenance, admin, and field notes with this tour.</p>
             </div>
             <Link href={`/dashboard/activity?journeyId=${Tour.id}`} className={buttonVariants({ variant: "outline", size: "sm" })}>
               Add activity
@@ -296,9 +296,9 @@ export default async function DashboardJourneyDetailPage({
           <CardContent>
             {!recentActivityEntries.length ? (
               <EmptyState
-                title="No activity yet"
-                description="Add your first activity note when you want to keep work, maintenance, admin, or personal details with this Tour."
-                ctaLabel="Add activity"
+                title="No backstage notes yet"
+                description="Capture the first activity note when work, maintenance, admin, or show details need to stay with this tour."
+                ctaLabel="Capture Activity"
                 ctaHref={`/dashboard/activity?journeyId=${Tour.id}`}
               />
             ) : (
@@ -361,8 +361,8 @@ export default async function DashboardJourneyDetailPage({
           showRouteLines
           animateOnLoad
           addStopBaseHref={`/dashboard/Tours/${Tour.id}`}
-          emptyTitle="No Gigs to map yet"
-          emptyDescription="Add Gigs to see route markers and path rendering for this Tour."
+          emptyTitle="No gigs loaded yet"
+          emptyDescription="Add gigs to see venue markers and route rendering for this tour."
         />
       </SectionReveal>
 
@@ -389,7 +389,7 @@ export default async function DashboardJourneyDetailPage({
             <div className="rounded-xl border border-border/75 bg-muted/20 p-3">
               <p className="text-xs uppercase tracking-wide text-muted-foreground">Longest drive</p>
               <p className="mt-1 font-medium text-foreground">
-                {highlights.longestDrive ? formatDistanceKm(highlights.longestDrive.distanceKm) : "No drive logs yet"}
+                {highlights.longestDrive ? formatDistanceKm(highlights.longestDrive.distanceKm) : "No trip logs yet"}
               </p>
               {highlights.longestDrive ? <p className="mt-1 text-muted-foreground">{highlights.longestDrive.dateLabel} · {highlights.longestDrive.routeLabel}</p> : null}
             </div>
@@ -397,7 +397,7 @@ export default async function DashboardJourneyDetailPage({
             <div className="rounded-xl border border-border/75 bg-muted/20 p-3">
               <p className="text-xs uppercase tracking-wide text-muted-foreground">Most captured Gig</p>
               <p className="mt-1 font-medium text-foreground">
-                {highlights.stopWithMostMedia ? highlights.stopWithMostMedia.stopTitle : "No moment-linked Gigs yet"}
+                {highlights.stopWithMostMedia ? highlights.stopWithMostMedia.stopTitle : "No media-linked gigs yet"}
               </p>
               {highlights.stopWithMostMedia ? <p className="mt-1 text-muted-foreground">{highlights.stopWithMostMedia.mediaCount} captured moments</p> : null}
             </div>
@@ -677,8 +677,8 @@ export default async function DashboardJourneyDetailPage({
             </div>
           ) : (
             <EmptyState
-              title="No Gigs recorded yet"
-              description="This Tour is ready for its first Gig. Add one to start mapping your route."
+              title="No gigs loaded yet"
+              description="This tour is ready for its first gig. Add one to start mapping the run."
               ctaLabel="Add Gig"
               ctaHref="#add-Gig"
               secondaryCtaLabel="Add moment"

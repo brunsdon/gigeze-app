@@ -71,15 +71,16 @@ export default async function MediaPage({
     <section className="space-y-6">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div className="space-y-2">
-          <h1 className="text-3xl font-semibold tracking-tight">Moments</h1>
-          <p className="text-muted-foreground">Add Flickr photos and YouTube videos to your Tours and Gigs.</p>
+          <p className="text-[0.7rem] font-black tracking-[0.22em] text-[#FFB000] uppercase">Media bay</p>
+          <h1 className="text-3xl font-semibold tracking-tight">Media</h1>
+          <p className="text-muted-foreground">Attach Flickr photos, YouTube videos, and hosted media to tours and gigs.</p>
         </div>
         <Link href="/dashboard/Tours" className={buttonVariants({ variant: "outline" })}>
           Choose Tour
         </Link>
       </div>
 
-      <Card id="add-moment" className="border-primary/25 bg-card/98 shadow-sm">
+      <Card id="add-moment" className="border-primary/25 bg-card/98 shadow-[0_18px_44px_rgba(255,46,99,0.1)]">
         <CardHeader className="space-y-3">
           <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/8 px-2.5 py-1 text-primary">
@@ -95,9 +96,9 @@ export default async function MediaPage({
               Paste link
             </span>
           </div>
-          <CardTitle>Add moment</CardTitle>
+          <CardTitle>Upload Media</CardTitle>
           <CardDescription>
-            Paste a Flickr photo or YouTube video, then attach it to a whole Tour or one Gig.
+            Paste a Flickr photo or YouTube video, then attach it to a whole tour or one gig.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -111,7 +112,7 @@ export default async function MediaPage({
                   name="target"
                   defaultValue={preferredMomentTarget}
                   required
-                  className="w-full rounded-md border bg-background px-3 py-2 text-sm"
+                  className="w-full"
                 >
                   {momentTargetOptions.map((option) => (
                     <option key={option.value} value={option.value}>
@@ -147,9 +148,9 @@ export default async function MediaPage({
             </form>
           ) : (
             <EmptyState
-              title="Start a Tour before adding moments"
-              description="Moments attach to a whole Tour or to one of its Gigs, so create your first Tour and come back with a Flickr photo or YouTube video."
-              ctaLabel="Start a Tour"
+              title="Create a tour before uploading media"
+              description="Media attaches to a whole tour or to one of its gigs, so create the tour first and come back with a Flickr photo or YouTube video."
+              ctaLabel="Create Tour"
               ctaHref="/dashboard/Tours/new"
             />
           )}
@@ -252,17 +253,17 @@ export default async function MediaPage({
 
       <Card>
         <CardHeader>
-          <CardTitle>Uploaded moments archive</CardTitle>
+          <CardTitle>Uploaded media archive</CardTitle>
           <CardDescription>
-            These are existing storage-backed moments. New photos and videos are best added with Flickr or YouTube above.
+            These are existing storage-backed media items. New photos and videos are best added with Flickr or YouTube above.
           </CardDescription>
         </CardHeader>
         <CardContent>
           {!mediaItems.length ? (
             <EmptyState
-              title="No uploaded moments yet"
-              description="Hosted Flickr and YouTube moments are the preferred path. Uploaded files will appear here when you use direct file storage."
-              ctaLabel="Add moment"
+              title="No media ready to publish"
+              description="Hosted Flickr and YouTube media is the preferred path. Uploaded files will appear here when you use direct file storage."
+              ctaLabel="Upload Media"
               ctaHref="#add-moment"
               secondaryCtaLabel="Go to Tours"
               secondaryCtaHref="/dashboard/Tours"

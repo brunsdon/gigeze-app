@@ -8,7 +8,7 @@ function Table({ className, ...props }: React.ComponentProps<"table">) {
   return (
     <div
       data-slot="table-container"
-      className="relative w-full overflow-x-auto"
+      className="relative w-full overflow-x-auto rounded-xl border border-white/10 bg-[#151018]/70"
     >
       <table
         data-slot="table"
@@ -23,7 +23,7 @@ function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
   return (
     <thead
       data-slot="table-header"
-      className={cn("bg-muted/20 [&_tr]:border-b", className)}
+      className={cn("bg-[#211A28]/75 [&_tr]:border-b", className)}
       {...props}
     />
   )
@@ -57,7 +57,7 @@ function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
     <tr
       data-slot="table-row"
       className={cn(
-        "border-b border-border/70 transition-colors duration-150 hover:bg-muted/35 has-aria-expanded:bg-muted/45 data-[state=selected]:bg-muted/55",
+        "border-b border-white/10 transition-colors duration-150 hover:bg-[#211A28]/70 has-aria-expanded:bg-[#211A28]/75 data-[state=selected]:bg-muted/55",
         className
       )}
       {...props}
@@ -70,7 +70,7 @@ function TableHead({ className, ...props }: React.ComponentProps<"th">) {
     <th
       data-slot="table-head"
       className={cn(
-        "h-11 px-3 text-left align-middle text-xs font-semibold tracking-wide whitespace-nowrap text-muted-foreground [&:has([role=checkbox])]:pr-0",
+        "h-11 px-3 text-left align-middle text-xs font-black tracking-[0.14em] whitespace-nowrap text-[#FFB000] uppercase [&:has([role=checkbox])]:pr-0",
         className
       )}
       {...props}

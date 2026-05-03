@@ -73,7 +73,7 @@ type QuickAddMenuProps = {
 
 type QuickEntryType = "Gig" | "driving-log" | "activity" | "media"
 
-const touchSelectClassName = "h-11 w-full rounded-lg border border-input bg-card/90 px-3 text-base transition-[background-color,border-color,box-shadow] duration-150 outline-none hover:bg-muted/35 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-55 md:h-9 md:text-sm"
+const touchSelectClassName = "h-11 w-full rounded-lg border border-white/12 bg-[#151018] px-3 text-base transition-[background-color,border-color,box-shadow] duration-150 outline-none hover:bg-muted/35 focus-visible:border-primary/55 focus-visible:ring-3 focus-visible:ring-primary/22 disabled:cursor-not-allowed disabled:opacity-55 md:h-9 md:text-sm"
 const touchSubmitClassName = "h-11 w-full sm:w-auto"
 
 function todayDateValue() {
@@ -128,9 +128,9 @@ export function QuickAddMenu({
 
   const quickActionItems: Array<{ key: QuickEntryType; label: string; icon: React.ComponentType<{ className?: string }> }> = [
     { key: "Gig", label: "Add Gig", icon: MapPin },
-    { key: "driving-log", label: "Add Driving Log", icon: Truck },
-    { key: "activity", label: "Add Activity", icon: Wrench },
-    { key: "media", label: "Add Moment", icon: Camera },
+    { key: "driving-log", label: "Sync Trip Log", icon: Truck },
+    { key: "activity", label: "Capture Activity", icon: Wrench },
+    { key: "media", label: "Upload Media", icon: Camera },
   ]
 
   useEffect(() => {
@@ -216,15 +216,15 @@ export function QuickAddMenu({
             </DropdownMenuItem>
             <DropdownMenuItem onClick={() => openQuickEntry("driving-log")}>
               <Truck className="size-4" />
-              Add Driving Log
+              Sync Trip Log
             </DropdownMenuItem>
             <DropdownMenuItem onClick={() => openQuickEntry("activity")}>
               <Wrench className="size-4" />
-              Add Activity
+              Capture Activity
             </DropdownMenuItem>
             <DropdownMenuItem onClick={() => openQuickEntry("media")}>
               <Camera className="size-4" />
-              Add Moment
+              Upload Media
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
@@ -232,7 +232,7 @@ export function QuickAddMenu({
 
       <div className="fixed right-4 bottom-20 z-40 md:hidden" aria-label="Quick actions">
         <div className="flex flex-col items-end gap-2">
-          <Badge variant={syncState.isOnline ? "outline" : "destructive"} className="rounded-full bg-card/95 px-2.5 py-1 shadow-[0_1px_2px_rgba(43,42,40,0.06)]">
+          <Badge variant={syncState.isOnline ? "outline" : "destructive"} className="rounded-full bg-[#151018]/95 px-2.5 py-1 shadow-[0_10px_24px_rgba(0,0,0,0.24)]">
             {syncState.statusLabel}
           </Badge>
 
@@ -241,7 +241,7 @@ export function QuickAddMenu({
               id="quick-add-mobile-menu"
               role="menu"
               aria-label="Add quick entry"
-              className="flex w-[min(85vw,16rem)] flex-col gap-2 rounded-xl border border-border/80 bg-card/96 p-2 shadow-[0_10px_30px_rgba(43,42,40,0.14)] backdrop-blur"
+              className="flex w-[min(85vw,16rem)] flex-col gap-2 rounded-xl border border-white/12 bg-[#151018]/96 p-2 shadow-[0_18px_44px_rgba(0,0,0,0.36)] backdrop-blur"
             >
               {quickActionItems.map((action) => {
                 const Icon = action.icon
@@ -278,7 +278,7 @@ export function QuickAddMenu({
 
           <Button
             type="button"
-            className="size-14 rounded-full p-0 shadow-[0_8px_18px_rgba(43,42,40,0.16)] active:translate-y-px"
+            className="size-14 rounded-full p-0 shadow-[0_0_24px_rgba(255,46,99,0.32),0_12px_28px_rgba(0,0,0,0.34)] active:translate-y-px"
             aria-label={mobileFabOpen ? "Close quick add menu" : "Open quick add menu"}
             aria-expanded={mobileFabOpen}
             aria-controls="quick-add-mobile-menu"
@@ -823,7 +823,7 @@ function QuickActivityNoteForm({ Tours, initialJourneyId, isOnline, onQueued, on
     <>
       <DialogHeader>
         <DialogTitle>Quick Activity</DialogTitle>
-        <DialogDescription>Log work, maintenance, admin, or a personal note while details are still fresh.</DialogDescription>
+        <DialogDescription>Capture work, maintenance, admin, or a field note while details are still fresh.</DialogDescription>
       </DialogHeader>
 
       <form ref={formRef} onSubmit={onSubmit} className="space-y-4">
@@ -867,7 +867,7 @@ function QuickActivityNoteForm({ Tours, initialJourneyId, isOnline, onQueued, on
         </div>
 
         <Button type="submit" disabled={pending} className={touchSubmitClassName}>
-          {pending ? "Saving..." : "Save activity"}
+          {pending ? "Saving..." : "Save activity note"}
         </Button>
       </form>
     </>
@@ -1079,8 +1079,8 @@ function QuickMediaUploadForm({
   return (
     <>
       <DialogHeader>
-        <DialogTitle>Quick moment upload</DialogTitle>
-        <DialogDescription>Upload a file when a hosted Flickr or YouTube moment is not the right fit.</DialogDescription>
+        <DialogTitle>Quick media upload</DialogTitle>
+        <DialogDescription>Upload a file when hosted Flickr or YouTube media is not the right fit.</DialogDescription>
       </DialogHeader>
 
       <form ref={formRef} onSubmit={onSubmit} className="space-y-4">
@@ -1106,7 +1106,7 @@ function QuickMediaUploadForm({
               }
             }}
           >
-            <p className="font-medium">Drop a moment file here or tap to pick a file</p>
+            <p className="font-medium">Drop a media file here or tap to pick a file</p>
             <p className="mt-1 text-xs text-muted-foreground">Development limits: images only, max {MAX_FILE_SIZE_MB} MB per file.</p>
             {isPreparingFile ? <p className="mt-1 text-xs text-muted-foreground">Optimizing selected image...</p> : null}
             {selectedFileName ? <p className="mt-2 truncate text-xs text-muted-foreground">Selected: {selectedFileName}</p> : null}
@@ -1195,7 +1195,7 @@ function QuickMediaUploadForm({
         </div>
 
         <Button type="submit" disabled={pending || isPreparingFile} className={touchSubmitClassName}>
-          {pending ? "Uploading..." : "Upload moment"}
+          {pending ? "Uploading..." : "Upload Media"}
         </Button>
       </form>
     </>

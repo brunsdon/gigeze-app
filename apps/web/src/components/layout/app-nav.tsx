@@ -1,30 +1,11 @@
 import Link from "next/link";
-import { Car, Home, Image as ImageIcon, LogOut, NotebookPen, Route, Settings, Share2, Truck, Wrench } from "lucide-react";
+import { LogOut } from "lucide-react";
 import { logoutAction } from "@/features/auth/actions";
 import { Logo } from "@/components/branding/logo";
 import { Button } from "@/components/ui/button";
 import { getCurrentUser, getCurrentWorkspaceForUser } from "@/lib/auth/workspace";
 import { MobileBottomNav } from "@/components/layout/mobile-bottom-nav";
-
-const links = [
-  { href: "/dashboard", label: "Tour Home", icon: Home },
-  { href: "/dashboard/Tours", label: "My Tours", icon: Route },
-  { href: "/dashboard/logs/driving", label: "Trip Logs", icon: Truck },
-  { href: "/dashboard/vehicles", label: "Vehicles", icon: Car },
-  { href: "/dashboard/activity", label: "Activity", icon: Wrench },
-  { href: "/dashboard/media", label: "Moments", icon: ImageIcon },
-  { href: "/dashboard/posts", label: "Stories", icon: NotebookPen },
-  { href: "/dashboard/sharing", label: "Tour Circle", icon: Share2 },
-  { href: "/dashboard/settings", label: "Settings", icon: Settings },
-];
-
-const mobileQuickLinks = [
-  { href: "/dashboard", label: "Home", icon: Home },
-  { href: "/dashboard/Tours", label: "Tours", icon: Route },
-  { href: "/dashboard/logs/driving", label: "Trips", icon: Truck },
-  { href: "/dashboard/vehicles", label: "Vehicles", icon: Car },
-  { href: "/dashboard/media", label: "Moments", icon: ImageIcon },
-];
+import { AppNavLinks } from "@/components/layout/app-nav-links";
 
 export async function AppNav() {
   const user = await getCurrentUser();
@@ -32,7 +13,8 @@ export async function AppNav() {
 
   return (
     <>
-      <aside className="w-full border-b border-border/80 bg-card/92 px-4 py-3 shadow-[0_1px_2px_rgba(43,42,40,0.05)] md:w-64 md:border-r md:border-b-0 md:px-3 md:py-6">
+      <aside className="relative w-full border-b border-white/10 bg-[#100C13]/96 px-4 py-3 shadow-[0_18px_54px_rgba(0,0,0,0.32)] backdrop-blur md:sticky md:top-0 md:h-screen md:w-68 md:border-r md:border-b-0 md:px-3 md:py-6">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 hidden w-px bg-gradient-to-b from-transparent via-[#FF2E63]/45 to-transparent md:block" />
         <div className="md:hidden">
           <Link
             href="/"
@@ -45,8 +27,8 @@ export async function AppNav() {
 
           <div className="mb-3 flex items-center justify-between gap-3">
             <div className="min-w-0">
-              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Workspace</p>
-              {workspace ? <p className="truncate text-sm font-medium">{workspace.name}</p> : null}
+              <p className="text-xs font-black uppercase tracking-[0.22em] text-[#FFB000]">Backstage pass</p>
+              {workspace ? <p className="truncate text-sm font-semibold text-foreground">{workspace.name}</p> : null}
             </div>
             <form action={logoutAction}>
               <Button type="submit" variant="outline" className="h-10 px-3">
@@ -56,22 +38,7 @@ export async function AppNav() {
             </form>
           </div>
 
-          <nav aria-label="Quick dashboard routes" className="grid grid-cols-2 gap-2">
-            {mobileQuickLinks.map((link) => {
-              const Icon = link.icon;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  aria-label={link.label}
-                  className="inline-flex min-h-11 items-center rounded-xl border border-border/80 px-3 text-sm font-medium text-foreground/90 transition-[background-color,color,transform,box-shadow] duration-150 hover:bg-muted/65 hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/45 active:translate-y-px"
-                >
-                  <Icon className="mr-2 h-4 w-4" />
-                  {link.label}
-                </Link>
-              );
-            })}
-          </nav>
+          <AppNavLinks mobile />
         </div>
 
         <div className="hidden md:block">
@@ -84,27 +51,13 @@ export async function AppNav() {
             <span className="text-sm font-semibold tracking-tight">GigEze</span>
           </Link>
 
-          <div className="mb-4 px-2">
-            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Workspace</p>
-            {workspace ? <p className="mt-0.5 truncate text-sm font-medium">{workspace.name}</p> : null}
+          <div className="mb-5 rounded-xl border border-white/10 bg-[#1E1724]/70 px-3 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+            <p className="text-[0.68rem] font-black uppercase tracking-[0.24em] text-[#FFB000]">Backstage pass</p>
+            {workspace ? <p className="mt-1 truncate text-sm font-semibold text-foreground">{workspace.name}</p> : null}
+            <p className="mt-1 text-xs text-muted-foreground">Tour operations command centre</p>
           </div>
 
-          <nav aria-label="Dashboard routes" className="grid gap-1">
-            {links.map((link) => {
-              const Icon = link.icon;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  aria-label={link.label}
-                  className="inline-flex items-center rounded-xl px-3 py-2.5 text-sm text-muted-foreground transition-[background-color,color,transform] duration-150 hover:bg-muted/65 hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/45 active:translate-y-px"
-                >
-                  <Icon className="mr-2 h-4 w-4" />
-                  {link.label}
-                </Link>
-              );
-            })}
-          </nav>
+          <AppNavLinks />
 
           <form action={logoutAction} className="mt-6 px-2">
             <Button type="submit" variant="outline" className="w-full justify-start">
