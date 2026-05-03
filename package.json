@@ -40,6 +40,9 @@
     "android": "npm run mobile:android",
     "ios": "npm run mobile:ios"
   },
+  "overrides": {
+    "es-abstract": "1.24.1"
+  },
   "engines": {
     "node": ">=20"
   }
