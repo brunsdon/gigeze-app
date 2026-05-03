@@ -120,7 +120,7 @@ The `/docs` folder turns the repository into a faster review artifact:
 
 ## Screenshots
 
-Static screenshots are planned and should live in [docs/images](docs/images). Until then, use the live demo path above for visual review.
+Static screenshots are planned to support quick GitHub scanning. Until then, use the live demo path above for visual review.
 
 Planned coverage:
 
@@ -138,20 +138,17 @@ The detailed Mermaid diagrams now live in:
 - [Data model](docs/data-model.md)
 - [Mobile sync](docs/mobile-sync.md)
 
-### Review Path Diagram
+### Simple Architecture Diagram
 
 ```mermaid
 flowchart LR
-  A["Reviewer starts at README"] --> B["Live demo<br/>gigeze.online"]
-  A --> C["apps/web/src/app"]
-  A --> D["apps/mobile/src/screens"]
-  A --> E["packages/shared/src"]
-  A --> F["apps/web/prisma/schema.prisma"]
-
-  C --> G["Public pages<br/>Dashboard<br/>API routes"]
-  D --> H["Mobile capture<br/>History<br/>Diagnostics"]
-  E --> I["Shared contracts<br/>Schemas<br/>DTOs"]
-  F --> J["Relational model<br/>Workspace / Tour / Gig / Activity"]
+  W["Web app"] --> API["API routes"]
+  M["Mobile app"] --> API
+  W --> S["Shared package"]
+  M --> S
+  API --> P["Prisma"]
+  P --> DB["PostgreSQL"]
+  API --> SB["Supabase"]
 ```
 
 ## Why This Exists

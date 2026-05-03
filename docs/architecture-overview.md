@@ -6,22 +6,22 @@ GigEze is an npm-workspaces monorepo that keeps the reviewer path compact: the w
 flowchart TD
   repo["GigEze monorepo"]
 
-  repo --> web["apps/web<br/>Next.js App Router"]
-  repo --> mobile["apps/mobile<br/>Expo React Native"]
-  repo --> shared["packages/shared<br/>TypeScript contracts"]
-  repo --> scripts["scripts<br/>developer helpers"]
+  repo --> web["apps web Next.js App Router"]
+  repo --> mobile["apps mobile Expo React Native"]
+  repo --> shared["packages shared TypeScript contracts"]
+  repo --> scripts["scripts developer helpers"]
 
-  web --> appRoutes["Public pages<br/>Dashboard pages<br/>API routes"]
-  web --> prisma["Prisma schema<br/>Generated client"]
+  web --> appRoutes["Public pages Dashboard pages API routes"]
+  web --> prisma["Prisma schema and generated client"]
   prisma --> postgres[("PostgreSQL")]
-  web --> supabase["Supabase Auth<br/>Supabase Storage"]
+  web --> supabase["Supabase Auth and Storage"]
 
   mobile --> auth["Supabase sign-in"]
-  mobile --> trips["Local trip capture<br/>Completed-trip sync"]
+  mobile --> trips["Local trip capture and sync"]
   mobile --> storage[("AsyncStorage")]
   mobile --> api["Web API endpoints"]
 
-  shared --> contracts["Trip schemas<br/>Domain types<br/>Utilities"]
+  shared --> contracts["Trip schemas Domain types Utilities"]
 
   appRoutes --> shared
   trips --> shared
