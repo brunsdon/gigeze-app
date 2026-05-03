@@ -138,17 +138,20 @@ The detailed Mermaid diagrams now live in:
 - [Data model](docs/data-model.md)
 - [Mobile sync](docs/mobile-sync.md)
 
-### Simple Architecture Diagram
+### Review Path Diagram
 
 ```mermaid
 flowchart LR
-  W["Web app"] --> API["API routes"]
-  M["Mobile app"] --> API
-  W --> S["Shared package"]
-  M --> S
-  API --> P["Prisma"]
-  P --> DB["PostgreSQL"]
-  API --> SB["Supabase"]
+  A["Reviewer starts at README"] --> B["Live demo: gigeze.online"]
+  A --> C["apps/web/src/app"]
+  A --> D["apps/mobile/src/screens"]
+  A --> E["packages/shared/src"]
+  A --> F["apps/web/prisma/schema.prisma"]
+
+  C --> G["Public pages, dashboard, API routes"]
+  D --> H["Mobile capture, history, diagnostics"]
+  E --> I["Shared contracts, schemas, DTOs"]
+  F --> J["Relational model: Workspace, Tour, Gig, Activity"]
 ```
 
 ## Why This Exists
