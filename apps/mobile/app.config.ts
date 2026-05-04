@@ -1,8 +1,10 @@
 import type { ExpoConfig } from "expo/config";
 
-const productionWebApiBaseUrl = "https://gigeze.example";
+const productionWebApiBaseUrl = "https://www.gigeze.online";
 const webApiBaseUrl = process.env.EXPO_PUBLIC_WEB_API_URL ?? productionWebApiBaseUrl;
 const googleMapsApiKey = process.env.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY ?? "";
+const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
+const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY ?? process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "";
 
 function warnIfInvalidWebApiBaseUrl(value: string) {
   try {
@@ -64,8 +66,8 @@ const config: ExpoConfig = {
   ],
   extra: {
     appEnvironment: process.env.EXPO_PUBLIC_APP_ENV ?? "development",
-    supabaseUrl: process.env.EXPO_PUBLIC_SUPABASE_URL ?? "",
-    supabaseAnonKey: process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY ?? "",
+    supabaseUrl,
+    supabaseAnonKey,
     webApiBaseUrl,
     googleMapsApiKeyConfigured: Boolean(googleMapsApiKey),
   }

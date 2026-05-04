@@ -1,5 +1,6 @@
 import type { PropsWithChildren } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { colors, radii, shadows } from "../theme";
 
 type ScreenSectionProps = PropsWithChildren<{
   title: string;
@@ -18,20 +19,21 @@ export function ScreenSection({ title, caption, children }: ScreenSectionProps) 
 
 const styles = StyleSheet.create({
   section: {
-    backgroundColor: "#ffffff",
-    borderColor: "#dce2de",
-    borderRadius: 8,
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderRadius: radii.lg,
     borderWidth: 1,
     gap: 10,
-    padding: 16
+    padding: 16,
+    ...shadows.surface,
   },
   title: {
-    color: "#17201c",
+    color: colors.text,
     fontSize: 20,
-    fontWeight: "800"
+    fontWeight: "900"
   },
   caption: {
-    color: "#596960",
+    color: colors.textSoft,
     fontSize: 15,
     lineHeight: 22
   }

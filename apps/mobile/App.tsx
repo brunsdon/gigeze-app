@@ -11,7 +11,7 @@ export default function App() {
     <SafeAreaProvider>
       <StartupErrorBoundary>
         <AppProviders>
-          <StatusBar style="dark" />
+          <StatusBar style="light" />
           <AppNavigator />
         </AppProviders>
       </StartupErrorBoundary>

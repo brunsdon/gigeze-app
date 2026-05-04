@@ -15,6 +15,7 @@ import { TripHistoryScreen } from "../screens/TripHistoryScreen";
 import { VehicleFormScreen } from "../screens/VehicleFormScreen";
 import { VehiclesScreen } from "../screens/VehiclesScreen";
 import type { MobileJourneyOption, MobileVehicleOption } from "../features/trips/trip-setup";
+import { colors, radii } from "../theme";
 
 const mainRoutes: { name: MainRouteName; label: string }[] = [
   { name: "home", label: "Home" },
@@ -141,15 +142,15 @@ export function AppNavigator() {
 
 const styles = StyleSheet.create({
   safeArea: {
-    backgroundColor: "#f7f8f4",
+    backgroundColor: colors.background,
     flex: 1,
   },
   main: {
     flex: 1,
   },
   tabBar: {
-    backgroundColor: "#ffffff",
-    borderTopColor: "#dce2de",
+    backgroundColor: colors.surfaceSubtle,
+    borderTopColor: colors.border,
     borderTopWidth: 1,
     flexDirection: "row",
     gap: 6,
@@ -159,22 +160,22 @@ const styles = StyleSheet.create({
   },
   tab: {
     alignItems: "center",
-    borderRadius: 8,
+    borderRadius: radii.md,
     flex: 1,
     minHeight: 44,
     justifyContent: "center",
     paddingHorizontal: 8,
   },
   activeTab: {
-    backgroundColor: "#e1eee6",
+    backgroundColor: colors.primary,
   },
   tabLabel: {
-    color: "#596960",
+    color: colors.textMuted,
     fontSize: 12,
     fontWeight: "800",
     textAlign: "center",
   },
   activeTabLabel: {
-    color: "#1d5c49",
+    color: colors.white,
   },
 });

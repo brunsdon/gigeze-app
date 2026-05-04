@@ -1,4 +1,5 @@
 import { Pressable, StyleSheet, Text } from "react-native";
+import { colors, radii, shadows } from "../theme";
 
 type PrimaryActionButtonProps = {
   label: string;
@@ -23,7 +24,7 @@ export function PrimaryActionButton({ label, onPress, variant = "primary", disab
 const styles = StyleSheet.create({
   button: {
     alignItems: "center",
-    borderRadius: 8,
+    borderRadius: radii.md,
     borderWidth: 1,
     justifyContent: "center",
     minHeight: 48,
@@ -31,24 +32,25 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
   },
   primary: {
-    backgroundColor: "#1d5c49",
-    borderColor: "#1d5c49",
+    backgroundColor: colors.primary,
+    borderColor: colors.primary,
+    ...shadows.glowPrimary,
   },
   secondary: {
-    backgroundColor: "#ffffff",
-    borderColor: "#b7c7c0",
+    backgroundColor: colors.surfaceAlt,
+    borderColor: colors.border,
   },
   danger: {
-    backgroundColor: "#9f3a2f",
-    borderColor: "#9f3a2f",
+    backgroundColor: colors.danger,
+    borderColor: colors.danger,
   },
   label: {
-    color: "#ffffff",
+    color: colors.white,
     fontSize: 16,
-    fontWeight: "800",
+    fontWeight: "900",
   },
   secondaryLabel: {
-    color: "#1d5c49",
+    color: colors.accent,
   },
   pressed: {
     opacity: 0.82,

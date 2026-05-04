@@ -4,6 +4,7 @@ import { PrimaryActionButton } from "../components/PrimaryActionButton";
 import { ScreenContainer } from "../components/ScreenContainer";
 import { ScreenSection } from "../components/ScreenSection";
 import { useAuth } from "../features/auth/auth-context";
+import { colors, radii } from "../theme";
 
 type SignInScreenProps = {
   isLoading?: boolean;
@@ -56,6 +57,7 @@ export function SignInScreen({ isLoading = false }: SignInScreenProps) {
               keyboardType="email-address"
               onChangeText={setEmail}
               placeholder="Email"
+              placeholderTextColor={colors.textMuted}
               style={styles.input}
               textContentType="emailAddress"
               value={email}
@@ -65,6 +67,7 @@ export function SignInScreen({ isLoading = false }: SignInScreenProps) {
               autoComplete="password"
               onChangeText={setPassword}
               placeholder="Password"
+              placeholderTextColor={colors.textMuted}
               secureTextEntry
               style={styles.input}
               textContentType="password"
@@ -88,22 +91,22 @@ const styles = StyleSheet.create({
     paddingVertical: 18,
   },
   body: {
-    color: "#32453d",
+    color: colors.textSoft,
     fontSize: 16,
     lineHeight: 23,
   },
   error: {
-    color: "#9f3a2f",
+    color: colors.danger,
     fontSize: 15,
     fontWeight: "700",
     lineHeight: 21,
   },
   input: {
-    backgroundColor: "#ffffff",
-    borderColor: "#b7c7c0",
-    borderRadius: 8,
+    backgroundColor: colors.surfaceSubtle,
+    borderColor: colors.border,
+    borderRadius: radii.md,
     borderWidth: 1,
-    color: "#17201c",
+    color: colors.text,
     fontSize: 16,
     minHeight: 48,
     paddingHorizontal: 14,

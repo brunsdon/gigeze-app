@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import { formatSpeedKmh } from "../features/trips/trip-speed";
+import { colors, radii, shadows } from "../theme";
 
 type RetroTripDashboardProps = {
   speedKmh?: number;
@@ -56,24 +57,18 @@ function DashboardMetric({ label, value, active }: { label: string; value: strin
   );
 }
 
-const amber = "#f2a12b";
-const idleAmber = "#7c5a2d";
-
 const styles = StyleSheet.create({
   panel: {
-    backgroundColor: "#141816",
-    borderColor: "#313931",
-    borderRadius: 8,
+    backgroundColor: colors.surfaceSubtle,
+    borderColor: colors.borderStrong,
+    borderRadius: radii.lg,
     borderWidth: 1,
     paddingHorizontal: 16,
     paddingVertical: 14,
-    shadowColor: "#000000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.35,
-    shadowRadius: 5,
+    ...shadows.surface,
   },
   panelActive: {
-    borderColor: "#5c4728",
+    borderColor: colors.accent,
   },
   panelIdle: {
     opacity: 0.9,
@@ -84,7 +79,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   label: {
-    color: "#9aa39c",
+    color: colors.textMuted,
     fontSize: 12,
     fontWeight: "800",
   },
@@ -94,14 +89,14 @@ const styles = StyleSheet.create({
     width: 8,
   },
   indicatorActive: {
-    backgroundColor: "#76c785",
-    shadowColor: "#76c785",
+    backgroundColor: colors.success,
+    shadowColor: colors.success,
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.5,
     shadowRadius: 4,
   },
   indicatorIdle: {
-    backgroundColor: "#545d56",
+    backgroundColor: colors.textMuted,
   },
   readoutRow: {
     alignItems: "flex-end",
@@ -119,14 +114,14 @@ const styles = StyleSheet.create({
     textAlign: "right",
   },
   digitsActive: {
-    color: amber,
-    textShadowColor: "rgba(242, 161, 43, 0.45)",
+    color: colors.accent,
+    textShadowColor: "rgba(255, 176, 0, 0.5)",
     textShadowOffset: { width: 0, height: 0 },
     textShadowRadius: 8,
   },
   digitsIdle: {
-    color: idleAmber,
-    textShadowColor: "rgba(124, 90, 45, 0.22)",
+    color: colors.primary,
+    textShadowColor: "rgba(255, 46, 99, 0.25)",
     textShadowOffset: { width: 0, height: 0 },
     textShadowRadius: 4,
   },
@@ -136,13 +131,13 @@ const styles = StyleSheet.create({
     lineHeight: 31,
   },
   unitActive: {
-    color: "#ffd28a",
+    color: colors.text,
   },
   unitIdle: {
-    color: "#927147",
+    color: colors.textMuted,
   },
   metricGrid: {
-    borderColor: "#293028",
+    borderColor: colors.border,
     borderTopWidth: 1,
     flexDirection: "row",
     gap: 8,
@@ -154,7 +149,7 @@ const styles = StyleSheet.create({
     minWidth: 0,
   },
   metricLabel: {
-    color: "#7f8982",
+    color: colors.textMuted,
     fontSize: 10,
     fontWeight: "900",
   },
@@ -166,13 +161,13 @@ const styles = StyleSheet.create({
     marginTop: 3,
   },
   metricValueActive: {
-    color: "#ffd28a",
+    color: colors.accent,
   },
   metricValueIdle: {
-    color: "#927147",
+    color: colors.textMuted,
   },
   gpsSignal: {
-    borderColor: "#293028",
+    borderColor: colors.border,
     borderTopWidth: 1,
     fontSize: 12,
     fontWeight: "800",
@@ -180,9 +175,9 @@ const styles = StyleSheet.create({
     paddingTop: 8,
   },
   gpsSignalActive: {
-    color: "#9ec7a5",
+    color: colors.success,
   },
   gpsSignalIdle: {
-    color: "#777f78",
+    color: colors.textMuted,
   },
 });

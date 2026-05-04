@@ -38,6 +38,7 @@ import { formatGpsDiagnosticLine } from "../features/trips/live-motion-speed";
 import { useHomeScreenKeepAwake } from "../features/trips/use-home-screen-keep-awake";
 import { useLiveMotionSpeed } from "../features/trips/use-live-motion-speed";
 import type { MainRouteName } from "../types/navigation";
+import { colors, radii } from "../theme";
 
 type HomeScreenProps = {
   navigate: (routeName: MainRouteName) => void;
@@ -365,9 +366,9 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   suggestion: {
-    backgroundColor: "#f4f1e8",
-    borderColor: "#cdd8d1",
-    borderRadius: 8,
+    backgroundColor: colors.surface,
+    borderColor: colors.accent,
+    borderRadius: radii.lg,
     borderWidth: 1,
     gap: 12,
     padding: 14,
@@ -376,13 +377,13 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   suggestionTitle: {
-    color: "#1f332d",
+    color: colors.text,
     fontSize: 16,
     fontWeight: "900",
     lineHeight: 22,
   },
   suggestionBody: {
-    color: "#52675f",
+    color: colors.textSoft,
     fontSize: 14,
     fontWeight: "600",
     lineHeight: 19,
@@ -392,30 +393,30 @@ const styles = StyleSheet.create({
   },
   dismissButton: {
     alignItems: "center",
-    borderRadius: 8,
+    borderRadius: radii.md,
     minHeight: 38,
     justifyContent: "center",
     paddingHorizontal: 12,
     paddingVertical: 8,
   },
   dismissText: {
-    color: "#52675f",
+    color: colors.textMuted,
     fontSize: 14,
     fontWeight: "800",
   },
   body: {
-    color: "#32453d",
+    color: colors.textSoft,
     fontSize: 16,
     lineHeight: 23,
   },
   error: {
-    color: "#9f3a2f",
+    color: colors.danger,
     fontSize: 15,
     fontWeight: "700",
     lineHeight: 21,
   },
   metric: {
-    color: "#1d5c49",
+    color: colors.accent,
     fontSize: 32,
     fontWeight: "900",
   },

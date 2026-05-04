@@ -1,7 +1,7 @@
 import Constants from "expo-constants";
 import { Platform } from "react-native";
 
-export const PRODUCTION_WEB_API_BASE_URL = "https://gigeze.example";
+export const PRODUCTION_WEB_API_BASE_URL = "https://www.gigeze.online";
 
 export type MobileConfig = {
   appName: string;

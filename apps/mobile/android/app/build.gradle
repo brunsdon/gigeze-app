@@ -183,3 +183,14 @@ dependencies {
         implementation jscFlavor
     }
 }
+
+gradle.projectsEvaluated {
+    tasks.matching { it.name.startsWith("configureCMake") }.all { configureTask ->
+        rootProject.subprojects.each { subproject ->
+            def codegenTask = subproject.tasks.findByName("generateCodegenArtifactsFromSchema")
+            if (codegenTask != null) {
+                configureTask.dependsOn(codegenTask)
+            }
+        }
+    }
+}

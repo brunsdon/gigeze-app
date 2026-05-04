@@ -14,6 +14,7 @@ import {
   type TripPurpose,
   type TripSetupState,
 } from "../features/trips/trip-setup";
+import { colors, radii } from "../theme";
 
 type SelectOption = {
   label: string;
@@ -129,6 +130,7 @@ export function TripSetupSection({
             keyboardType="numeric"
             onChangeText={onChangeOdometer}
             placeholder="optional"
+            placeholderTextColor={colors.textMuted}
             style={styles.odometerInput}
             value={odometerInput}
           />
@@ -247,38 +249,39 @@ function formatJourneyStatus(status: string) {
 
 const styles = StyleSheet.create({
   setupPanel: {
-    borderColor: "#d6ded9",
-    borderRadius: 8,
+    backgroundColor: colors.surfaceSubtle,
+    borderColor: colors.border,
+    borderRadius: radii.lg,
     borderWidth: 1,
     gap: 8,
     padding: 12,
   },
   setupTitle: {
-    color: "#1f332d",
+    color: colors.text,
     fontSize: 16,
     fontWeight: "900",
   },
   modeHintCard: {
-    backgroundColor: "#f5f8f6",
-    borderColor: "#d6ded9",
-    borderRadius: 8,
+    backgroundColor: colors.surfaceAlt,
+    borderColor: colors.border,
+    borderRadius: radii.md,
     borderWidth: 1,
     gap: 4,
     padding: 12,
   },
   modeHintTitle: {
-    color: "#1f332d",
+    color: colors.text,
     fontSize: 14,
     fontWeight: "900",
   },
   modeHintBody: {
-    color: "#5d7068",
+    color: colors.textSoft,
     fontSize: 13,
     fontWeight: "700",
     lineHeight: 18,
   },
   setupLabel: {
-    color: "#5d7068",
+    color: colors.textMuted,
     fontSize: 12,
     fontWeight: "900",
     marginTop: 4,
@@ -286,8 +289,9 @@ const styles = StyleSheet.create({
   },
   selectButton: {
     alignItems: "center",
-    borderColor: "#b7c7c0",
-    borderRadius: 8,
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderRadius: radii.md,
     borderWidth: 1,
     flexDirection: "row",
     gap: 8,
@@ -296,16 +300,16 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   selectText: {
-    color: "#1f332d",
+    color: colors.text,
     flex: 1,
     fontSize: 15,
     fontWeight: "800",
   },
   placeholderText: {
-    color: "#5d7068",
+    color: colors.textMuted,
   },
   chevron: {
-    color: "#5d7068",
+    color: colors.accent,
     fontSize: 14,
     fontWeight: "900",
   },
@@ -314,30 +318,32 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   segmentButton: {
-    borderColor: "#b7c7c0",
-    borderRadius: 8,
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderRadius: radii.md,
     borderWidth: 1,
     minHeight: 42,
     paddingHorizontal: 14,
     paddingVertical: 9,
   },
   segmentButtonSelected: {
-    backgroundColor: "#1d5c49",
-    borderColor: "#1d5c49",
+    backgroundColor: colors.primary,
+    borderColor: colors.primary,
   },
   segmentText: {
-    color: "#1d5c49",
+    color: colors.textSoft,
     fontSize: 14,
     fontWeight: "800",
   },
   segmentTextSelected: {
-    color: "#ffffff",
+    color: colors.white,
   },
   odometerInput: {
-    borderColor: "#b7c7c0",
-    borderRadius: 8,
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderRadius: radii.md,
     borderWidth: 1,
-    color: "#1f332d",
+    color: colors.text,
     fontSize: 16,
     fontWeight: "800",
     minHeight: 44,
@@ -345,13 +351,13 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   setupHint: {
-    color: "#5d7068",
+    color: colors.textMuted,
     fontSize: 12,
     fontWeight: "600",
     lineHeight: 17,
   },
   setupWarning: {
-    color: "#9f3a2f",
+    color: colors.danger,
     fontSize: 12,
     fontWeight: "800",
     lineHeight: 17,
@@ -360,15 +366,15 @@ const styles = StyleSheet.create({
     opacity: 0.82,
   },
   modalBackdrop: {
-    backgroundColor: "rgba(31, 51, 45, 0.38)",
+    backgroundColor: "rgba(8, 7, 10, 0.72)",
     flex: 1,
     justifyContent: "flex-end",
     padding: 16,
   },
   modalCard: {
-    backgroundColor: "#fffdfa",
-    borderColor: "#d6ded9",
-    borderRadius: 8,
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderRadius: radii.lg,
     borderWidth: 1,
     gap: 6,
     maxHeight: "70%",
@@ -387,25 +393,25 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   modalTitle: {
-    color: "#1f332d",
+    color: colors.text,
     fontSize: 18,
     fontWeight: "900",
   },
   closeButton: {
-    borderColor: "#b7c7c0",
-    borderRadius: 8,
+    borderColor: colors.border,
+    borderRadius: radii.md,
     borderWidth: 1,
     paddingHorizontal: 10,
     paddingVertical: 7,
   },
   closeText: {
-    color: "#1d5c49",
+    color: colors.accent,
     fontSize: 13,
     fontWeight: "800",
   },
   optionRow: {
     alignItems: "center",
-    borderRadius: 8,
+    borderRadius: radii.md,
     flexDirection: "row",
     gap: 8,
     minHeight: 48,
@@ -413,27 +419,27 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   optionRowSelected: {
-    backgroundColor: "#e7f3ec",
+    backgroundColor: "rgba(255, 46, 99, 0.18)",
   },
   optionTextGroup: {
     flex: 1,
   },
   optionLabel: {
-    color: "#1f332d",
+    color: colors.text,
     fontSize: 15,
     fontWeight: "800",
   },
   optionLabelSelected: {
-    color: "#1d5c49",
+    color: colors.accent,
   },
   optionDetail: {
-    color: "#5d7068",
+    color: colors.textMuted,
     fontSize: 12,
     fontWeight: "700",
     marginTop: 2,
   },
   selectedMark: {
-    color: "#1d5c49",
+    color: colors.success,
     fontSize: 12,
     fontWeight: "900",
   },

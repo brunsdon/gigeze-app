@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
+import { colors } from "../theme";
 
 type StatusRowProps = {
   label: string;
@@ -17,7 +18,7 @@ export function StatusRow({ label, value }: StatusRowProps) {
 const styles = StyleSheet.create({
   row: {
     alignItems: "center",
-    borderBottomColor: "#edf1ef",
+    borderBottomColor: colors.border,
     borderBottomWidth: 1,
     flexDirection: "row",
     gap: 12,
@@ -26,12 +27,12 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   label: {
-    color: "#596960",
+    color: colors.textMuted,
     flex: 1,
     fontSize: 15,
   },
   value: {
-    color: "#17201c",
+    color: colors.text,
     flex: 1,
     fontSize: 15,
     fontWeight: "800",
