@@ -224,7 +224,7 @@ export default async function DashboardPage() {
         </Card>
       ) : (
         <ResumeActivityCard
-          fallbackHref={activeJourney ? `/dashboard/tours/${activeJourney.id}` : undefined}
+          fallbackHref={activeJourney ? `/dashboard/tours/${activeJourney.slug}` : undefined}
           fallbackTitle={activeJourney?.status === "ACTIVE" ? activeJourney.title : activeJourney?.title}
           fallbackStopCount={activeJourney?.Gigs.length}
         />
@@ -322,7 +322,7 @@ export default async function DashboardPage() {
                   <p className="text-base font-medium">{latestJourney.title}</p>
                   <p className="text-muted-foreground">{latestJourney.Gigs.length} Gigs • {latestJourney.status === "ACTIVE" ? "Trip in progress" : "Completed"}</p>
                   <div className="flex flex-wrap gap-2">
-                    <Link href={`/dashboard/tours/${latestJourney.id}`} className={buttonVariants({ variant: "outline", size: "sm" })}>
+                    <Link href={`/dashboard/tours/${latestJourney.slug}`} className={buttonVariants({ variant: "outline", size: "sm" })}>
                       Open Tour
                     </Link>
                     <Link href="/dashboard/tours/new" className={buttonVariants({ variant: "ghost", size: "sm" })}>
@@ -334,7 +334,7 @@ export default async function DashboardPage() {
                       {recentJourneys.slice(1).map((Tour) => (
                         <li key={Tour.id} className="flex items-center justify-between gap-2">
                           <span className="text-muted-foreground">{Tour.title}</span>
-                          <Link href={`/dashboard/tours/${Tour.id}`} className={buttonVariants({ variant: "ghost", size: "xs" })}>
+                          <Link href={`/dashboard/tours/${Tour.slug}`} className={buttonVariants({ variant: "ghost", size: "xs" })}>
                             View
                           </Link>
                         </li>

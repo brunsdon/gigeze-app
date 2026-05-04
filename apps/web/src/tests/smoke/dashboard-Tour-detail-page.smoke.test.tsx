@@ -46,8 +46,8 @@ vi.mock("@/features/maps/service", () => ({
 }));
 
 vi.mock("next/navigation", () => ({
-  notFound: vi.fn(() => {
-    throw new Error("notFound");
+  redirect: vi.fn((url: string) => {
+    throw new Error(`redirect:${url}`);
   }),
 }));
 
@@ -126,7 +126,7 @@ describe("dashboard Tour detail timeline smoke", () => {
     });
 
     const element = await DashboardJourneyDetailPage({
-      params: Promise.resolve({ journeyId: "Tour-1" }),
+      params: Promise.resolve({ tourId: "timeline-test" }),
       searchParams: Promise.resolve({}),
     });
 
@@ -139,5 +139,6 @@ describe("dashboard Tour detail timeline smoke", () => {
     expect(firstIndex).toBeLessThan(secondIndex);
     expect(html).toContain("Activity");
     expect(html).toContain("/dashboard/activity?journeyId=Tour-1");
+    expect(mockGetJourneyByIdOrSlug).toHaveBeenCalledWith("workspace-1", "timeline-test");
   });
 });

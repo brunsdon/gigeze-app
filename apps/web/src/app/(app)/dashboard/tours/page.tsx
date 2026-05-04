@@ -68,7 +68,7 @@ export default async function DashboardJourneysPage() {
 
                 <div className="flex items-center justify-between">
                   <span className="text-muted-foreground">{Tour.Gigs.length} Gigs</span>
-                  <Link href={`/dashboard/tours/${Tour.id}`} className="font-medium hover:underline">
+                  <Link href={`/dashboard/tours/${Tour.slug}`} className="font-medium hover:underline">
                     Open Tour
                   </Link>
                 </div>

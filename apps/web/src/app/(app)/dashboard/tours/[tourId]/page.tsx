@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
 import { formatDistanceKm } from "@gigeze/shared";
 import { ExternalMediaEntityType } from "@prisma/client";
 import { ActionSubmitButton } from "@/components/forms/action-submit-button";
@@ -82,19 +82,19 @@ export default async function DashboardJourneyDetailPage({
   params,
   searchParams,
 }: {
-  params: Promise<{ journeyId: string }>;
+  params: Promise<{ tourId: string }>;
   searchParams: Promise<{ focusStopId?: string; lat?: string; lng?: string }>;
 }) {
-  const { journeyId } = await params;
+  const { tourId } = await params;
   const { focusStopId, lat, lng } = await searchParams;
   const workspace = await requireCurrentWorkspace();
   const [Tour, defaultVehicle] = await Promise.all([
-    getJourneyByIdOrSlug(workspace.id, journeyId),
+    getJourneyByIdOrSlug(workspace.id, tourId),
     getDefaultVehicle(workspace.id),
   ]);
 
   if (!Tour) {
-    notFound();
+    redirect("/dashboard/tours");
   }
 
   const journeyMapData = mapJourneyToMapData(Tour);
