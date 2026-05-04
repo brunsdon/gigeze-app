@@ -20,6 +20,7 @@ The project pairs a Next.js 16 web app with an Expo React Native mobile app, Pri
 - [Reviewer Guide](#reviewer-guide)
 - [Portfolio Docs](#portfolio-docs)
 - [Screenshots](#screenshots)
+- [Visual Identity](#visual-identity)
 - [Architecture Diagrams](#architecture-diagrams)
 - [Why This Exists](#why-this-exists)
 - [Product Concept](#product-concept)
@@ -120,15 +121,41 @@ The `/docs` folder turns the repository into a faster review artifact:
 
 ## Screenshots
 
-Static screenshots are planned to support quick GitHub scanning. Until then, use the live demo path above for visual review.
+These screenshots show the current backstage/live-gig product direction and give reviewers a quick visual path through the working demo scaffold. A fuller screenshot index is available in [docs/SCREENSHOTS.md](docs/SCREENSHOTS.md).
 
-Planned coverage:
+### Public Homepage
 
-- Public tour page
-- Authenticated dashboard
-- Tour and gig management
-- Mobile trip/field activity capture
-- Completed-trip sync flow
+![GigEze public homepage](docs/screenshots/public-homepage.png)
+
+Shows the public-facing product positioning and concert-poster inspired brand system for the GigEze backstage/tour-management identity.
+
+### Dashboard Command Centre
+
+![GigEze dashboard command centre](docs/screenshots/dashboard-command-centre.png)
+
+Shows the authenticated dashboard shell, command-centre layout, trip sync entry point, and shared UI primitives used across operational workflows.
+
+### Tours Board
+
+![GigEze tours board](docs/screenshots/tours-board.png)
+
+Shows the tour and gig workflow surface backed by the Prisma domain model, including tour status, visibility, progress, and actions.
+
+### Public Tours
+
+![GigEze public tours listing](docs/screenshots/public-tours.png)
+
+Shows how selected tour records can be presented through public-facing routes without claiming a finished production publishing platform.
+
+### Workspace Settings
+
+![GigEze workspace settings](docs/screenshots/workspace-settings.png)
+
+Shows workspace-level configuration for the demo scaffold: identity, default visibility, uploaded moment visibility, and GPS sampling cadence.
+
+## Visual Identity
+
+GigEze uses a backstage/live-gig visual identity: dark command-centre surfaces, magenta primary actions, amber stage-light highlights, cyan/green operational signals, and poster-style public presentation. The visual system is intended to make the project feel like a focused tour-management product rather than a generic admin dashboard.
 
 ## Architecture Diagrams
 
