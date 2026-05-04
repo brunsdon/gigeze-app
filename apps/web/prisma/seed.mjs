@@ -1,6 +1,7 @@
 import { PrismaPg } from "@prisma/adapter-pg";
 import { PrismaClient, JourneyStatus, Visibility, WorkspaceRole } from "@prisma/client";
 import { createClient } from "@supabase/supabase-js";
+import { randomBytes, scryptSync } from "node:crypto";
 
 function resolvePgConnectionString(databaseUrl) {
   if (!databaseUrl.startsWith("prisma+postgres://")) {
@@ -44,12 +45,19 @@ const adapter = new PrismaPg({
 const prisma = new PrismaClient({ adapter });
 const seedAdminEmail = "admin@gigeze.app";
 const seedAdminFullName = "GigEze Admin";
+const seedAdminPassword = process.env.SEED_ADMIN_PASSWORD?.trim() || "dev-admin-password";
+
+function hashLocalDevPassword(password) {
+  const salt = randomBytes(16).toString("base64url");
+  const derivedKey = scryptSync(password, salt, 64);
+  return `scrypt:${salt}:${derivedKey.toString("base64url")}`;
+}
 
 function getSeedAuthConfig() {
   return {
     supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL?.trim(),
     serviceRoleKey: process.env.SUPABASE_SERVICE_ROLE_KEY?.trim(),
-    password: process.env.SEED_ADMIN_PASSWORD?.trim(),
+    password: seedAdminPassword,
   };
 }
 
@@ -75,6 +83,13 @@ async function findAuthUserByEmail(supabase, email) {
 }
 
 async function syncSeedAdminAuthUser() {
+  if (process.env.SEED_SUPABASE_AUTH !== "true") {
+    console.warn(
+      `Skipped Supabase auth seed for ${seedAdminEmail}. Set SEED_SUPABASE_AUTH=true to opt in.`,
+    );
+    return "skipped";
+  }
+
   const { supabaseUrl, serviceRoleKey, password } = getSeedAuthConfig();
   const missingVars = [
     ["NEXT_PUBLIC_SUPABASE_URL", supabaseUrl],
@@ -141,10 +156,14 @@ async function syncSeedAdminAuthUser() {
 async function main() {
   await prisma.user.upsert({
     where: { email: seedAdminEmail },
-    update: { fullName: seedAdminFullName },
+    update: {
+      fullName: seedAdminFullName,
+      localPasswordHash: hashLocalDevPassword(seedAdminPassword),
+    },
     create: {
       email: seedAdminEmail,
       fullName: seedAdminFullName,
+      localPasswordHash: hashLocalDevPassword(seedAdminPassword),
     },
   });
 

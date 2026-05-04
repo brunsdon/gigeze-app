@@ -2,7 +2,14 @@
 
 import { redirect } from "next/navigation";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
-import { isEnvConfigError } from "@/lib/env";
+import { hasPublicSupabaseEnv, isEnvConfigError } from "@/lib/env";
+import {
+  clearLocalDevSession,
+  createLocalDevSession,
+  isLocalDevAuthEnabled,
+  verifyLocalDevPassword,
+} from "@/lib/auth/local-dev";
+import { prisma } from "@/lib/db/prisma";
 
 function resolveNextPath(formData: FormData) {
   const nextPath = String(formData.get("next") ?? "").trim();
@@ -13,6 +20,24 @@ export async function loginAction(formData: FormData) {
   const email = String(formData.get("email") ?? "").trim();
   const password = String(formData.get("password") ?? "");
   const nextPath = resolveNextPath(formData);
+  const normalizedEmail = email.toLowerCase();
+
+  if (isLocalDevAuthEnabled()) {
+    const localUser = await prisma.user.findUnique({
+      where: { email: normalizedEmail },
+      select: {
+        id: true,
+        email: true,
+        fullName: true,
+        localPasswordHash: true,
+      },
+    });
+
+    if (localUser && (await verifyLocalDevPassword(password, localUser.localPasswordHash))) {
+      await createLocalDevSession(localUser);
+      redirect(nextPath);
+    }
+  }
 
   try {
     const supabase = await createSupabaseServerClient();
@@ -63,7 +88,14 @@ export async function signupAction(formData: FormData) {
 }
 
 export async function logoutAction() {
-  const supabase = await createSupabaseServerClient();
-  await supabase.auth.signOut();
+  if (isLocalDevAuthEnabled()) {
+    await clearLocalDevSession();
+  }
+
+  if (hasPublicSupabaseEnv()) {
+    const supabase = await createSupabaseServerClient();
+    await supabase.auth.signOut();
+  }
+
   redirect("/");
 }

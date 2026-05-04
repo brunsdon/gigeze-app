@@ -229,6 +229,34 @@ Generate Prisma client:
 npm run db:generate
 ```
 
+Start a local development database:
+
+```bash
+npm run db:dev:start:win
+```
+
+Set `apps/web/.env` to use the Prisma dev database:
+
+```text
+DATABASE_URL=postgresql://postgres:postgres@localhost:51214/template1?sslmode=disable
+```
+
+Sync the schema and seed the local demo data:
+
+```bash
+npm run db:push
+npm run db:seed
+```
+
+Local development login uses the seeded local database user and does not require a Supabase account:
+
+```text
+Email: admin@gigeze.app
+Password: dev-admin-password
+```
+
+The Vercel-hosted deployment continues to use Supabase Auth accounts.
+
 Run type checks:
 
 ```bash

@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { cache } from "react";
 import { type Visibility, WorkspaceRole } from "@prisma/client";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { getLocalDevCurrentUser } from "@/lib/auth/local-dev";
 import { prisma } from "@/lib/db/prisma";
 import { isEnvConfigError } from "@/lib/env";
 import { isDatabaseConnectionError, isPrismaUniqueConstraintError } from "@/lib/db/errors";
@@ -188,6 +189,11 @@ async function ensureOwnedWorkspace(user: CurrentUser) {
 
 const getCurrentUserUncached = async (): Promise<CurrentUser | null> => {
   try {
+    const localDevUser = await getLocalDevCurrentUser();
+    if (localDevUser) {
+      return localDevUser;
+    }
+
     const sessionUser = await getSessionUser();
     if (!sessionUser || !sessionUser.email) {
       return null;
