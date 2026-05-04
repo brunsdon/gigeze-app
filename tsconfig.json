@@ -1,5 +1,4 @@
 {
-  "extends": "./apps/web/tsconfig.json",
   "files": [],
   "references": [
     { "path": "./packages/shared" }

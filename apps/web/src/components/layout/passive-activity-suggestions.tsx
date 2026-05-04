@@ -17,15 +17,15 @@ type PassiveActivitySuggestionsProps = {
           id: string;
           title: string;
           locationName?: string | null;
-          latitude: number | { toNumber(): number };
-          longitude: number | { toNumber(): number };
-          arrivalDate?: Date | null;
-          departureDate?: Date | null;
-          createdAt?: Date;
+          latitude: number;
+          longitude: number;
+          arrivalDate?: string | null;
+          departureDate?: string | null;
+          createdAt?: string;
         }>;
       }
     | undefined;
-  drivingLogs: Array<{ date: Date }>;
+  drivingLogs: Array<{ date: string }>;
 };
 
 function readDismissedIds() {
@@ -58,7 +58,19 @@ export function PassiveActivitySuggestions({ activeJourney, drivingLogs }: Passi
   const [dismissedIds, setDismissedIds] = useState<string[]>(() => readDismissedIds());
 
   const suggestions = useMemo(() => {
-    const next = buildPassiveActivitySuggestions(activeJourney, drivingLogs);
+    const serializableActiveJourney = activeJourney
+      ? {
+          id: activeJourney.id,
+          Gigs: activeJourney.Gigs.map((Gig) => ({
+            ...Gig,
+            arrivalDate: Gig.arrivalDate ? new Date(Gig.arrivalDate) : null,
+            departureDate: Gig.departureDate ? new Date(Gig.departureDate) : null,
+            createdAt: Gig.createdAt ? new Date(Gig.createdAt) : undefined,
+          })),
+        }
+      : undefined;
+    const serializableDrivingLogs = drivingLogs.map((log) => ({ date: new Date(log.date) }));
+    const next = buildPassiveActivitySuggestions(serializableActiveJourney, serializableDrivingLogs);
     return next.filter((item) => !dismissedIds.includes(item.id));
   }, [activeJourney, dismissedIds, drivingLogs]);
 

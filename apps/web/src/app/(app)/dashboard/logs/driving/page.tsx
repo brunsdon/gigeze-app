@@ -185,6 +185,12 @@ export default async function DrivingLogsPage({
 
   const logs = logsPage.logs;
   const desktopRows = logs.map(buildTripLogTableRow);
+  const vehicleOptions = vehicles.map((vehicle) => ({
+    id: vehicle.id,
+    name: vehicle.name,
+    isDefault: vehicle.isDefault,
+    enableBusinessSplit: vehicle.enableBusinessSplit,
+  }));
   const totalPages = Math.max(1, Math.ceil(logsPage.totalCount / LOGS_PAGE_SIZE));
   const hasPreviousPage = currentPage > 1;
   const hasNextPage = currentPage < totalPages;
@@ -456,7 +462,7 @@ export default async function DrivingLogsPage({
               longitudeName="endLongitude"
             />
             <VehicleOdometerFields
-              vehicles={vehicles}
+              vehicles={vehicleOptions}
               vehicleOdometerMap={vehicleOdometerMap}
               defaultVehicleId={defaultVehicle?.id}
               initialStartOdometer={prefilledStartOdometer}

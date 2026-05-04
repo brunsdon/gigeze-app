@@ -38,6 +38,12 @@ export default async function EditDrivingLogPage({
     vehicles.map(async (vehicle) => [vehicle.id, await getLatestOdometerForVehicle(workspace.id, vehicle.id)] as const),
   );
   const vehicleOdometerMap = Object.fromEntries(vehicleOdometerEntries);
+  const vehicleOptions = vehicles.map((vehicle) => ({
+    id: vehicle.id,
+    name: vehicle.name,
+    isDefault: vehicle.isDefault,
+    enableBusinessSplit: vehicle.enableBusinessSplit,
+  }));
 
   if (!initialLog) {
     notFound();
@@ -150,7 +156,7 @@ export default async function EditDrivingLogPage({
               defaultLongitude={log.endLongitude}
             />
             <VehicleOdometerFields
-              vehicles={vehicles}
+              vehicles={vehicleOptions}
               vehicleOdometerMap={vehicleOdometerMap}
               defaultVehicleId={log.vehicle?.id ?? undefined}
               initialStartOdometer={log.startOdometer}

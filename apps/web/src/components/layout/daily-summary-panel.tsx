@@ -4,9 +4,9 @@ import { formatDistanceKm } from "@gigeze/shared";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 type DailySummaryPanelProps = {
-  drivingLogs: Array<{ date: Date; startOdometer: number; endOdometer: number }>;
-  Gigs: Array<{ createdAt: Date }>;
-  mediaItems: Array<{ createdAt: Date }>;
+  drivingLogs: Array<{ date: string; startOdometer: number; endOdometer: number }>;
+  Gigs: Array<{ createdAt: string }>;
+  mediaItems: Array<{ createdAt: string }>;
 };
 
 function isSameLocalDay(value: Date, today: Date) {

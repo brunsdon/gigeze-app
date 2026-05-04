@@ -169,12 +169,17 @@ export default async function DashboardPage() {
           locationName: Gig.locationName,
           latitude: toCoordinate(Gig.latitude),
           longitude: toCoordinate(Gig.longitude),
-          arrivalDate: Gig.arrivalDate,
-          departureDate: Gig.departureDate,
-          createdAt: Gig.createdAt,
+          arrivalDate: Gig.arrivalDate?.toISOString() ?? null,
+          departureDate: Gig.departureDate?.toISOString() ?? null,
+          createdAt: Gig.createdAt.toISOString(),
         })),
       }
     : undefined;
+  const dashboardDrivingLogs = drivingLogs.map((log) => ({
+    date: log.date.toISOString(),
+    startOdometer: log.startOdometer,
+    endOdometer: log.endOdometer,
+  }));
   const tripJourneys = Tours.map((Tour) => ({
     id: Tour.id,
     title: Tour.title,
@@ -281,7 +286,7 @@ export default async function DashboardPage() {
       {!hasActiveJourney && milestones.length > 0 ? (
         <MilestoneCelebrations milestones={milestones} shareJourneyHref={sharePrompt?.href} />
       ) : !hasActiveJourney && predictiveActiveJourney ? (
-        <PassiveActivitySuggestions activeJourney={predictiveActiveJourney} drivingLogs={drivingLogs} />
+        <PassiveActivitySuggestions activeJourney={predictiveActiveJourney} drivingLogs={dashboardDrivingLogs} />
       ) : !hasActiveJourney ? (
         <SmartReminders
           hasJourneys={Tours.length > 0}
@@ -436,9 +441,9 @@ export default async function DashboardPage() {
         />
 
         <DailySummaryPanel
-          drivingLogs={drivingLogs}
-          Gigs={dailySummaryStops}
-          mediaItems={dailySummaryMediaItems}
+          drivingLogs={dashboardDrivingLogs}
+          Gigs={dailySummaryStops.map((Gig) => ({ createdAt: Gig.createdAt.toISOString() }))}
+          mediaItems={dailySummaryMediaItems.map((item) => ({ createdAt: item.createdAt.toISOString() }))}
         />
       </div>
     </div>
