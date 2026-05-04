@@ -320,7 +320,7 @@ export function TripDetailScreen({ tripId, onBack }: TripDetailScreenProps) {
             <TextInput
               onChangeText={setDraftPurposeText}
               placeholder="Client meeting, fuel Gig, personal errand"
-              placeholderTextColor="#7b8781"
+              placeholderTextColor="#B8AFC0"
               style={styles.odometerInput}
               value={draftPurposeText}
             />
@@ -514,24 +514,24 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
   },
   backButtonText: {
-    color: "#1d5c49",
+    color: "#FFB000",
     fontSize: 14,
     fontWeight: "900",
   },
   detailCard: {
-    backgroundColor: "#ffffff",
-    borderColor: "#dce2de",
+    backgroundColor: "#1E1724",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 8,
     borderWidth: 1,
     gap: 10,
     padding: 16,
   },
   divider: {
-    backgroundColor: "#e5ebe7",
+    backgroundColor: "rgba(255, 46, 99, 0.18)",
     height: 1,
   },
   cardTitle: {
-    color: "#17201c",
+    color: "#FFF7EA",
     fontSize: 18,
     fontWeight: "900",
   },
@@ -542,7 +542,7 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   editButton: {
-    borderColor: "#bdd0c7",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 8,
     borderWidth: 1,
     paddingHorizontal: 14,
@@ -552,7 +552,7 @@ const styles = StyleSheet.create({
     opacity: 0.72,
   },
   editButtonText: {
-    color: "#1d5c49",
+    color: "#FFB000",
     fontSize: 13,
     fontWeight: "900",
   },
@@ -567,45 +567,45 @@ const styles = StyleSheet.create({
   },
   feedback_neutral: {
     backgroundColor: "#f6faf8",
-    borderColor: "#d6e0da",
+    borderColor: "rgba(255, 255, 255, 0.12)",
   },
   feedback_success: {
-    backgroundColor: "#e6f1eb",
-    borderColor: "#b8d1c4",
+    backgroundColor: "rgba(255, 46, 99, 0.18)",
+    borderColor: "rgba(255, 255, 255, 0.12)",
   },
   feedback_warning: {
-    backgroundColor: "#fbf6e8",
-    borderColor: "#e4d5a9",
+    backgroundColor: "rgba(255, 176, 0, 0.16)",
+    borderColor: "rgba(255, 255, 255, 0.12)",
   },
   feedback_danger: {
-    backgroundColor: "#fbebe8",
-    borderColor: "#e4b8b0",
+    backgroundColor: "rgba(255, 46, 99, 0.16)",
+    borderColor: "rgba(255, 255, 255, 0.12)",
   },
   feedbackText: {
     fontSize: 13,
     fontWeight: "900",
   },
   feedbackText_neutral: {
-    color: "#42534c",
+    color: "#B8AFC0",
   },
   feedbackText_success: {
-    color: "#1d5c49",
+    color: "#FFB000",
   },
   feedbackText_warning: {
-    color: "#7b5b17",
+    color: "#FFB000",
   },
   feedbackText_danger: {
-    color: "#9d3b32",
+    color: "#FF2E63",
   },
   feedbackDetail: {
-    color: "#6a7771",
+    color: "#B8AFC0",
     fontSize: 12,
     fontWeight: "700",
     lineHeight: 17,
     marginTop: 4,
   },
   editLabel: {
-    color: "#42534c",
+    color: "#B8AFC0",
     fontSize: 13,
     fontWeight: "900",
     textTransform: "uppercase",
@@ -616,36 +616,36 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   editChip: {
-    backgroundColor: "#f7faf8",
-    borderColor: "#d6e0da",
+    backgroundColor: "#1E1724",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 8,
     borderWidth: 1,
     paddingHorizontal: 12,
     paddingVertical: 9,
   },
   editChipSelected: {
-    backgroundColor: "#e4f0e9",
-    borderColor: "#1d5c49",
+    backgroundColor: "rgba(255, 46, 99, 0.18)",
+    borderColor: "#FF2E63",
   },
   editChipPressed: {
     opacity: 0.74,
   },
   editChipText: {
-    color: "#42534c",
+    color: "#B8AFC0",
     fontSize: 13,
     fontWeight: "800",
   },
   editChipTextSelected: {
-    color: "#1d5c49",
+    color: "#FFB000",
   },
   editWarning: {
-    color: "#7b5b17",
+    color: "#FFB000",
     fontSize: 13,
     fontWeight: "700",
     lineHeight: 19,
   },
   editError: {
-    color: "#9d3b32",
+    color: "#FF2E63",
     fontSize: 13,
     fontWeight: "800",
     lineHeight: 19,
@@ -659,15 +659,15 @@ const styles = StyleSheet.create({
     gap: 5,
   },
   odometerLabel: {
-    color: "#5d7068",
+    color: "#B8AFC0",
     fontSize: 12,
     fontWeight: "900",
   },
   odometerInput: {
-    borderColor: "#d6e0da",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 8,
     borderWidth: 1,
-    color: "#17201c",
+    color: "#FFF7EA",
     fontSize: 15,
     fontWeight: "800",
     minHeight: 44,
@@ -684,7 +684,7 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   body: {
-    color: "#32453d",
+    color: "#B8AFC0",
     fontSize: 16,
     lineHeight: 23,
   },

@@ -300,7 +300,7 @@ export function LiveTripScreen() {
               accessibilityLabel="Trip purpose"
               onChangeText={setPurposePromptValue}
               placeholder="Client meeting, fuel Gig, personal errand"
-              placeholderTextColor="#7b8781"
+              placeholderTextColor="#B8AFC0"
               style={styles.purposeInput}
               value={purposePromptValue}
             />
@@ -446,51 +446,51 @@ function buildStartTripRequest(setup: TripSetupState): StartTripRequest {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: "#ffffff",
-    borderColor: "#dce2de",
+    backgroundColor: "#1E1724",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 8,
     borderWidth: 1,
     gap: 10,
     padding: 16,
   },
   noticeCard: {
-    backgroundColor: "#fff7ec",
-    borderColor: "#e5cda8",
+    backgroundColor: "rgba(255, 176, 0, 0.16)",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 8,
     borderWidth: 1,
     gap: 6,
     padding: 16,
   },
   cardTitle: {
-    color: "#17201c",
+    color: "#FFF7EA",
     fontSize: 18,
     fontWeight: "900",
   },
   divider: {
-    backgroundColor: "#e5ebe7",
+    backgroundColor: "rgba(255, 46, 99, 0.18)",
     height: 1,
   },
   body: {
-    color: "#32453d",
+    color: "#B8AFC0",
     fontSize: 16,
     lineHeight: 23,
   },
   noticeTitle: {
-    color: "#8a4b12",
+    color: "#FFB000",
     fontSize: 16,
     fontWeight: "900",
   },
   notice: {
-    color: "#8a4b12",
+    color: "#FFB000",
     fontSize: 15,
     fontWeight: "700",
     lineHeight: 21,
   },
   purposeInput: {
-    borderColor: "#d6e0da",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 8,
     borderWidth: 1,
-    color: "#17201c",
+    color: "#FFF7EA",
     fontSize: 15,
     fontWeight: "800",
     minHeight: 46,

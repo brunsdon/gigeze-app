@@ -295,7 +295,7 @@ const styles = StyleSheet.create({
     gap: 2,
   },
   body: {
-    color: "#32453d",
+    color: "#B8AFC0",
     fontSize: 16,
     lineHeight: 23,
   },
@@ -309,18 +309,18 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   textButtonLabel: {
-    color: "#1d5c49",
+    color: "#FFB000",
     fontSize: 15,
     fontWeight: "900",
   },
   warning: {
-    color: "#8a4b12",
+    color: "#FFB000",
     fontSize: 15,
     fontWeight: "700",
     lineHeight: 21,
   },
   detailsHeading: {
-    color: "#5f4c27",
+    color: "#FFB000",
     fontSize: 13,
     fontWeight: "900",
     letterSpacing: 0,
@@ -336,20 +336,20 @@ const styles = StyleSheet.create({
     padding: 12,
   },
   healthCard_good: {
-    backgroundColor: "#e9f5ee",
-    borderLeftColor: "#2f7a55",
+    backgroundColor: "rgba(255, 46, 99, 0.18)",
+    borderLeftColor: "#00E5A8",
   },
   healthCard_warning: {
-    backgroundColor: "#fff5df",
-    borderLeftColor: "#b87919",
+    backgroundColor: "rgba(255, 176, 0, 0.16)",
+    borderLeftColor: "#FFB000",
   },
   healthCard_error: {
-    backgroundColor: "#fce9e5",
-    borderLeftColor: "#a63a30",
+    backgroundColor: "rgba(255, 46, 99, 0.16)",
+    borderLeftColor: "#FF2E63",
   },
   healthCard_unknown: {
-    backgroundColor: "#eef1ef",
-    borderLeftColor: "#7b8a83",
+    backgroundColor: "#1E1724",
+    borderLeftColor: "#B8AFC0",
   },
   healthHeader: {
     alignItems: "center",
@@ -357,7 +357,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   healthTitle: {
-    color: "#1f332d",
+    color: "#FFF7EA",
     fontSize: 15,
     fontWeight: "900",
   },
@@ -367,35 +367,35 @@ const styles = StyleSheet.create({
     width: 12,
   },
   healthDot_good: {
-    backgroundColor: "#2f7a55",
+    backgroundColor: "#00E5A8",
   },
   healthDot_warning: {
-    backgroundColor: "#b87919",
+    backgroundColor: "#FFB000",
   },
   healthDot_error: {
-    backgroundColor: "#a63a30",
+    backgroundColor: "#FF2E63",
   },
   healthDot_unknown: {
-    backgroundColor: "#7b8a83",
+    backgroundColor: "#B8AFC0",
   },
   healthLabel: {
     fontSize: 18,
     fontWeight: "900",
   },
   healthLabel_good: {
-    color: "#1d5c49",
+    color: "#FFB000",
   },
   healthLabel_warning: {
-    color: "#8a4b12",
+    color: "#FFB000",
   },
   healthLabel_error: {
-    color: "#9f3a2f",
+    color: "#FF2E63",
   },
   healthLabel_unknown: {
-    color: "#596960",
+    color: "#B8AFC0",
   },
   healthHelper: {
-    color: "#4d6259",
+    color: "#B8AFC0",
     fontSize: 14,
     fontWeight: "600",
     lineHeight: 19,

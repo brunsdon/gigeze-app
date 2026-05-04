@@ -122,13 +122,13 @@ function formatVersionLabel(version: string, build: string) {
 
 const styles = StyleSheet.create({
   body: {
-    color: "#32453d",
+    color: "#B8AFC0",
     fontSize: 16,
     lineHeight: 23,
   },
   aboutRow: {
     alignItems: "center",
-    borderBottomColor: "#edf1ef",
+    borderBottomColor: "rgba(255, 255, 255, 0.12)",
     borderBottomWidth: 1,
     flexDirection: "row",
     gap: 12,
@@ -137,13 +137,13 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   aboutLabel: {
-    color: "#596960",
+    color: "#B8AFC0",
     flexShrink: 0,
     fontSize: 15,
     width: 72,
   },
   aboutValue: {
-    color: "#17201c",
+    color: "#FFF7EA",
     flex: 1,
     flexShrink: 1,
     fontSize: 15,
@@ -161,27 +161,27 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   preferenceTitle: {
-    color: "#1f332d",
+    color: "#FFF7EA",
     fontSize: 16,
     fontWeight: "900",
     lineHeight: 22,
   },
   preferenceBody: {
-    color: "#5d7068",
+    color: "#B8AFC0",
     fontSize: 14,
     fontWeight: "600",
     lineHeight: 19,
   },
   navigationList: {
-    borderColor: "#dce2de",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 8,
     borderWidth: 1,
     overflow: "hidden",
   },
   navigationRow: {
     alignItems: "center",
-    backgroundColor: "#ffffff",
-    borderBottomColor: "#dce2de",
+    backgroundColor: "#1E1724",
+    borderBottomColor: "rgba(255, 255, 255, 0.12)",
     borderBottomWidth: 1,
     flexDirection: "row",
     gap: 12,
@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
   },
   navigationRowPressed: {
-    backgroundColor: "#eef5f0",
+    backgroundColor: "rgba(255, 46, 99, 0.18)",
   },
   navigationLastRow: {
     borderBottomWidth: 0,
@@ -201,24 +201,24 @@ const styles = StyleSheet.create({
     gap: 3,
   },
   navigationTitle: {
-    color: "#1f332d",
+    color: "#FFF7EA",
     fontSize: 16,
     fontWeight: "900",
   },
   navigationDescription: {
-    color: "#5d7068",
+    color: "#B8AFC0",
     fontSize: 13,
     fontWeight: "600",
     lineHeight: 18,
   },
   navigationChevron: {
-    color: "#1d5c49",
+    color: "#FFB000",
     fontSize: 26,
     fontWeight: "900",
   },
   signOutButton: {
     alignItems: "center",
-    borderColor: "#b7c7c0",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 8,
     borderWidth: 1,
     justifyContent: "center",
@@ -227,7 +227,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
   },
   signOutLabel: {
-    color: "#1d5c49",
+    color: "#FFB000",
     fontSize: 16,
     fontWeight: "800",
   },

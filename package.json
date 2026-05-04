@@ -32,6 +32,8 @@
     "db:deploy": "npm --workspace @gigeze/web run db:deploy",
     "db:push": "npm --workspace @gigeze/web run db:push",
     "db:seed": "npm --workspace @gigeze/web run db:seed",
+    "db:seed:gigeze-demo": "npm --workspace @gigeze/web run db:seed:gigeze-demo",
+    "db:seed:gigeze-demo:prod": "npm --workspace @gigeze/web run db:seed:gigeze-demo:prod",
     "db:dev:start": "npm --workspace @gigeze/web run db:dev:start",
     "db:dev:start:win": "npm --workspace @gigeze/web run db:dev:start:win",
     "db:dev:stop": "npm --workspace @gigeze/web run db:dev:stop",

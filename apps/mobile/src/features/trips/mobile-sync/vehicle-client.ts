@@ -264,7 +264,7 @@ export async function fetchMobileJourneyOptions(accessToken: string): Promise<Mo
     return [];
   }
 
-  const response = await fetchSetupOptions(`${getNormalizedWebApiBaseUrl()}/api/mobile/Tours`, accessToken, "Tour");
+  const response = await fetchSetupOptions(`${getNormalizedWebApiBaseUrl()}/api/mobile/tours`, accessToken, "Tour");
 
   const body = (await response.json().catch(() => null)) as JourneyOptionsResponse | null;
   if (!body || !Array.isArray(body.Tours)) {
@@ -342,11 +342,11 @@ async function sendJourneyMutation(
 }
 
 export async function createMobileJourney(accessToken: string, input: MobileJourneyInput): Promise<MobileJourneyOption> {
-  return sendJourneyMutation(`${getNormalizedWebApiBaseUrl()}/api/mobile/Tours`, accessToken, "POST", input);
+  return sendJourneyMutation(`${getNormalizedWebApiBaseUrl()}/api/mobile/tours`, accessToken, "POST", input);
 }
 
 export async function updateMobileJourney(accessToken: string, journeyId: string, input: MobileJourneyInput): Promise<MobileJourneyOption> {
-  return sendJourneyMutation(`${getNormalizedWebApiBaseUrl()}/api/mobile/Tours/${encodeURIComponent(journeyId)}`, accessToken, "PUT", input);
+  return sendJourneyMutation(`${getNormalizedWebApiBaseUrl()}/api/mobile/tours/${encodeURIComponent(journeyId)}`, accessToken, "PUT", input);
 }
 
 export async function deleteMobileJourney(accessToken: string, journeyId: string): Promise<void> {
@@ -355,7 +355,7 @@ export async function deleteMobileJourney(accessToken: string, journeyId: string
   }
 
   try {
-    const response = await fetch(`${getNormalizedWebApiBaseUrl()}/api/mobile/Tours/${encodeURIComponent(journeyId)}`, {
+    const response = await fetch(`${getNormalizedWebApiBaseUrl()}/api/mobile/tours/${encodeURIComponent(journeyId)}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${accessToken}`,

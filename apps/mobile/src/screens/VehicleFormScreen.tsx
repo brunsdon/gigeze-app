@@ -205,7 +205,7 @@ function LabeledInput({
         multiline={multiline}
         onChangeText={onChangeText}
         placeholder={placeholder}
-        placeholderTextColor="#7b8a83"
+        placeholderTextColor="#B8AFC0"
         style={[styles.input, multiline && styles.multilineInput]}
         value={value}
       />
@@ -227,17 +227,17 @@ const styles = StyleSheet.create({
     gap: 7,
   },
   label: {
-    color: "#596960",
+    color: "#B8AFC0",
     fontSize: 13,
     fontWeight: "900",
     textTransform: "uppercase",
   },
   input: {
-    backgroundColor: "#ffffff",
-    borderColor: "#b7c7c0",
+    backgroundColor: "#1E1724",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 8,
     borderWidth: 1,
-    color: "#17201c",
+    color: "#FFF7EA",
     fontSize: 17,
     fontWeight: "700",
     minHeight: 48,
@@ -254,7 +254,7 @@ const styles = StyleSheet.create({
   },
   switchRow: {
     alignItems: "center",
-    borderColor: "#dce2de",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 8,
     borderWidth: 1,
     flexDirection: "row",
@@ -267,13 +267,13 @@ const styles = StyleSheet.create({
     gap: 3,
   },
   hint: {
-    color: "#5d7068",
+    color: "#B8AFC0",
     fontSize: 14,
     fontWeight: "600",
     lineHeight: 19,
   },
   error: {
-    color: "#9f3a2f",
+    color: "#FF2E63",
     fontSize: 15,
     fontWeight: "700",
     lineHeight: 21,

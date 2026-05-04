@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
   },
   pointBadge: {
     alignItems: "center",
-    backgroundColor: "#eef4f0",
-    borderColor: "#d4ddd7",
+    backgroundColor: "#211A28",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 17,
     borderWidth: 1,
     height: 34,
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     width: 34,
   },
   pointBadgeText: {
-    color: "#1d5c49",
+    color: "#FFB000",
     fontSize: 13,
     fontWeight: "900",
   },
@@ -48,17 +48,17 @@ const styles = StyleSheet.create({
     gap: 3,
   },
   pointTitle: {
-    color: "#17201c",
+    color: "#FFF7EA",
     fontSize: 16,
     fontWeight: "900",
   },
   pointSecondary: {
-    color: "#6a7771",
+    color: "#B8AFC0",
     fontSize: 14,
     fontWeight: "600",
   },
   pointTime: {
-    color: "#42534c",
+    color: "#B8AFC0",
     fontSize: 13,
     fontWeight: "800",
     textAlign: "right",

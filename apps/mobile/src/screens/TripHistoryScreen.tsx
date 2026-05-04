@@ -181,7 +181,7 @@ export function TripHistoryScreen({ onSelectTrip }: TripHistoryScreenProps) {
               autoCorrect={false}
               onChangeText={setSearchQuery}
               placeholder="Search trips…"
-              placeholderTextColor="#7b8a83"
+              placeholderTextColor="#B8AFC0"
               style={styles.searchInput}
               value={searchQuery}
             />
@@ -651,7 +651,7 @@ function TimelineRow({
 
 const styles = StyleSheet.create({
   screen: {
-    backgroundColor: "#fffdfa",
+    backgroundColor: "#1E1724",
     flex: 1,
   },
   content: {
@@ -664,7 +664,7 @@ const styles = StyleSheet.create({
     gap: 14,
   },
   screenTitle: {
-    color: "#17201c",
+    color: "#FFF7EA",
     fontSize: 38,
     fontWeight: "900",
     lineHeight: 45,
@@ -676,14 +676,14 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   summaryText: {
-    color: "#596960",
+    color: "#B8AFC0",
     flex: 1,
     fontSize: 15,
     fontWeight: "800",
   },
   syncStatusChip: {
     alignItems: "center",
-    borderColor: "#c9d4ce",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 8,
     borderWidth: 1,
     minHeight: 34,
@@ -691,22 +691,22 @@ const styles = StyleSheet.create({
     paddingVertical: 7,
   },
   syncStatusChipPressed: {
-    backgroundColor: "#eef5f0",
+    backgroundColor: "rgba(255, 46, 99, 0.18)",
   },
   syncStatusChipDisabled: {
     opacity: 0.74,
   },
   syncStatusText: {
-    color: "#1d5c49",
+    color: "#FFB000",
     fontSize: 13,
     fontWeight: "900",
   },
   searchInput: {
-    backgroundColor: "#ffffff",
-    borderColor: "#c9d4ce",
+    backgroundColor: "#1E1724",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 8,
     borderWidth: 1,
-    color: "#17201c",
+    color: "#FFF7EA",
     fontSize: 16,
     fontWeight: "700",
     minHeight: 48,
@@ -720,7 +720,7 @@ const styles = StyleSheet.create({
     gap: 7,
   },
   filterGroupLabel: {
-    color: "#61736b",
+    color: "#B8AFC0",
     fontSize: 11,
     fontWeight: "800",
     letterSpacing: 0.5,
@@ -732,7 +732,7 @@ const styles = StyleSheet.create({
   },
   filterTriggerChip: {
     alignItems: "center",
-    borderColor: "#b7c7c0",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 999,
     borderWidth: 1,
     flex: 1,
@@ -743,29 +743,29 @@ const styles = StyleSheet.create({
     paddingVertical: 7,
   },
   filterTriggerChipSelected: {
-    backgroundColor: "#1d5c49",
-    borderColor: "#1d5c49",
+    backgroundColor: "#FF2E63",
+    borderColor: "#FF2E63",
   },
   filterTriggerChipPressed: {
-    backgroundColor: "#eef5f0",
+    backgroundColor: "rgba(255, 46, 99, 0.18)",
   },
   filterTriggerText: {
-    color: "#1f332d",
+    color: "#FFF7EA",
     flex: 1,
     fontSize: 13,
     fontWeight: "900",
   },
   filterTriggerTextSelected: {
-    color: "#fffdfa",
+    color: "#FFF7EA",
   },
   filterTriggerChevron: {
-    color: "#5d7068",
+    color: "#B8AFC0",
     fontSize: 12,
     fontWeight: "900",
   },
   clearFiltersChip: {
     alignItems: "center",
-    borderColor: "#d6ded9",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 999,
     borderWidth: 1,
     justifyContent: "center",
@@ -774,10 +774,10 @@ const styles = StyleSheet.create({
     paddingVertical: 7,
   },
   clearFiltersChipPressed: {
-    backgroundColor: "#eef5f0",
+    backgroundColor: "rgba(255, 46, 99, 0.18)",
   },
   clearFiltersText: {
-    color: "#5d7068",
+    color: "#B8AFC0",
     fontSize: 13,
     fontWeight: "900",
   },
@@ -787,7 +787,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   filterChip: {
-    borderColor: "#b7c7c0",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 999,
     borderWidth: 1,
     minHeight: 34,
@@ -795,19 +795,19 @@ const styles = StyleSheet.create({
     paddingVertical: 7,
   },
   filterChipSelected: {
-    backgroundColor: "#155c49",
-    borderColor: "#155c49",
+    backgroundColor: "#FF2E63",
+    borderColor: "#FF2E63",
   },
   filterChipPressed: {
     opacity: 0.82,
   },
   filterChipText: {
-    color: "#1d5c49",
+    color: "#FFB000",
     fontSize: 13,
     fontWeight: "900",
   },
   filterChipTextSelected: {
-    color: "#fffdfa",
+    color: "#FFF7EA",
   },
   undoBanner: {
     alignItems: "center",
@@ -820,7 +820,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
   },
   undoText: {
-    color: "#f5fbf8",
+    color: "#FFF7EA",
     flex: 1,
     fontSize: 15,
     fontWeight: "800",
@@ -834,24 +834,24 @@ const styles = StyleSheet.create({
     opacity: 0.75,
   },
   undoButtonText: {
-    color: "#f8c16d",
+    color: "#FFF7EA",
     fontSize: 14,
     fontWeight: "900",
   },
   stickyMonthHeader: {
-    backgroundColor: "#fffdfa",
+    backgroundColor: "#1E1724",
     gap: 4,
     paddingBottom: 10,
     paddingTop: 8,
   },
   monthTitle: {
-    color: "#17201c",
+    color: "#FFF7EA",
     fontSize: 31,
     fontWeight: "900",
     lineHeight: 38,
   },
   sectionMeta: {
-    color: "#6a7771",
+    color: "#B8AFC0",
     fontSize: 15,
     fontWeight: "800",
   },
@@ -860,8 +860,8 @@ const styles = StyleSheet.create({
   },
   dayHeaderButton: {
     alignItems: "center",
-    backgroundColor: "#fbfcf8",
-    borderColor: "#e8eee9",
+    backgroundColor: "#1E1724",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 8,
     borderWidth: 1,
     flexDirection: "row",
@@ -872,19 +872,19 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
   },
   dayHeaderPressed: {
-    backgroundColor: "#f2f7f3",
+    backgroundColor: "rgba(255, 46, 99, 0.18)",
   },
   dayHeaderCopy: {
     flex: 1,
     gap: 4,
   },
   dayTitle: {
-    color: "#17201c",
+    color: "#FFF7EA",
     fontSize: 18,
     fontWeight: "900",
   },
   dayChevron: {
-    color: "#1d5c49",
+    color: "#FFB000",
     fontSize: 22,
     fontWeight: "900",
     lineHeight: 24,
@@ -898,14 +898,14 @@ const styles = StyleSheet.create({
     height: 4,
   },
   modalBackdrop: {
-    backgroundColor: "rgba(31, 51, 45, 0.38)",
+    backgroundColor: "rgba(8, 7, 10, 0.72)",
     flex: 1,
     justifyContent: "flex-end",
     paddingHorizontal: 16,
   },
   modalCard: {
-    backgroundColor: "#fffdfa",
-    borderColor: "#d6ded9",
+    backgroundColor: "#1E1724",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 16,
     borderWidth: 1,
     gap: 10,
@@ -921,12 +921,12 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   modalTitle: {
-    color: "#1f332d",
+    color: "#FFF7EA",
     fontSize: 18,
     fontWeight: "900",
   },
   closeButton: {
-    borderColor: "#b7c7c0",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 999,
     borderWidth: 1,
     justifyContent: "center",
@@ -935,7 +935,7 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
   },
   closeText: {
-    color: "#1d5c49",
+    color: "#FFB000",
     fontSize: 13,
     fontWeight: "800",
   },
@@ -947,7 +947,7 @@ const styles = StyleSheet.create({
   },
   optionRow: {
     alignItems: "center",
-    borderColor: "#e4ebe6",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 12,
     borderWidth: 1,
     flexDirection: "row",
@@ -957,8 +957,8 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   optionRowSelected: {
-    backgroundColor: "#e7f3ec",
-    borderColor: "#1d5c49",
+    backgroundColor: "rgba(255, 46, 99, 0.18)",
+    borderColor: "#FF2E63",
   },
   optionRowPressed: {
     opacity: 0.82,
@@ -967,27 +967,27 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   optionLabel: {
-    color: "#1f332d",
+    color: "#FFF7EA",
     fontSize: 15,
     fontWeight: "800",
   },
   optionLabelSelected: {
-    color: "#1d5c49",
+    color: "#FFB000",
   },
   optionDetail: {
-    color: "#5d7068",
+    color: "#B8AFC0",
     fontSize: 12,
     fontWeight: "700",
     marginTop: 2,
   },
   selectedText: {
-    color: "#1d5c49",
+    color: "#FFB000",
     fontSize: 12,
     fontWeight: "900",
   },
   emptyStateAction: {
     alignSelf: "flex-start",
-    borderColor: "#b7c7c0",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 999,
     borderWidth: 1,
     justifyContent: "center",
@@ -997,10 +997,10 @@ const styles = StyleSheet.create({
     paddingVertical: 7,
   },
   emptyStateActionPressed: {
-    backgroundColor: "#eef5f0",
+    backgroundColor: "rgba(255, 46, 99, 0.18)",
   },
   emptyStateActionText: {
-    color: "#1d5c49",
+    color: "#FFB000",
     fontSize: 13,
     fontWeight: "900",
   },
@@ -1018,7 +1018,7 @@ const styles = StyleSheet.create({
   },
   swipeDeleteAction: {
     alignItems: "center",
-    backgroundColor: "#a73b34",
+    backgroundColor: "#FF2E63",
     borderRadius: 8,
     flex: 1,
     justifyContent: "center",
@@ -1027,18 +1027,18 @@ const styles = StyleSheet.create({
     opacity: 0.84,
   },
   swipeDeleteText: {
-    color: "#fffdfa",
+    color: "#FFF7EA",
     fontSize: 14,
     fontWeight: "900",
   },
   tripCard: {
-    backgroundColor: "#ffffff",
-    borderColor: "#dce2de",
+    backgroundColor: "#1E1724",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 8,
     borderWidth: 1,
     elevation: 2,
     overflow: "hidden",
-    shadowColor: "#17201c",
+    shadowColor: "#000000",
     shadowOffset: { height: 1, width: 0 },
     shadowOpacity: 0.08,
     shadowRadius: 4,
@@ -1054,7 +1054,7 @@ const styles = StyleSheet.create({
   },
   cardHeader: {
     alignItems: "center",
-    borderBottomColor: "#e5ebe7",
+    borderBottomColor: "rgba(255, 255, 255, 0.12)",
     borderBottomWidth: 1,
     flexDirection: "row",
     justifyContent: "space-between",
@@ -1063,8 +1063,8 @@ const styles = StyleSheet.create({
   },
   purposeGroup: {
     alignItems: "center",
-    backgroundColor: "#fbfaf7",
-    borderColor: "#efe9df",
+    backgroundColor: "#1E1724",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 8,
     borderWidth: 1,
     flexDirection: "row",
@@ -1078,12 +1078,12 @@ const styles = StyleSheet.create({
     width: 10,
   },
   purposeText: {
-    color: "#1f332d",
+    color: "#FFF7EA",
     fontSize: 13,
     fontWeight: "900",
   },
   cardDistance: {
-    color: "#17201c",
+    color: "#FFF7EA",
     fontSize: 20,
     fontWeight: "900",
   },
@@ -1097,7 +1097,7 @@ const styles = StyleSheet.create({
     minHeight: 40,
   },
   timelineTime: {
-    color: "#6a7771",
+    color: "#B8AFC0",
     fontSize: 12,
     fontWeight: "800",
     paddingTop: 4,
@@ -1108,8 +1108,8 @@ const styles = StyleSheet.create({
     width: 20,
   },
   timelineDot: {
-    backgroundColor: "#ffffff",
-    borderColor: "#65736d",
+    backgroundColor: "#1E1724",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 6,
     borderWidth: 2,
     height: 12,
@@ -1117,7 +1117,7 @@ const styles = StyleSheet.create({
     width: 12,
   },
   timelineLine: {
-    backgroundColor: "#d7dfd9",
+    backgroundColor: "rgba(255, 46, 99, 0.18)",
     flex: 1,
     marginVertical: 2,
     width: 1,
@@ -1129,32 +1129,32 @@ const styles = StyleSheet.create({
     paddingLeft: 6,
   },
   locationTitle: {
-    color: "#17201c",
+    color: "#FFF7EA",
     fontSize: 15,
     fontWeight: "900",
   },
   locationSecondary: {
-    color: "#8b9791",
+    color: "#B8AFC0",
     fontSize: 11,
     fontWeight: "600",
   },
   cardFooter: {
     alignItems: "center",
-    backgroundColor: "#f7f8f4",
+    backgroundColor: "#1E1724",
     flexDirection: "row",
     gap: 8,
     paddingHorizontal: 14,
     paddingVertical: 10,
   },
   vehicleText: {
-    color: "#42534c",
+    color: "#B8AFC0",
     flex: 1,
     fontSize: 14,
     fontWeight: "800",
   },
   footerAction: {
     alignItems: "center",
-    borderColor: "#dbe4de",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 8,
     borderWidth: 1,
     flexDirection: "row",
@@ -1164,26 +1164,26 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
   },
   footerActionPressed: {
-    backgroundColor: "#eef5f0",
+    backgroundColor: "rgba(255, 46, 99, 0.18)",
   },
   footerActionText: {
-    color: "#7b8a83",
+    color: "#B8AFC0",
     fontSize: 12,
     fontWeight: "800",
   },
   footerChevron: {
-    color: "#7b8a83",
+    color: "#B8AFC0",
     fontSize: 17,
     fontWeight: "900",
     lineHeight: 18,
   },
   body: {
-    color: "#32453d",
+    color: "#B8AFC0",
     fontSize: 16,
     lineHeight: 23,
   },
   error: {
-    color: "#9f3a2f",
+    color: "#FF2E63",
     fontSize: 15,
     fontWeight: "700",
     lineHeight: 21,

@@ -18,6 +18,8 @@
     "db:deploy": "prisma migrate deploy",
     "db:push": "prisma db push",
     "db:seed": "prisma db seed",
+    "db:seed:gigeze-demo": "node prisma/seed-gigeze-demo.mjs",
+    "db:seed:gigeze-demo:prod": "node prisma/seed-gigeze-demo.mjs --env-file .env.production.local",
     "db:dev:start": "prisma dev -d",
     "db:dev:start:win": "powershell.exe -NoProfile -ExecutionPolicy Bypass -Command \"$root=(Resolve-Path ..\\\\..).Path; $env:LOCALAPPDATA=Join-Path $root '.tmp\\\\prisma-localappdata'; $env:APPDATA=Join-Path $root '.tmp\\\\prisma-appdata'; $env:TEMP=Join-Path $root '.tmp\\\\prisma-temp'; $env:TMP=$env:TEMP; New-Item -ItemType Directory -Force $env:LOCALAPPDATA, $env:APPDATA, $env:TEMP | Out-Null; prisma.cmd dev --db-port 51214 -d\"",
     "db:dev:stop": "prisma dev stop default",

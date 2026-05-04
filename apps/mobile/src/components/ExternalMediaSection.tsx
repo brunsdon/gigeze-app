@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   Alert,
   AppState,
@@ -103,25 +103,15 @@ export function ExternalMediaSection({ accessToken, target }: ExternalMediaSecti
     };
   }, [accessToken, target]);
 
-  useEffect(() => {
-    const subscription = AppState.addEventListener("change", (nextState) => {
-      if (nextState === "active" && sheetMode) {
-        void maybeApplyClipboardCandidate();
-      }
-    });
-
-    return () => subscription.remove();
-  }, [sheetMode]);
-
-  function applyClipboardCandidate(candidate: string) {
+  const applyClipboardCandidate = useCallback((candidate: string) => {
     setClipboardCandidate(candidate);
     setUrl(candidate);
     setSheetMode("paste");
     setFeedback("Link pasted from clipboard");
     setError(null);
-  }
+  }, []);
 
-  async function maybeApplyClipboardCandidate() {
+  const maybeApplyClipboardCandidate = useCallback(async () => {
     const clipboardText = await Clipboard.getStringAsync();
     const candidate = getClipboardExternalMediaCandidate(clipboardText);
 
@@ -131,7 +121,17 @@ export function ExternalMediaSection({ accessToken, target }: ExternalMediaSecti
 
     lastClipboardPromptRef.current = candidate;
     applyClipboardCandidate(candidate);
-  }
+  }, [applyClipboardCandidate]);
+
+  useEffect(() => {
+    const subscription = AppState.addEventListener("change", (nextState) => {
+      if (nextState === "active" && sheetMode) {
+        void maybeApplyClipboardCandidate();
+      }
+    });
+
+    return () => subscription.remove();
+  }, [maybeApplyClipboardCandidate, sheetMode]);
 
   function openAddMediaSheet() {
     setSheetMode("actions");
@@ -420,8 +420,8 @@ export function ExternalMediaSection({ accessToken, target }: ExternalMediaSecti
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: "#ffffff",
-    borderColor: "#dce2de",
+    backgroundColor: "#1E1724",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 12,
     borderWidth: 1,
     gap: 12,
@@ -438,50 +438,50 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   cardTitle: {
-    color: "#17201c",
+    color: "#FFF7EA",
     fontSize: 18,
     fontWeight: "900",
   },
   cardCaption: {
-    color: "#52675f",
+    color: "#B8AFC0",
     fontSize: 14,
     lineHeight: 20,
   },
   addMediaButton: {
-    backgroundColor: "#1d5c49",
+    backgroundColor: "#FF2E63",
     borderRadius: 999,
     minHeight: 40,
     justifyContent: "center",
     paddingHorizontal: 16,
   },
   addMediaButtonDisabled: {
-    backgroundColor: "#9fb4aa",
+    backgroundColor: "#B8AFC0",
   },
   addMediaButtonPressed: {
     opacity: 0.84,
   },
   addMediaButtonText: {
-    color: "#ffffff",
+    color: "#FFF7EA",
     fontSize: 14,
     fontWeight: "800",
   },
   note: {
-    color: "#52675f",
+    color: "#B8AFC0",
     fontSize: 14,
     lineHeight: 20,
   },
   tipMessage: {
-    color: "#52675f",
+    color: "#B8AFC0",
     fontSize: 13,
     lineHeight: 19,
   },
   successMessage: {
-    color: "#1d5c49",
+    color: "#FFB000",
     fontSize: 14,
     fontWeight: "800",
   },
   errorMessage: {
-    color: "#9f3a2f",
+    color: "#FF2E63",
     fontSize: 14,
     fontWeight: "700",
     lineHeight: 20,
@@ -490,8 +490,8 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   linkCard: {
-    backgroundColor: "#f7f8f4",
-    borderColor: "#dce2de",
+    backgroundColor: "#1E1724",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 10,
     borderWidth: 1,
     gap: 10,
@@ -508,9 +508,9 @@ const styles = StyleSheet.create({
   },
   platformBadge: {
     alignSelf: "flex-start",
-    backgroundColor: "#e1eee6",
+    backgroundColor: "rgba(255, 46, 99, 0.18)",
     borderRadius: 999,
-    color: "#1d5c49",
+    color: "#FFB000",
     fontSize: 11,
     fontWeight: "800",
     overflow: "hidden",
@@ -518,7 +518,7 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
   },
   linkTitle: {
-    color: "#17201c",
+    color: "#FFF7EA",
     fontSize: 16,
     fontWeight: "800",
   },
@@ -528,8 +528,8 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   previewFallback: {
-    backgroundColor: "#eef5f0",
-    borderColor: "#d6ded9",
+    backgroundColor: "rgba(255, 46, 99, 0.18)",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 10,
     borderWidth: 1,
     gap: 8,
@@ -540,9 +540,9 @@ const styles = StyleSheet.create({
   },
   previewFallbackBadge: {
     alignSelf: "flex-start",
-    backgroundColor: "#ffffff",
+    backgroundColor: "#1E1724",
     borderRadius: 999,
-    color: "#1d5c49",
+    color: "#FFB000",
     fontSize: 11,
     fontWeight: "800",
     overflow: "hidden",
@@ -550,22 +550,22 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
   },
   previewFallbackTitle: {
-    color: "#17201c",
+    color: "#FFF7EA",
     fontSize: 15,
     fontWeight: "800",
   },
   previewFallbackBody: {
-    color: "#52675f",
+    color: "#B8AFC0",
     fontSize: 13,
     lineHeight: 19,
   },
   linkCaption: {
-    color: "#32453d",
+    color: "#B8AFC0",
     fontSize: 14,
     lineHeight: 20,
   },
   linkUrl: {
-    color: "#596960",
+    color: "#B8AFC0",
     fontSize: 13,
     lineHeight: 18,
   },
@@ -574,8 +574,8 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   secondaryAction: {
-    backgroundColor: "#ffffff",
-    borderColor: "#b7c7c0",
+    backgroundColor: "#1E1724",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 8,
     borderWidth: 1,
     minHeight: 42,
@@ -583,8 +583,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   removeAction: {
-    backgroundColor: "#fff3f1",
-    borderColor: "#e5bbb5",
+    backgroundColor: "rgba(255, 46, 99, 0.16)",
+    borderColor: "#FF2E63",
     borderRadius: 8,
     borderWidth: 1,
     minHeight: 42,
@@ -595,22 +595,22 @@ const styles = StyleSheet.create({
     opacity: 0.8,
   },
   secondaryActionText: {
-    color: "#1d5c49",
+    color: "#FFB000",
     fontSize: 14,
     fontWeight: "800",
   },
   removeActionText: {
-    color: "#9f3a2f",
+    color: "#FF2E63",
     fontSize: 14,
     fontWeight: "800",
   },
   modalBackdrop: {
-    backgroundColor: "rgba(23, 32, 28, 0.4)",
+    backgroundColor: "rgba(8, 7, 10, 0.72)",
     flex: 1,
     justifyContent: "flex-end",
   },
   sheet: {
-    backgroundColor: "#ffffff",
+    backgroundColor: "#1E1724",
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     paddingHorizontal: 18,
@@ -620,17 +620,17 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   sheetTitle: {
-    color: "#17201c",
+    color: "#FFF7EA",
     fontSize: 22,
     fontWeight: "900",
   },
   sheetBody: {
-    color: "#52675f",
+    color: "#B8AFC0",
     fontSize: 14,
     lineHeight: 20,
   },
   sheetAction: {
-    borderColor: "#dce2de",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 12,
     borderWidth: 1,
     minHeight: 56,
@@ -638,22 +638,22 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
   },
   primarySheetAction: {
-    backgroundColor: "#e8f2ff",
-    borderColor: "#b8d7ff",
+    backgroundColor: "rgba(34, 211, 238, 0.14)",
+    borderColor: "rgba(255, 255, 255, 0.12)",
   },
   primarySheetActionTitle: {
-    color: "#0f3d68",
+    color: "#B8AFC0",
     fontSize: 16,
     fontWeight: "900",
   },
   primarySheetActionDetail: {
-    color: "#375875",
+    color: "#B8AFC0",
     fontSize: 13,
     lineHeight: 18,
     marginTop: 4,
   },
   sheetSectionLabel: {
-    color: "#596960",
+    color: "#B8AFC0",
     fontSize: 12,
     fontWeight: "900",
     letterSpacing: 0,
@@ -661,12 +661,12 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
   },
   sheetActionTitle: {
-    color: "#17201c",
+    color: "#FFF7EA",
     fontSize: 16,
     fontWeight: "800",
   },
   sheetActionDetail: {
-    color: "#52675f",
+    color: "#B8AFC0",
     fontSize: 13,
     lineHeight: 18,
     marginTop: 4,
@@ -677,15 +677,15 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   sheetCancelText: {
-    color: "#596960",
+    color: "#B8AFC0",
     fontSize: 15,
     fontWeight: "800",
   },
   input: {
-    borderColor: "#cdd8d1",
+    borderColor: "rgba(255, 255, 255, 0.12)",
     borderRadius: 10,
     borderWidth: 1,
-    color: "#17201c",
+    color: "#FFF7EA",
     fontSize: 15,
     minHeight: 48,
     paddingHorizontal: 14,
@@ -696,7 +696,7 @@ const styles = StyleSheet.create({
     textAlignVertical: "top",
   },
   detectedLabel: {
-    color: "#1d5c49",
+    color: "#FFB000",
     fontSize: 13,
     fontWeight: "800",
   },

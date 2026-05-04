@@ -412,7 +412,7 @@ describe("mobile trip sync client", () => {
       },
     ]);
     expect(fetchMock).toHaveBeenCalledWith(
-      "http://10.0.2.2:3000/api/mobile/Tours",
+      "http://10.0.2.2:3000/api/mobile/tours",
       expect.objectContaining({
         method: "GET",
         headers: expect.objectContaining({ Authorization: "Bearer access-token" }),
@@ -563,7 +563,7 @@ describe("mobile trip sync client", () => {
       status: "PLANNED",
     });
     expect(fetchMock).toHaveBeenCalledWith(
-      "http://10.0.2.2:3000/api/mobile/Tours",
+      "http://10.0.2.2:3000/api/mobile/tours",
       expect.objectContaining({
         method: "POST",
         headers: expect.objectContaining({
@@ -608,12 +608,12 @@ describe("mobile trip sync client", () => {
 
     expect(fetchMock).toHaveBeenNthCalledWith(
       1,
-      "http://10.0.2.2:3000/api/mobile/Tours/Tour-1",
+      "http://10.0.2.2:3000/api/mobile/tours/Tour-1",
       expect.objectContaining({ method: "PUT" }),
     );
     expect(fetchMock).toHaveBeenNthCalledWith(
       2,
-      "http://10.0.2.2:3000/api/mobile/Tours/Tour-1",
+      "http://10.0.2.2:3000/api/mobile/tours/Tour-1",
       expect.objectContaining({ method: "DELETE" }),
     );
   });

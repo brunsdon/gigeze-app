@@ -129,7 +129,7 @@ export function TripRouteHero({
             coordinates={routeCoordinates}
             lineCap="round"
             lineJoin="round"
-            strokeColor="#0f6e4f"
+            strokeColor="#FF2E63"
             strokeWidth={6}
           />
           <Marker coordinate={routeMarkers.start} zIndex={2}>
@@ -155,7 +155,7 @@ export function TripRouteHero({
 
 const styles = StyleSheet.create({
   routePreview: {
-    backgroundColor: "#dfe8e2",
+    backgroundColor: "rgba(255, 46, 99, 0.18)",
     borderRadius: 8,
     minHeight: 240,
     overflow: "hidden",
@@ -166,47 +166,47 @@ const styles = StyleSheet.create({
   },
   routeMarker: {
     alignItems: "center",
-    borderColor: "#ffffff",
+    borderColor: "#FFF7EA",
     borderRadius: 16,
     borderWidth: 2,
     elevation: 4,
     height: 32,
     justifyContent: "center",
-    shadowColor: "#17201c",
+    shadowColor: "#000000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.24,
     shadowRadius: 4,
     width: 32,
   },
   routeMarkerStart: {
-    backgroundColor: "#0f6e4f",
+    backgroundColor: "#FF2E63",
   },
   routeMarkerFinish: {
-    backgroundColor: "#2f5d50",
+    backgroundColor: "#FF2E63",
   },
   routeMarkerCurrent: {
     alignItems: "center",
-    backgroundColor: "#1d5c49",
-    borderColor: "#ffffff",
+    backgroundColor: "#FF2E63",
+    borderColor: "#FFF7EA",
     borderRadius: 16,
     borderWidth: 2,
     elevation: 4,
     height: 32,
     justifyContent: "center",
     minWidth: 32,
-    shadowColor: "#17201c",
+    shadowColor: "#000000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.24,
     shadowRadius: 4,
     width: 32,
   },
   routeMarkerText: {
-    color: "#ffffff",
+    color: "#FFF7EA",
     fontSize: 13,
     fontWeight: "900",
   },
   routeOverlay: {
-    backgroundColor: "rgba(31, 41, 37, 0.82)",
+    backgroundColor: "rgba(8, 7, 10, 0.84)",
     borderRadius: 8,
     padding: 14,
     position: "absolute",
@@ -216,28 +216,28 @@ const styles = StyleSheet.create({
   },
   routeOverlayInlineRow: {
     alignItems: "flex-end",
-    backgroundColor: "#dfe8e2",
+    backgroundColor: "rgba(255, 46, 99, 0.18)",
     padding: 12,
     paddingBottom: 0,
   },
   routeOverlayInline: {
-    backgroundColor: "rgba(31, 41, 37, 0.88)",
+    backgroundColor: "rgba(8, 7, 10, 0.88)",
     borderRadius: 8,
     minWidth: 126,
     padding: 12,
   },
   routeOverlayLabel: {
-    color: "#dce2de",
+    color: "#FFF7EA",
     fontSize: 12,
     fontWeight: "800",
   },
   routeOverlayValue: {
-    color: "#ffffff",
+    color: "#FFF7EA",
     fontSize: 24,
     fontWeight: "900",
   },
   routeOverlayDetail: {
-    color: "#c9d6cf",
+    color: "#D8CEDF",
     fontSize: 11,
     fontWeight: "800",
     marginTop: 4,
@@ -250,13 +250,13 @@ const styles = StyleSheet.create({
     padding: 24,
   },
   routePlaceholderTitle: {
-    color: "#1f332d",
+    color: "#FFF7EA",
     fontSize: 20,
     fontWeight: "900",
     textAlign: "center",
   },
   routePlaceholderBody: {
-    color: "#5d7068",
+    color: "#B8AFC0",
     fontSize: 15,
     fontWeight: "600",
     lineHeight: 22,

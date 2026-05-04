@@ -35,24 +35,24 @@ export class StartupErrorBoundary extends Component<PropsWithChildren, StartupEr
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#f7f8f4",
+    backgroundColor: "#1E1724",
     flex: 1,
     gap: 12,
     justifyContent: "center",
     padding: 22,
   },
   title: {
-    color: "#17201c",
+    color: "#FFF7EA",
     fontSize: 24,
     fontWeight: "900",
   },
   body: {
-    color: "#32453d",
+    color: "#B8AFC0",
     fontSize: 16,
     lineHeight: 23,
   },
   error: {
-    color: "#9f3a2f",
+    color: "#FF2E63",
     fontSize: 15,
     fontWeight: "700",
     lineHeight: 22,

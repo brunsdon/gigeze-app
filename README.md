@@ -275,6 +275,16 @@ npm run db:push
 npm run db:seed
 ```
 
+Seed the optional Neon Vultures portfolio dataset:
+
+```bash
+npm run db:seed:gigeze-demo
+```
+
+To intentionally target `apps/web/.env.production.local`, run `npm run db:seed:gigeze-demo:prod`.
+
+Only run against a database where demo data is acceptable. The script targets whichever PostgreSQL/Supabase database is configured by `DATABASE_URL` or the selected env file; see [demo data](docs/demo-data.md) for exactly what it creates and what it intentionally skips.
+
 Local development login uses the seeded local database user and does not require a Supabase account:
 
 ```text
