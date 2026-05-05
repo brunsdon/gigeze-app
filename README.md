@@ -129,11 +129,29 @@ These screenshots show the current backstage/live-gig product direction and give
 
 Shows the public-facing product positioning and concert-poster inspired brand system for the GigEze backstage/tour-management identity.
 
+### Public Tours
+
+![GigEze public tours listing](docs/screenshots/public-tours.png)
+
+Shows how selected tour records can be presented through public-facing routes while keeping the project framed as a portfolio demo scaffold.
+
+### Public Map
+
+![GigEze public tour map](docs/screenshots/public-map.png)
+
+Shows published gigs plotted across Australia, connecting venue-style tour data with map rendering and route context.
+
+### Public Stories
+
+![GigEze public stories listing](docs/screenshots/public-stories.png)
+
+Shows the public story surface for tour updates and highlights sourced from backstage records.
+
 ### Dashboard Command Centre
 
 ![GigEze dashboard command centre](docs/screenshots/dashboard-command-centre.png)
 
-Shows the authenticated dashboard shell, command-centre layout, trip sync entry point, and shared UI primitives used across operational workflows.
+Shows the authenticated dashboard shell, command-centre layout, quick actions, current tour snapshot, and shared UI primitives used across operational workflows.
 
 ### Tours Board
 
@@ -141,17 +159,47 @@ Shows the authenticated dashboard shell, command-centre layout, trip sync entry 
 
 Shows the tour and gig workflow surface backed by the Prisma domain model, including tour status, visibility, progress, and actions.
 
-### Public Tours
+### Trip Sync
 
-![GigEze public tours listing](docs/screenshots/public-tours.png)
+![GigEze trip sync log](docs/screenshots/trip-sync.png)
 
-Shows how selected tour records can be presented through public-facing routes without claiming a finished production publishing platform.
+Shows field movement records, tour-linked route history, filters, CSV export, and map previews used to review completed trip activity.
+
+### Vehicles
+
+![GigEze vehicle management](docs/screenshots/vehicles.png)
+
+Shows vehicle setup for tour operations, including defaults, odometer metadata, business/personal split, and editable records.
 
 ### Workspace Settings
 
 ![GigEze workspace settings](docs/screenshots/workspace-settings.png)
 
 Shows workspace-level configuration for the demo scaffold: identity, default visibility, uploaded moment visibility, and GPS sampling cadence.
+
+### Mobile Home
+
+![GigEze mobile home](docs/screenshots/mobile-home.png)
+
+Shows the Expo mobile field-capture experience with live status, GPS quality, trip setup, and signed-in operator context.
+
+### Mobile Trips
+
+![GigEze mobile trips list](docs/screenshots/mobile-trips.png)
+
+Shows mobile trip history with filters, vehicle context, trip modes, business/personal use, and grouped monthly summaries.
+
+### Mobile Trip Detail
+
+![GigEze mobile trip detail](docs/screenshots/mobile-trip-detail.png)
+
+Shows completed-trip detail on mobile with route map, distance, start/finish metadata, and sync status for handoff into the web system.
+
+### Mobile Settings
+
+![GigEze mobile settings](docs/screenshots/mobile-settings.png)
+
+Shows mobile operational preferences for screen wake behavior, vehicle/tour setup, and troubleshooting entry points.
 
 ## Visual Identity
 
