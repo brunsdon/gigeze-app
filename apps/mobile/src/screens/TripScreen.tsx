@@ -363,12 +363,12 @@ export function LiveTripScreen() {
 
       <View style={styles.actions}>
         <PrimaryActionButton
-          label="Gig trip"
+          label="Stop trip"
           onPress={() => {
-            Alert.alert("Gig trip?", "We’ll finish this trip and save it to your trip history.", [
+            Alert.alert("Stop trip?", "We’ll finish this trip and save it to your trip history.", [
               { text: "Cancel", style: "cancel" },
               {
-                text: "Gig trip",
+                text: "Stop trip",
                 style: "destructive",
                 onPress: async () => {
                   const completedTrip = await stopTrip();
