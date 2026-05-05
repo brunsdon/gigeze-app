@@ -11,12 +11,12 @@ GigEze is a full-stack web and mobile application for tour and live entertainmen
 
 The system uses a TypeScript-first monorepo architecture with a Next.js web platform, Expo React Native mobile app, Prisma/PostgreSQL persistence model, Supabase Auth/Storage integration points, and shared contracts for cross-app validation and DTOs.
 
-Production URL: `https://gigeze.online`
+🌐 Live Demo: https://gigeze.online
 
 ## Contents
 
 - [Product Overview](#product-overview)
-- [Key Screens](#key-screens)
+- [Product Screens](#product-screens)
 - [Architecture at a Glance](#architecture-at-a-glance)
 - [Product Workflow Map](#product-workflow-map)
 - [Key Technical Characteristics](#key-technical-characteristics)
@@ -40,7 +40,7 @@ Core workflows:
 - Authenticated web dashboards for tours, gigs, media, activity notes, vehicles, settings, and synced trip logs.
 - Public publishing surfaces for selected tours, stories, maps, gallery content, posts, and shared workspace/profile pages.
 
-## Key Screens
+## Product Screens
 
 A full visual index is available in [docs/SCREENSHOTS.md](docs/SCREENSHOTS.md).
 
