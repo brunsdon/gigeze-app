@@ -1,6 +1,7 @@
 # GigEze
 
 [![Status](https://img.shields.io/badge/status-evolving%20product-blue)](#project-status)
+[![Live Demo](https://img.shields.io/badge/demo-gigeze.online-purple)](https://gigeze.online)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict%20monorepo-3178c6)](#tech-stack)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black)](#tech-stack)
 [![React](https://img.shields.io/badge/React-19-61dafb)](#tech-stack)
@@ -17,6 +18,7 @@ Production URL: `https://gigeze.online`
 - [Product Overview](#product-overview)
 - [Key Screens](#key-screens)
 - [Architecture at a Glance](#architecture-at-a-glance)
+- [Product Workflow Map](#product-workflow-map)
 - [Key Technical Characteristics](#key-technical-characteristics)
 - [Product Concept](#product-concept)
 - [Architecture Diagram](#architecture-diagram)
@@ -75,14 +77,25 @@ Expo mobile field-capture home with live status, GPS quality, trip setup, and si
 - Persistence layer: Prisma 7 schema and migrations targeting PostgreSQL for workspace-scoped tours, gigs, notes, media, vehicles, logs, and GPS samples.
 - Auth/storage boundaries: Supabase Auth and Storage integration points isolate sign-in, bearer-token validation, and media upload concerns.
 
+## Product Workflow Map
+
+```mermaid
+flowchart LR
+  A["Tour + Gig Planning"] --> B["Mobile Field Capture"]
+  B --> C["Local Trip State"]
+  C --> D["Sync API"]
+  D --> E["Prisma/PostgreSQL"]
+  E --> F["Dashboard Review"]
+  E --> G["Public Publishing"]
+```
+
 ## Key Technical Characteristics
 
 - Shared TypeScript contracts keep mobile payloads, web route handlers, and domain utilities aligned across package boundaries.
 - Local-first trip capture protects mobile workflows from network availability, then syncs completed activity through explicit state transitions.
 - Prisma acts as the source of truth for a relationship-heavy operational model spanning workspaces, users, tours, gigs, notes, media, posts, vehicles, driving logs, and GPS samples.
 - Feature-oriented modules separate domain workflows from framework plumbing in both the Next.js app and Expo app.
-- Next.js App Router supports public routes, authenticated dashboard surfaces, API boundaries, server-side data access, and deployment-oriented web structure.
-- Expo React Native provides the mobile field workflow: sign-in, trip state, AsyncStorage persistence, route sample handling, and diagnostics.
+- Next.js App Router and Expo React Native define clear web/mobile boundaries for dashboards, API routes, sign-in, trip state, AsyncStorage persistence, and diagnostics.
 - Validation and build discipline are first-class through `npm run typecheck`, `npm run test:run`, and `npm run build:web`.
 
 ## Product Concept
