@@ -30,6 +30,8 @@ The script creates or updates:
 - 5 driving logs with plausible sequential odometer values and compact GPS waypoint samples for route preview maps.
 - A demo tour vehicle used by the driving logs.
 - 4 tour stories: 3 published/shared-or-public posts and 1 private draft.
+- The public planned tour `neon-vultures-tasmania-circuit-2026`.
+- 6 Tasmania gigs, 6 activity notes, 4 driving logs with GPS waypoint samples, and 3 Tasmania tour stories.
 
 The seed is idempotent. It uses the unique tour slug and stable demo IDs for records that do not have natural unique keys in the Prisma schema.
 

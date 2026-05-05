@@ -99,9 +99,10 @@ const adapter = new PrismaPg({
 const prisma = new PrismaClient({ adapter });
 
 const demoOwnerEmail = "brunsdon@engineer.com";
-const demoOwnerName = "Brunsdon Engineer";
+const demoOwnerName = "Matty B";
 const demoWorkspaceSlug = "brunsdon-engineer";
 const tourSlug = "neon-vultures-east-coast-run-2026";
+const tasmaniaTourSlug = "neon-vultures-tasmania-circuit-2026";
 
 function demoId(scope, slug) {
   return `demo-neon-vultures-${scope}-${slug}`;
@@ -418,8 +419,205 @@ const stories = [
   },
 ];
 
+const tasmaniaGigs = [
+  {
+    slug: "neon-vultures-odeon-theatre-2026-06-05",
+    title: "Neon Vultures @ Odeon Theatre",
+    date: "2026-06-05",
+    city: "Hobart",
+    venue: "Odeon Theatre",
+    status: "Upcoming",
+    latitude: -42.8806,
+    longitude: 147.3257,
+    offset: "+10:00",
+  },
+  {
+    slug: "neon-vultures-republic-bar-2026-06-07",
+    title: "Neon Vultures @ Republic Bar",
+    date: "2026-06-07",
+    city: "Hobart",
+    venue: "Republic Bar",
+    status: "Upcoming",
+    latitude: -42.8747,
+    longitude: 147.3154,
+    offset: "+10:00",
+  },
+  {
+    slug: "neon-vultures-royal-oak-2026-06-10",
+    title: "Neon Vultures @ Royal Oak",
+    date: "2026-06-10",
+    city: "Launceston",
+    venue: "Royal Oak",
+    status: "Upcoming",
+    latitude: -41.4388,
+    longitude: 147.1370,
+    offset: "+10:00",
+  },
+  {
+    slug: "neon-vultures-forth-pub-2026-06-12",
+    title: "Neon Vultures @ Forth Pub",
+    date: "2026-06-12",
+    city: "Forth",
+    venue: "Forth Pub",
+    status: "Upcoming",
+    latitude: -41.1935,
+    longitude: 146.2501,
+    offset: "+10:00",
+  },
+  {
+    slug: "neon-vultures-paragon-theatre-2026-06-14",
+    title: "Neon Vultures @ Paragon Theatre",
+    date: "2026-06-14",
+    city: "Queenstown",
+    venue: "Paragon Theatre",
+    status: "Upcoming",
+    latitude: -42.0805,
+    longitude: 145.5567,
+    offset: "+10:00",
+  },
+  {
+    slug: "neon-vultures-salerno-gallery-2026-06-17",
+    title: "Neon Vultures @ Salerno Gallery",
+    date: "2026-06-17",
+    city: "Triabunna",
+    venue: "Salerno Gallery",
+    status: "Upcoming",
+    latitude: -42.5096,
+    longitude: 147.9110,
+    offset: "+10:00",
+  },
+];
+
+const tasmaniaActivityNotes = [
+  ["Ferry freight manifest confirmed for backline cases and merch tubs.", ActivityType.ADMIN, 45],
+  ["Compact Hobart club setup needs reduced lighting floor package.", ActivityType.WORK, 60],
+  ["Launceston monitor world requires extra DI check for keys rig.", ActivityType.MAINTENANCE, 40],
+  ["North-west routing leaves narrow load-in window after coastal drive.", ActivityType.ADMIN, 35],
+  ["Queenstown stage access confirmed; pack-down must clear by midnight.", ActivityType.WORK, 55],
+  ["Triabunna weather plan drafted for outdoor queue and van parking.", ActivityType.ADMIN, 30],
+];
+
+const tasmaniaTrips = [
+  {
+    id: "hobart-launceston-2026-06-09",
+    date: "2026-06-09",
+    start: "Hobart",
+    end: "Launceston",
+    km: 201,
+    purpose: "Tasmania northbound tour transfer",
+    startOdometer: 88631,
+    offset: "+10:00",
+    sampleStartTime: "08:30",
+    route: [
+      [-42.8806, 147.3257],
+      [-42.6965, 147.2676],
+      [-42.3000, 147.3700],
+      [-41.9200, 147.4900],
+      [-41.6000, 147.1200],
+      [-41.4388, 147.1370],
+    ],
+  },
+  {
+    id: "launceston-forth-2026-06-11",
+    date: "2026-06-11",
+    start: "Launceston",
+    end: "Forth",
+    km: 111,
+    purpose: "North-west regional show travel",
+    startOdometer: 88832,
+    offset: "+10:00",
+    sampleStartTime: "08:30",
+    route: [
+      [-41.4388, 147.1370],
+      [-41.5250, 146.8350],
+      [-41.5240, 146.6570],
+      [-41.4710, 146.3240],
+      [-41.1935, 146.2501],
+    ],
+  },
+  {
+    id: "forth-queenstown-2026-06-13",
+    date: "2026-06-13",
+    start: "Forth",
+    end: "Queenstown",
+    km: 173,
+    purpose: "West coast routing",
+    startOdometer: 88943,
+    offset: "+10:00",
+    sampleStartTime: "08:30",
+    route: [
+      [-41.1935, 146.2501],
+      [-41.1760, 146.3560],
+      [-41.3830, 145.8750],
+      [-41.7500, 145.5400],
+      [-42.0805, 145.5567],
+    ],
+  },
+  {
+    id: "queenstown-triabunna-2026-06-16",
+    date: "2026-06-16",
+    start: "Queenstown",
+    end: "Triabunna",
+    km: 333,
+    purpose: "East coast closing leg",
+    startOdometer: 89116,
+    offset: "+10:00",
+    sampleStartTime: "08:30",
+    route: [
+      [-42.0805, 145.5567],
+      [-42.2990, 146.4460],
+      [-42.8821, 147.3272],
+      [-42.7400, 147.4400],
+      [-42.5096, 147.9110],
+    ],
+  },
+];
+
+const tasmaniaStories = [
+  {
+    slug: "neon-vultures-tasmania-ferry-manifest",
+    title: "Tasmania circuit: getting the gear across",
+    excerpt: "The island run starts before the first show, with freight timing, ferry manifests, and a leaner lighting package.",
+    content: [
+      "Tasmania changes the shape of a tour before a single note is played. The backline has to be counted twice, the ferry manifest has to match the cases, and every loose merch tub suddenly matters.",
+      "For Hobart, the crew is trimming the lighting floor package without losing the mood of the East Coast Run. Less footprint, same voltage.",
+      "The goal is simple: arrive with enough margin that the first Odeon Theatre load-in feels like a show day, not a rescue mission.",
+    ].join("\n\n"),
+    status: PublicPostStatus.PUBLISHED,
+    visibility: Visibility.PUBLIC,
+    publishedAt: localDateTime("2026-06-04", "10:00", "+10:00"),
+    gigIndex: 0,
+  },
+  {
+    slug: "neon-vultures-launceston-monitor-notes",
+    title: "Launceston: monitor notes and small-room pressure",
+    excerpt: "A tighter room means cleaner stage volume, faster changeovers, and no hiding from the keys rig.",
+    content: [
+      "The Royal Oak stop is the kind of room where every monitor decision matters. Stage volume has to stay disciplined, especially once the synth rig and vocal chain start competing for air.",
+      "The crew note is practical: extra DI check for keys, vocal wedge first, and no late changes to the support act patch unless something is actually broken.",
+    ].join("\n\n"),
+    status: PublicPostStatus.PUBLISHED,
+    visibility: Visibility.SHARED,
+    publishedAt: localDateTime("2026-06-10", "11:30", "+10:00"),
+    gigIndex: 2,
+  },
+  {
+    slug: "neon-vultures-west-coast-drive-draft",
+    title: "Draft: west coast drive notes",
+    excerpt: "Queenstown routing needs extra weather margin and a stricter pack-down clock.",
+    content: [
+      "Draft routing notes for the west coast leg: build in extra weather margin, confirm van parking near the Paragon Theatre, and keep the midnight clear-out visible to the whole crew.",
+      "The drive is part of the story, but it should not become the problem.",
+    ].join("\n\n"),
+    status: PublicPostStatus.DRAFT,
+    visibility: Visibility.PRIVATE,
+    publishedAt: null,
+    gigIndex: 4,
+  },
+];
+
 async function upsertRouteSamples(logId, trip) {
-  const startedAt = localDateTime(trip.date, "08:00");
+  const startedAt = localDateTime(trip.date, trip.sampleStartTime ?? "08:00", trip.offset);
   const sampleSpacingMinutes = Math.floor((9 * 60 + 30) / Math.max(trip.route.length - 1, 1));
 
   await prisma.drivingLogGpsSample.deleteMany({
@@ -725,6 +923,212 @@ async function main() {
     });
   }
 
+  const tasmaniaTour = await prisma.tour.upsert({
+    where: { slug: tasmaniaTourSlug },
+    update: {
+      workspaceId: workspace.id,
+      createdByUserId: owner.id,
+      title: "Neon Vultures - Tasmania Circuit 2026",
+      description: [
+        "Band: Neon Vultures",
+        "Genre: Alt-rock / electronic rock",
+        "Origin: Melbourne, AU",
+        "Tagline: Dark circuits. Loud rooms.",
+        "Tour type: Regional island headline run",
+        "A compact Tasmania circuit across Hobart, Launceston, the north-west, the west coast, and the east coast.",
+      ].join("\n"),
+      startDate: localDateTime("2026-06-05", "09:00", "+10:00"),
+      endDate: localDateTime("2026-06-17", "23:30", "+10:00"),
+      status: JourneyStatus.PLANNED,
+      visibility: Visibility.PUBLIC,
+      coverImageUrl: null,
+    },
+    create: {
+      workspaceId: workspace.id,
+      createdByUserId: owner.id,
+      slug: tasmaniaTourSlug,
+      title: "Neon Vultures - Tasmania Circuit 2026",
+      description: [
+        "Band: Neon Vultures",
+        "Genre: Alt-rock / electronic rock",
+        "Origin: Melbourne, AU",
+        "Tagline: Dark circuits. Loud rooms.",
+        "Tour type: Regional island headline run",
+        "A compact Tasmania circuit across Hobart, Launceston, the north-west, the west coast, and the east coast.",
+      ].join("\n"),
+      startDate: localDateTime("2026-06-05", "09:00", "+10:00"),
+      endDate: localDateTime("2026-06-17", "23:30", "+10:00"),
+      status: JourneyStatus.PLANNED,
+      visibility: Visibility.PUBLIC,
+      coverImageUrl: null,
+    },
+  });
+
+  const createdTasmaniaGigs = [];
+
+  for (const [index, gig] of tasmaniaGigs.entries()) {
+    const arrivalDate = localDateTime(gig.date, "12:00", gig.offset);
+    const departureDate = localDateTime(gig.date, "23:30", gig.offset);
+    const description = [
+      `City: ${gig.city}`,
+      `Venue: ${gig.venue}`,
+      `Demo status: ${gig.status}`,
+      "GigEze currently has no Gig status field, so this demo status is stored in the description.",
+    ].join("\n");
+
+    const createdGig = await prisma.gig.upsert({
+      where: { id: demoId("gig", gig.slug) },
+      update: {
+        workspaceId: workspace.id,
+        journeyId: tasmaniaTour.id,
+        createdByUserId: owner.id,
+        title: gig.title,
+        description,
+        latitude: gig.latitude,
+        longitude: gig.longitude,
+        locationName: `${gig.venue}, ${gig.city}`,
+        arrivalDate,
+        departureDate,
+        visibility: Visibility.PUBLIC,
+        orderIndex: index + 1,
+      },
+      create: {
+        id: demoId("gig", gig.slug),
+        workspaceId: workspace.id,
+        journeyId: tasmaniaTour.id,
+        createdByUserId: owner.id,
+        title: gig.title,
+        description,
+        latitude: gig.latitude,
+        longitude: gig.longitude,
+        locationName: `${gig.venue}, ${gig.city}`,
+        arrivalDate,
+        departureDate,
+        visibility: Visibility.PUBLIC,
+        orderIndex: index + 1,
+      },
+    });
+
+    createdTasmaniaGigs.push(createdGig);
+  }
+
+  for (const [index, [note, type, durationMinutes]] of tasmaniaActivityNotes.entries()) {
+    const gig = tasmaniaGigs[index];
+    const createdGig = createdTasmaniaGigs[index];
+
+    await prisma.activityNote.upsert({
+      where: { id: demoId("activity-note", gig.slug) },
+      update: {
+        workspaceId: workspace.id,
+        createdByUserId: owner.id,
+        journeyId: tasmaniaTour.id,
+        stopId: createdGig.id,
+        type,
+        date: localDateTime(gig.date, "17:15", gig.offset),
+        durationMinutes,
+        location: `${gig.venue}, ${gig.city}`,
+        notes: note,
+        visibility: Visibility.SHARED,
+      },
+      create: {
+        id: demoId("activity-note", gig.slug),
+        workspaceId: workspace.id,
+        createdByUserId: owner.id,
+        journeyId: tasmaniaTour.id,
+        stopId: createdGig.id,
+        type,
+        date: localDateTime(gig.date, "17:15", gig.offset),
+        durationMinutes,
+        location: `${gig.venue}, ${gig.city}`,
+        notes: note,
+        visibility: Visibility.SHARED,
+      },
+    });
+  }
+
+  for (const trip of tasmaniaTrips) {
+    const drivingLog = await prisma.drivingLog.upsert({
+      where: { id: demoId("driving-log", trip.id) },
+      update: {
+        workspaceId: workspace.id,
+        createdByUserId: owner.id,
+        journeyId: tasmaniaTour.id,
+        tripMode: TripMode.DRIVE,
+        vehicleId: vehicle.id,
+        date: localDateTime(trip.date, "08:30", "+10:00"),
+        startTime: localDateTime(trip.date, "08:30", "+10:00"),
+        endTime: localDateTime(trip.date, "14:15", "+10:00"),
+        startLocation: trip.start,
+        endLocation: trip.end,
+        startOdometer: trip.startOdometer,
+        endOdometer: trip.startOdometer + trip.km,
+        businessKm: trip.km,
+        personalKm: 0,
+        purpose: trip.purpose,
+        hasRouteSamples: true,
+        notes: "Tasmania demo trip log with compact GPS waypoints for route preview maps. Mobile sync status is intentionally not stored because DrivingLog has no sync-state field.",
+        deletedAt: null,
+      },
+      create: {
+        id: demoId("driving-log", trip.id),
+        workspaceId: workspace.id,
+        createdByUserId: owner.id,
+        journeyId: tasmaniaTour.id,
+        tripMode: TripMode.DRIVE,
+        vehicleId: vehicle.id,
+        date: localDateTime(trip.date, "08:30", "+10:00"),
+        startTime: localDateTime(trip.date, "08:30", "+10:00"),
+        endTime: localDateTime(trip.date, "14:15", "+10:00"),
+        startLocation: trip.start,
+        endLocation: trip.end,
+        startOdometer: trip.startOdometer,
+        endOdometer: trip.startOdometer + trip.km,
+        businessKm: trip.km,
+        personalKm: 0,
+        purpose: trip.purpose,
+        hasRouteSamples: true,
+        notes: "Tasmania demo trip log with compact GPS waypoints for route preview maps. Mobile sync status is intentionally not stored because DrivingLog has no sync-state field.",
+      },
+    });
+
+    await upsertRouteSamples(drivingLog.id, trip);
+  }
+
+  for (const story of tasmaniaStories) {
+    const linkedGig = createdTasmaniaGigs[story.gigIndex] ?? null;
+
+    await prisma.publicPost.upsert({
+      where: { slug: story.slug },
+      update: {
+        workspaceId: workspace.id,
+        createdByUserId: owner.id,
+        title: story.title,
+        excerpt: story.excerpt,
+        content: story.content,
+        status: story.status,
+        visibility: story.visibility,
+        coverImageUrl: null,
+        publishedAt: story.publishedAt,
+        journeyId: tasmaniaTour.id,
+        stopId: linkedGig?.id ?? null,
+      },
+      create: {
+        workspaceId: workspace.id,
+        createdByUserId: owner.id,
+        slug: story.slug,
+        title: story.title,
+        excerpt: story.excerpt,
+        content: story.content,
+        status: story.status,
+        visibility: story.visibility,
+        coverImageUrl: null,
+        publishedAt: story.publishedAt,
+        journeyId: tasmaniaTour.id,
+        stopId: linkedGig?.id ?? null,
+      },
+    });
+  }
+
   const counts = {
     gigs: await prisma.gig.count({ where: { journeyId: tour.id } }),
     activityNotes: await prisma.activityNote.count({ where: { journeyId: tour.id } }),
@@ -737,6 +1141,17 @@ async function main() {
       },
     }),
     stories: await prisma.publicPost.count({ where: { journeyId: tour.id } }),
+    tasmaniaGigs: await prisma.gig.count({ where: { journeyId: tasmaniaTour.id } }),
+    tasmaniaActivityNotes: await prisma.activityNote.count({ where: { journeyId: tasmaniaTour.id } }),
+    tasmaniaDrivingLogs: await prisma.drivingLog.count({ where: { journeyId: tasmaniaTour.id } }),
+    tasmaniaGpsSamples: await prisma.drivingLogGpsSample.count({
+      where: {
+        drivingLog: {
+          journeyId: tasmaniaTour.id,
+        },
+      },
+    }),
+    tasmaniaStories: await prisma.publicPost.count({ where: { journeyId: tasmaniaTour.id } }),
   };
 
   console.log(`Neon Vultures tour upserted: ${tour.title} (${tour.slug})`);
@@ -745,6 +1160,12 @@ async function main() {
   console.log(`Trip/field driving logs created/updated for tour: ${counts.drivingLogs}`);
   console.log(`GPS route samples created/updated for tour: ${counts.gpsSamples}`);
   console.log(`Stories created/updated for tour: ${counts.stories}`);
+  console.log(`Tasmania tour upserted: ${tasmaniaTour.title} (${tasmaniaTour.slug})`);
+  console.log(`Tasmania gigs created/updated for tour: ${counts.tasmaniaGigs}`);
+  console.log(`Tasmania activity notes created/updated for tour: ${counts.tasmaniaActivityNotes}`);
+  console.log(`Tasmania trip/field driving logs created/updated for tour: ${counts.tasmaniaDrivingLogs}`);
+  console.log(`Tasmania GPS route samples created/updated for tour: ${counts.tasmaniaGpsSamples}`);
+  console.log(`Tasmania stories created/updated for tour: ${counts.tasmaniaStories}`);
   console.log("Media metadata intentionally skipped: Media.filePath requires a real storage object/path.");
 }
 
