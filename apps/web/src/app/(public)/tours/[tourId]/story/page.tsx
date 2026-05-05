@@ -20,10 +20,10 @@ import { formatPublicAttribution } from "@/lib/public-attribution";
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ journeyId: string }>;
+  params: Promise<{ tourId: string }>;
 }): Promise<Metadata> {
-  const { journeyId } = await params;
-  const Tour = await getPublicJourneyByIdOrSlug(journeyId);
+  const { tourId } = await params;
+  const Tour = await getPublicJourneyByIdOrSlug(tourId);
 
   if (!Tour) {
     return {
@@ -86,10 +86,10 @@ function getStopMoment(Gig: {
 export default async function PublicJourneyStoryPage({
   params,
 }: {
-  params: Promise<{ journeyId: string }>;
+  params: Promise<{ tourId: string }>;
 }) {
-  const { journeyId } = await params;
-  const Tour = await getPublicJourneyByIdOrSlug(journeyId);
+  const { tourId } = await params;
+  const Tour = await getPublicJourneyByIdOrSlug(tourId);
 
   if (!Tour) {
     notFound();

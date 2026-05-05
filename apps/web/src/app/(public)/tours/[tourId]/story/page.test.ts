@@ -26,7 +26,7 @@ describe("Public Tour story metadata", () => {
   it("returns not-found metadata when Tour is missing", async () => {
     mockGetPublicJourneyByIdOrSlug.mockResolvedValue(null);
 
-    const metadata = await generateMetadata({ params: Promise.resolve({ journeyId: "missing" }) });
+    const metadata = await generateMetadata({ params: Promise.resolve({ tourId: "missing" }) });
 
     expect(metadata.title).toBe("Tour story not found | GigEze");
   });
@@ -59,7 +59,7 @@ describe("Public Tour story metadata", () => {
       ],
     });
 
-    const metadata = await generateMetadata({ params: Promise.resolve({ journeyId: "coastal-run" }) });
+    const metadata = await generateMetadata({ params: Promise.resolve({ tourId: "coastal-run" }) });
     const openGraphImages = toArray(metadata.openGraph?.images);
     const twitterImages = toArray(metadata.twitter?.images);
 
@@ -81,7 +81,7 @@ describe("Public Tour story metadata", () => {
       mediaItems: [],
     });
 
-    const withCover = await generateMetadata({ params: Promise.resolve({ journeyId: "inland-run" }) });
+    const withCover = await generateMetadata({ params: Promise.resolve({ tourId: "inland-run" }) });
     const withCoverImages = toArray(withCover.openGraph?.images);
     expect(withCoverImages[0]).toMatchObject({
       url: "https://example.com/inland-cover.jpg",
@@ -97,7 +97,7 @@ describe("Public Tour story metadata", () => {
       mediaItems: [],
     });
 
-    const noMediaOrCover = await generateMetadata({ params: Promise.resolve({ journeyId: "empty-run" }) });
+    const noMediaOrCover = await generateMetadata({ params: Promise.resolve({ tourId: "empty-run" }) });
     const noMediaOpenGraphImages = toArray(noMediaOrCover.openGraph?.images);
     const noMediaTwitterImages = toArray(noMediaOrCover.twitter?.images);
 

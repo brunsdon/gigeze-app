@@ -36,7 +36,7 @@ describe("Public Tour detail page", () => {
     mockGetPublicJourneyByIdOrSlug.mockResolvedValue(null);
 
     await expect(
-      PublicJourneyDetailPage({ params: Promise.resolve({ journeyId: "missing" }) }),
+      PublicJourneyDetailPage({ params: Promise.resolve({ tourId: "missing" }) }),
     ).rejects.toThrow("NOT_FOUND");
 
     expect(mockGetPublicJourneyByIdOrSlug).toHaveBeenCalledWith("missing");
@@ -62,7 +62,7 @@ describe("Public Tour detail page", () => {
     });
 
     const element = await PublicJourneyDetailPage({
-      params: Promise.resolve({ journeyId: "coastal-run" }),
+      params: Promise.resolve({ tourId: "coastal-run" }),
     });
     const html = renderToStaticMarkup(element);
 

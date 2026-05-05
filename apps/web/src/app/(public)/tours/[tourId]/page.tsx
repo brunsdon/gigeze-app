@@ -37,10 +37,10 @@ function formatDateTime(value?: Date | null) {
 export default async function PublicJourneyDetailPage({
   params,
 }: {
-  params: Promise<{ journeyId: string }>;
+  params: Promise<{ tourId: string }>;
 }) {
-  const { journeyId } = await params;
-  const Tour = await getPublicJourneyByIdOrSlug(journeyId);
+  const { tourId } = await params;
+  const Tour = await getPublicJourneyByIdOrSlug(tourId);
 
   if (!Tour) {
     notFound();
