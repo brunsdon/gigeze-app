@@ -1,14 +1,14 @@
 # Screenshot Index
 
-These screenshots support quick reviewer scanning of the GigEze working demo scaffold. They should be refreshed when the main product flows or visual identity change.
+These screenshots show the current GigEze product surfaces across public publishing, authenticated operations, and mobile field capture. Refresh them when the main product flows or visual identity change.
 
 | Image | Route | Demonstrates | Notes |
 | --- | --- | --- | --- |
-| [public-homepage.png](screenshots/public-homepage.png) | `/` | Public product positioning and backstage/live-gig brand system. | Shows the poster-style hero and portfolio-demo framing. |
+| [public-homepage.png](screenshots/public-homepage.png) | `/` | Public product positioning and backstage/live-gig brand system. | Shows the poster-style hero and product framing. |
 | [public-tours.png](screenshots/public-tours.png) | `/tours` | Published tour records presented through public read routes. | Shows public-facing discovery without claiming marketplace maturity. |
 | [public-map.png](screenshots/public-map.png) | `/map` | Published gigs plotted on a map with tour labels and current-location context. | Useful for showing how tour records connect venues, gigs, and route shape. |
 | [public-stories.png](screenshots/public-stories.png) | `/posts` | Public story cards for tour updates and highlights. | Shows a content surface sourced from backstage records. |
-| [dashboard-command-centre.png](screenshots/dashboard-command-centre.png) | `/dashboard` | Authenticated command-centre shell, quick actions, current tour snapshot, and shared dashboard UI primitives. | Shows the Neon Vultures workspace as reviewer seed data. |
+| [dashboard-command-centre.png](screenshots/dashboard-command-centre.png) | `/dashboard` | Authenticated command-centre shell, quick actions, current tour snapshot, and shared dashboard UI primitives. | Shows the Neon Vultures workspace seed data. |
 | [tours-board.png](screenshots/tours-board.png) | `/dashboard/tours` | Tour and gig workflow surface: active tour, visibility, progress, and operational actions. | Uses `Neon Vultures - East Coast Run 2026`. |
 | [trip-sync.png](screenshots/trip-sync.png) | `/dashboard/logs/driving` | Field movement records, route history, filters, CSV export, and map previews. | Demonstrates completed trip sync review on the web side. |
 | [vehicles.png](screenshots/vehicles.png) | `/dashboard/vehicles` | Vehicle setup, odometer metadata, default use, split handling, and editable records. | Supports field capture and trip-log organization. |
